@@ -80,7 +80,6 @@ private String name;
 	public MeshAnimationController getController(){	return animControl;	}
 	public characterMove getMovements(){return movement;}
 	public void update(float time) {
-		movement.update(time);
 		
 		if(movement.getOffGround()){moveForward(null);}
 		else if(movement.getRotationalAxis().getVelocity()>0.0)

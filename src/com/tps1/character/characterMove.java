@@ -9,8 +9,7 @@ import com.jme.math.FastMath;
 import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
-import com.jmex.game.StandardGame;
-import com.jmex.game.state.GameStateManager;
+
 import com.jmex.physics.DynamicPhysicsNode;
 import com.jmex.physics.contact.ContactInfo;
 import com.jmex.physics.contact.MutableContactInfo;
@@ -19,12 +18,24 @@ import com.jmex.physics.geometry.PhysicsSphere;
 import com.jmex.physics.impl.ode.joints.OdeJoint;
 import com.jmex.physics.impl.ode.joints.RotationalOdeJointAxis;
 import com.jmex.physics.material.Material;
-import com.tps1.GameState.DefineGameState;
+
 import com.tps1.GameState.gameSingleton;
-import com.tps1.lvlLoader.CopyOfCopyOflevelTester;
-import com.tps1.scene.SkyBoxManager.SkyBoxGameState;
+
 
 public class characterMove {
+	public enum Direction{
+		FORWARD{ public Vector3f getDirection() { return Vector3f.UNIT_Z; }},
+		BACKWARD{ public Vector3f getDirection() { return new Vector3f(0,0,-1); }},
+		LEFT{ public Vector3f getDirection() { return Vector3f.UNIT_X; }},
+		RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,0); }},
+		FORWARD_LEFT{ public Vector3f getDirection() { return new Vector3f(1,0,1); }},
+		FORWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,1); }},
+		BACKWARD_LEFT{ public Vector3f getDirection() { return new Vector3f(1,0,-1); }},
+		BACKWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,-1); }};
+		
+		 public abstract Vector3f getDirection();		
+		
+	}
 	
 	private static final Material characterMaterial;
 	private final OdeJoint joint;
@@ -172,12 +183,12 @@ public class characterMove {
 	 * @param Speed
 	 * @param direction
 	 */
-	public void move(float Speed, Vector3f direction){
+	public void move(float Speed, Direction direction){
 		if(!offGround)
 			if (Speed == 0){
 				rotAxis.setDesiredVelocity(0);
 			}else{
-				if(direction!=null){rotAxis.setDirection(direction);}
+				if(direction!=null){rotAxis.setDirection(direction.getDirection());}
 				rotAxis.setAvailableAcceleration( Speed );
 				rotAxis.setDesiredVelocity( Speed );
 			}
