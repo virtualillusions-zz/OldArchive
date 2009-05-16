@@ -5,6 +5,7 @@ import com.jme.input.KeyInput;
 import com.jme.input.controls.GameControl;
 import com.jme.input.controls.GameControlManager;
 import com.jme.input.controls.binding.KeyboardBinding;
+import com.jme.math.Vector3f;
 import com.jmex.game.StandardGame;
 import com.jmex.game.state.GameStateManager;
 import com.tps1.GameState.DefineGameState;
@@ -17,7 +18,7 @@ public class controlManager {
 	private GameControl jump;
 
 
-	public controlManager(Animationator animator, InputHandler input) {
+	public controlManager(characterMove move, InputHandler input) {
 		 // Create our Controls
 	    GameControlManager manager = new GameControlManager();
 	    //Move Forward
@@ -35,15 +36,14 @@ public class controlManager {
 	    //Jump
 	    jump = manager.addControl("Jump");
 	    jump.addBinding(new KeyboardBinding(KeyInput.KEY_SPACE));
-	    
+	    //bind(jump, animator.getMovements().move(10, Vector3f.UNIT_X));
 	}
 
-	public void update(float time) {
 
-	}
-	
-	
-	 public static void main(String[] args) throws InterruptedException{
+
+
+
+	public static void main(String[] args) throws InterruptedException{
 		 System.setProperty("jme.stats", "set");
 		 StandardGame standardGame = new StandardGame("GameControl", StandardGame.GameType.GRAPHICAL, null);
 	     standardGame.getSettings().setVerticalSync(false);
