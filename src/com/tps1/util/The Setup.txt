@@ -1,0 +1,12 @@
+Textures – jME supported art assets produced by an artist helping with
+your game or images that you’ve gathered from the web. These will be
+used for terrain and entities.
+• Models – storing 3D models that have been converted into the jme format
+will save you a great deal of time during design.
+• Audio
+o Sound – Effects used to add an audio ambiance.
+o Music – Tracks for the game soundtrack.
+o Speech – Any vocalized audio file that will convey dialog or is to be
+							spoken by a character.
+• Scripts – AI and entity control scripts. Scripts are a great way to test
+	design ideas without modifying code that needs to be compiled.

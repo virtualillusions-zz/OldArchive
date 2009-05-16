@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jME Physics 2"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jme"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmeRequired"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmePhysicsRequired"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FengGUI"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="src/com/tps1/util/swing-layout-1.0.3.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BSP_Loader"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FengGUI"/>
+	<classpathentry kind="lib" path="/md5importer/MD5Importer jME2.0/lib/jME2.0_10_24.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/md5importer"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SceneMonitor"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
