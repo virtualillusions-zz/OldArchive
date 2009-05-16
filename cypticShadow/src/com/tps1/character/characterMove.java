@@ -156,8 +156,8 @@ public class characterMove {
 	 * @param scale how heavy is the force up
 	 */	 
 	public void jump(int scale){
-		if(offGround)
-			feetNode.addForce(new Vector3f(0, 4f*scale, 0f));
+		if(!offGround)
+			feetNode.addForce(new Vector3f(0, scale, 0f));
 	}
 	/**OverLoaded jump() method
 	 * Jump in a given direction
