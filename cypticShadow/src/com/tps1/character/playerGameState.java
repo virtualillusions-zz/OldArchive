@@ -12,7 +12,6 @@ import com.jme.scene.state.LightState;
 import com.jme.scene.state.ZBufferState;
 import com.jmex.game.state.BasicGameState;
 import com.jmex.game.state.GameStateManager;
-import com.jmex.physics.DynamicPhysicsNode;
 
 import com.tps1.GameState.gameSingleton;
 import com.tps1.util.ogre;
@@ -28,7 +27,7 @@ public class playerGameState extends BasicGameState {
 	
     private static final Logger logger = Logger.getLogger(playerGameState.class
             .getName());
-	private Node charNode, baseNode;	
+	private Node charNode;	
 	//store character nodes
 	private HashMap<String, ogre> charList = new HashMap<String, ogre>(); 
 
