@@ -22,6 +22,7 @@ characterMove move;Animationator animator;controlManager controls;
 		move.update(time);
 		animator.update(time);
 		input.update(time);
+		controls.update(time);
 		}	
 
 }
