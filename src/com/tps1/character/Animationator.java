@@ -3,13 +3,7 @@ package com.tps1.character;
 import com.jme.math.FastMath;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
-import com.jmex.game.StandardGame;
-import com.jmex.game.state.GameStateManager;
 import com.jmex.model.ogrexml.anim.MeshAnimationController;
-import com.tps1.GameState.DefineGameState;
-import com.tps1.GameState.gameSingleton;
-import com.tps1.lvlLoader.CopyOfCopyOflevelTester;
-import com.tps1.scene.SkyBoxManager.SkyBoxGameState;
 
 public class Animationator {
 private characterMove movement;

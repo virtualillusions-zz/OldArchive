@@ -41,6 +41,7 @@ public class characterMove {
 	private final OdeJoint joint;
 	private RotationalOdeJointAxis rotAxis;
 	private boolean offGround,allowFall, isMoving;
+	private float Speed =4;
 	
 	 static {
 	        characterMaterial = new Material( "Character Material" );
@@ -112,12 +113,15 @@ public class characterMove {
 		rotAxis.setAvailableAcceleration(0f);rotAxis.setDesiredVelocity(0f);
 		setUp();
 	}
-	
+	private Vector3f directioned= new Vector3f(0,0,0);
 	public void update(float tpf){
+		directioned.set(new Vector3f(0,0,0));
 		if(!allowFall){preventFall();}else{resetFeetRotation();}		
 		if(!isMoving){feetNode.clearDynamics();}		
 		offGround = false;	
-		contactDetect.update(tpf);	
+		contactDetect.update(tpf);
+		move(Direction.BACKWARD);move(Direction.RIGHT);
+		System.out.println(directioned);
 	}
 	/**
 	 *In order to make sure the character does not fall over
@@ -167,30 +171,28 @@ public class characterMove {
 	 * @param scale how heavy is the force up
 	 */	 
 	public void jump(int scale){
-		if(!offGround)
-			feetNode.addForce(new Vector3f(0, scale, 0f));
+		if(!offGround){feetNode.addForce(new Vector3f(0, scale, 0f));}
 	}
 	/**OverLoaded jump() method
 	 * Jump in a given direction
 	 * @param scale how heavy is the force up
+	 * @return 
 	 */	 
 	public void jump(float x,int scale, float z){
-		if(!offGround)
-		feetNode.addForce(new Vector3f(x, 100f * scale, z));
+		if(!offGround){feetNode.addForce(new Vector3f(x, 100f * scale, z));}
 	}
+	
 	/**
 	 * moves uniform in a given direction
-	 * @param Speed
-	 * @param direction
+	 * @param direction use the Direction enum to set a specific direction
 	 */
-	public void move(float Speed, Direction direction){
+	public void move(Direction direction){
+		Vector3f vec = new Vector3f(0,0,0);
 		if(!offGround)
-			if (Speed == 0){
-				rotAxis.setDesiredVelocity(0);
-			}else{
-				if(direction!=null){rotAxis.setDirection(direction.getDirection());}
+	 	if(direction.getDirection()!= vec){				
+			 	rotAxis.setDirection(directioned.addLocal(direction.getDirection()));				
 				rotAxis.setAvailableAcceleration( Speed );
-				rotAxis.setDesiredVelocity( Speed );
+				rotAxis.setDesiredVelocity( Speed );			 	
 			}
 	}
 	/**

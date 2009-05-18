@@ -1,25 +1,31 @@
 package com.tps1.character;
 
+import com.acarter.scenemonitor.SceneMonitor;
 import com.jme.input.InputHandler;
+import com.jme.input.KeyBindingManager;
 import com.jme.input.KeyInput;
+import com.jme.input.action.InputAction;
+import com.jme.input.action.InputActionEvent;
+import com.jme.input.action.KeyInputAction;
 import com.jme.input.controls.GameControl;
 import com.jme.input.controls.GameControlManager;
 import com.jme.input.controls.binding.KeyboardBinding;
+import com.jme.input.util.SyntheticButton;
 import com.jme.math.Vector3f;
 import com.jmex.game.StandardGame;
 import com.jmex.game.state.GameStateManager;
+import com.jmex.physics.contact.ContactInfo;
 import com.tps1.GameState.DefineGameState;
 import com.tps1.GameState.gameSingleton;
+import com.tps1.character.characterMove.Direction;
 import com.tps1.lvlLoader.CopyOfCopyOflevelTester;
 import com.tps1.scene.SkyBoxManager.SkyBoxGameState;
 
 public class controlManager {
-
-	private GameControl jump;
-
-
-	public controlManager(characterMove move, InputHandler input) {
-		 // Create our Controls
+private InputHandler theInput;
+	public controlManager(final characterMove move, InputHandler input) {
+		theInput = input;
+		// Create our Controls
 	    GameControlManager manager = new GameControlManager();
 	    //Move Forward
 	    GameControl forward = manager.addControl("Forward");
@@ -34,14 +40,12 @@ public class controlManager {
 	    GameControl strafeRight = manager.addControl("Strafe Right");
 	    strafeRight.addBinding(new KeyboardBinding(KeyInput.KEY_L));
 	    //Jump
-	    jump = manager.addControl("Jump");
+	    GameControl jump = manager.addControl("Jump");
 	    jump.addBinding(new KeyboardBinding(KeyInput.KEY_SPACE));
-	    //bind(jump, animator.getMovements().move(10, Vector3f.UNIT_X));
+	    
+	   
+
 	}
-
-
-
-
 
 	public static void main(String[] args) throws InterruptedException{
 		 System.setProperty("jme.stats", "set");
