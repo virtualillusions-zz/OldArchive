@@ -21,7 +21,6 @@ import com.jmex.physics.material.Material;
 
 import com.tps1.GameState.gameSingleton;
 
-
 public class characterMove {
 	public enum Direction{
 		FORWARD{ public Vector3f getDirection() { return Vector3f.UNIT_Z; }},
@@ -31,10 +30,8 @@ public class characterMove {
 		FORWARD_LEFT{ public Vector3f getDirection() { return new Vector3f(1,0,1); }},
 		FORWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,1); }},
 		BACKWARD_LEFT{ public Vector3f getDirection() { return new Vector3f(1,0,-1); }},
-		BACKWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,-1); }};
-		
-		 public abstract Vector3f getDirection();		
-		
+		BACKWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,-1); }};		
+		 public abstract Vector3f getDirection();			
 	}
 	
 	private static final Material characterMaterial;
@@ -42,8 +39,7 @@ public class characterMove {
 	private RotationalOdeJointAxis rotAxis;
 	private boolean offGround,allowFall, isMoving;
 	private float Speed =4;
-	
-	 static {
+	static {
 	        characterMaterial = new Material( "Character Material" );
 	        characterMaterial.setDensity( 1f );
 	        MutableContactInfo contactDetails = new MutableContactInfo();
@@ -113,17 +109,19 @@ public class characterMove {
 		rotAxis.setAvailableAcceleration(0f);rotAxis.setDesiredVelocity(0f);
 		setUp();
 	}
+	
 	private Vector3f directioned= new Vector3f(0,0,0);
+	
 	public void update(float tpf){
 		directioned.set(new Vector3f(0,0,0));
 		if(!allowFall){preventFall();}else{resetFeetRotation();}		
 		if(!isMoving){feetNode.clearDynamics();}		
 		offGround = false;	
 		contactDetect.update(tpf);
-		move(Direction.BACKWARD);move(Direction.RIGHT);
-		System.out.println(directioned);
-	}
-	/**
+		rotAxis.setDesiredVelocity( 0 );
+		}
+	
+	/*
 	 *In order to make sure the character does not fall over
 	 * we need to reset his vertical orientation once in a while 
 	 */
@@ -137,7 +135,8 @@ public class characterMove {
 		physNode.setAngularVelocity(Vector3f.ZERO);
 	    physNode.updateWorldVectors();
 	}
-	/**
+	
+	/*
 	 * Countermeasures to make sure the feetNode remains stable
 	 */
 	private void resetFeetRotation(){
@@ -149,7 +148,8 @@ public class characterMove {
 		feetNode.setLocalRotation(rotation);
 		 
 	}
-	/** Detects when a Node collides with another Node */
+	
+	/* Detects when a Node collides with another Node */
 	private void setUp(){
 		   SyntheticButton collButton = feetNode.getCollisionEventHandler();
 	        contactDetect.addAction( new InputAction() {	        	
@@ -166,6 +166,7 @@ public class characterMove {
 	            }	            
 	        }, collButton, false );		
 	}
+	
 	/**
 	 * Jump directly up. direction influenced from previous momentum
 	 * @param scale how heavy is the force up
@@ -173,6 +174,7 @@ public class characterMove {
 	public void jump(int scale){
 		if(!offGround){feetNode.addForce(new Vector3f(0, scale, 0f));}
 	}
+	
 	/**OverLoaded jump() method
 	 * Jump in a given direction
 	 * @param scale how heavy is the force up
@@ -195,6 +197,7 @@ public class characterMove {
 				rotAxis.setDesiredVelocity( Speed );			 	
 			}
 	}
+	
 	/**
 	 * Accelerates uniformly until maxSpeed is met and then decelerates to desiredForce
 	 * @param desiredForce
@@ -216,7 +219,7 @@ public class characterMove {
         	     //}
             
 	}*/
+	
 	public RotationalOdeJointAxis getRotationalAxis(){return rotAxis;}
-
-public boolean getOffGround(){return offGround;}
+	public boolean getOffGround(){return offGround;}
 }
