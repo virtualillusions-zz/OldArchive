@@ -7,6 +7,7 @@ import com.jme.input.action.InputActionEvent;
 import com.jme.input.util.SyntheticButton;
 import com.jme.math.FastMath;
 import com.jme.math.Quaternion;
+import com.jme.math.Ray;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
 
@@ -38,7 +39,8 @@ public class characterMove {
 	private final OdeJoint joint;
 	private RotationalOdeJointAxis rotAxis;
 	private boolean offGround,allowFall, isMoving;
-	private float Speed =4;
+	private float Speed =4;	private int scale=5;
+    private final InputHandler contactDetect = new InputHandler();
 	static {
 	        characterMaterial = new Material( "Character Material" );
 	        characterMaterial.setDensity( 1f );
@@ -52,7 +54,6 @@ public class characterMove {
 	
 	private final DynamicPhysicsNode feetNode, physNode;
 	private final Node baseNode, charNode;
-    private final InputHandler contactDetect;
 	/**
 	 * Initalizes the ode Ogre walking system
 	 * @param mainNode the Node that acts as the base to hold the branches of the system
@@ -60,8 +61,7 @@ public class characterMove {
 	 * @param physicsSpace the active and dominate physicsSpace
 	 * @param input
 	 */
-	public characterMove(playerGameState player, InputHandler input) {
-		contactDetect = input;
+	public characterMove(playerGameState player) {
 		physNode= gameSingleton.get().getPhysicsSpace().createDynamicNode();physNode.setName("physNode");;
 		baseNode = player.getRootNode();
 		charNode = player.getCharNode();
@@ -70,8 +70,9 @@ public class characterMove {
 		offGround=false;
 		isMoving=true;
 		createPhysics();
+		ray = new Ray(physNode.getLocalTranslation(), new Vector3f(0f,-1f,0f));
 	}
-		
+		Ray ray;
 	/**
 	 * creates a basic movement system for characters
 	 */
@@ -113,12 +114,14 @@ public class characterMove {
 	private Vector3f directioned= new Vector3f(0,0,0);
 	
 	public void update(float tpf){
+		rotAxis.setDesiredVelocity( 0 );
 		directioned.set(new Vector3f(0,0,0));
 		if(!allowFall){preventFall();}else{resetFeetRotation();}		
 		if(!isMoving){feetNode.clearDynamics();}		
 		offGround = false;	
 		contactDetect.update(tpf);
-		rotAxis.setDesiredVelocity( 0 );
+		physNode.rest();
+		//System.out.println("Status of offGround is: "+offGround);
 		}
 	
 	/*
@@ -156,6 +159,7 @@ public class characterMove {
 	            public void performAction( InputActionEvent evt ) {
 	                ContactInfo contactInfo = (ContactInfo) evt.getTriggerData();
 	                Vector3f vec = contactInfo.getContactNormal(null);
+	          
 	                if (vec.dot(Vector3f.UNIT_Y) > 1f){
 	                    offGround = true;
 	                }
@@ -166,13 +170,12 @@ public class characterMove {
 	            }	            
 	        }, collButton, false );		
 	}
-	
 	/**
 	 * Jump directly up. direction influenced from previous momentum
 	 * @param scale how heavy is the force up
 	 */	 
-	public void jump(int scale){
-		if(!offGround){feetNode.addForce(new Vector3f(0, scale, 0f));}
+	public void jump(){
+		if(!offGround){feetNode.addForce(new Vector3f(0, 100f*scale, 0f));}
 	}
 	
 	/**OverLoaded jump() method
@@ -191,12 +194,17 @@ public class characterMove {
 	public void move(Direction direction){
 		Vector3f vec = new Vector3f(0,0,0);
 		if(!offGround)
-	 	if(direction.getDirection()!= vec){				
-			 	rotAxis.setDirection(directioned.addLocal(direction.getDirection()));				
-				rotAxis.setAvailableAcceleration( Speed );
-				rotAxis.setDesiredVelocity( Speed );			 	
+	 	if(direction.getDirection()!= vec){	
+	 		try{
+			 	rotAxis.setDirection(directioned.addLocal(direction.getDirection()));
+			 	rotAxis.setAvailableAcceleration( Speed );
+				rotAxis.setDesiredVelocity( Speed );}
+	 		catch(Exception e){rotAxis.setDesiredVelocity(0f);	}	
+	 		
+							 	
 			}
-	}
+	 	}
+	
 	
 	/**
 	 * Accelerates uniformly until maxSpeed is met and then decelerates to desiredForce

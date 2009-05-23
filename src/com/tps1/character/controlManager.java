@@ -1,79 +1,49 @@
 package com.tps1.character;
 
-import com.jme.input.InputHandler;
 import com.jme.input.KeyInput;
 
 import com.jme.input.controls.GameControl;
 import com.jme.input.controls.GameControlManager;
 import com.jme.input.controls.binding.KeyboardBinding;
-import com.jmex.game.StandardGame;
-import com.jmex.game.state.GameStateManager;
-import com.tps1.GameState.DefineGameState;
-import com.tps1.GameState.gameSingleton;
+import com.jme.input.controls.controller.ActionController;
+import com.jme.input.controls.controller.ActionRepeatController;
+import com.jme.input.controls.controller.GameControlAction;
+import com.jme.scene.Node;
 import com.tps1.character.characterMove.Direction;
-import com.tps1.lvlLoader.CopyOfCopyOflevelTester;
-import com.tps1.scene.SkyBoxManager.SkyBoxGameState;
 
 public class controlManager {
-private InputHandler theInput;
-private  GameControlManager manager;characterMove thisMove;
-	public controlManager(characterMove move, InputHandler input) {
-		theInput = input;
+private  GameControlManager manager;characterMove thisMove;Node rootNode;
+/**
+ * @auther Kyle Williams
+ * @Desciption creates a manager and sets up input bindings
+ * @param characterMove move
+ * @param Node root
+ */
+	public controlManager(characterMove move, Node root) {
 		thisMove=move;
+		rootNode=root;
 		// Create our Controls
 	    manager = new GameControlManager();
 	    //Move Forward
 	    manager.addControl("Forward").addBinding(new KeyboardBinding(KeyInput.KEY_I));
+	    rootNode.addController(new ActionRepeatController(manager.getControl("Forward"),0,
+	    		new Runnable() {@Override public void run(){thisMove.move(Direction.FORWARD);}}));
 	    //Move Backward
 	   manager.addControl("Backward").addBinding(new KeyboardBinding(KeyInput.KEY_K));
+	   rootNode.addController(new ActionRepeatController(manager.getControl("Backward"),0,
+	    		new Runnable() {@Override public void run(){thisMove.move(Direction.BACKWARD);}}));
 	    //Strafe Left
 	    manager.addControl("Strafe Left").addBinding(new KeyboardBinding(KeyInput.KEY_J));
+	    rootNode.addController(new ActionRepeatController(manager.getControl("Strafe Left"),0,
+	    		new Runnable() {@Override public void run(){thisMove.move(Direction.LEFT);}}));
 	    //Strafe Right
 	    manager.addControl("Strafe Right").addBinding(new KeyboardBinding(KeyInput.KEY_L));
+	    rootNode.addController(new ActionRepeatController(manager.getControl("Strafe Right"),0,
+	    		new Runnable() {@Override public void run(){thisMove.move(Direction.RIGHT);}}));
 	    //Jump
 	    manager.addControl("Jump").addBinding(new KeyboardBinding(KeyInput.KEY_SPACE)); 
+	    rootNode.addController(new ActionController(manager.getControl("Jump"),new GameControlAction() {
+			public void pressed(GameControl control, float time) {thisMove.jump();	}
+			public void released(GameControl control, float time) {}}));
 	}
-
-	private float value(String action) {
-        return manager.getControl(action).getValue();
-    }
-	
-	    public void update(float time) {
-	        if (value("Forward") > 0) {thisMove.move(Direction.FORWARD); }	       
-	        if (value("Backward") > 0) {thisMove.move(Direction.BACKWARD); }	       
-	        if (value("Strafe Left") > 0) {thisMove.move(Direction.LEFT); }	       
-	        if (value("Strafe Right") > 0) {thisMove.move(Direction.RIGHT); }	
-	        
-	    }	
-	
-	public static void main(String[] args) throws InterruptedException{
-		 System.setProperty("jme.stats", "set");
-		 StandardGame standardGame = new StandardGame("GameControl", StandardGame.GameType.GRAPHICAL, null);
-	     standardGame.getSettings().setVerticalSync(false);
-		 standardGame.start();     
-
-	        try {
-				SkyBoxGameState.Manager().setActive(true);
-				
-				 CopyOfCopyOflevelTester nex = new CopyOfCopyOflevelTester(0,0);
-			 	   GameStateManager.getInstance().attachChild(nex);
-			 	    nex.setActive(true);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			gameSingleton.get().stop=true;
-
-			 Charactertype PLAYER1 = new Charactertype("robot");		
-			 PLAYER1.setActive(true);	
-						 
-			gameSingleton.get().stop=false;
-
-				     
-		     final DefineGameState base = new DefineGameState(); 
-		     base.setActive(true);	
-
-		   }
-
 }

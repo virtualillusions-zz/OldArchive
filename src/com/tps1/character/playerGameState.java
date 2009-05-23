@@ -28,8 +28,7 @@ public class playerGameState extends BasicGameState {
     private static final Logger logger = Logger.getLogger(playerGameState.class
             .getName());
 	private Node charNode;	
-	//store character nodes
-	private HashMap<String, ogre> charList = new HashMap<String, ogre>(); 
+	
 
 	/**
 	 * Creates a new playerGameState with a given name.
@@ -49,20 +48,16 @@ public class playerGameState extends BasicGameState {
 	private void init(String baseNodeName) {		
 			        
 		//Loads Inital Model//////////////////////////////////
-	    charNode = getCharacter(baseNodeName);	     
+	    charNode = ogre.getCharacter(baseNodeName);	     
 
 	    //reduction in based on scale
 		charNode.updateGeometricState(0.0f, true);
 		float N=.04f;
 		charNode.updateWorldBound();
-		BoundingBox bb = (BoundingBox) charNode.getWorldBound();
-		logger.info("Boudning Box Value: "+bb);
+		//BoundingBox bb = (BoundingBox) charNode.getWorldBound();
 		float wantedScale = Math.min(N/charNode.getLocalScale().x, N/charNode.getLocalScale().y);
-		logger.info("wantedScale created: "+wantedScale+ " Character size:" + charNode.getLocalScale());
 		wantedScale = Math.min(N/charNode.getLocalScale().z, wantedScale);
-		logger.info("wantedScale created: "+wantedScale+ " Character size:" + charNode.getLocalScale());
 		charNode.setLocalScale(wantedScale);	
-		logger.info("wantedScale created: "+wantedScale+ " Character size:" + charNode.getLocalScale() +"charter World Boundings"+(BoundingBox) charNode.getWorldBound());
 		//////Sets up model to be deployed in world////////////
 		charNode.setModelBound(new BoundingBox()); 	  
 		charNode.updateModelBound(); charNode.updateWorldBound();
@@ -74,16 +69,7 @@ public class playerGameState extends BasicGameState {
 
 	}	
 	
-	/**
-	 * returns character geometry from generated from ogre class
-	 * @return ogreNode
-	 */
-	private Node getCharacter(String theName)
-	{
-		if(!charList.containsKey(theName))
-			charList.put(theName, new ogre(theName));			
-		return ((ogre)charList.get(theName)).newClone();
-	}
+
 		
 	private void setupLight(Node rootNode){
 		ZBufferState buf = gameSingleton.get().getDisplay.getRenderer().createZBufferState();
