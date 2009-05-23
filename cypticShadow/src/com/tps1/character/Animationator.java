@@ -85,8 +85,8 @@ private String name;
 			else if(direction.getX()<0)strafeRight(null);
 		}else idle(null);
 
-		System.out.println("Velocity: "+movement.getRotationalAxis().getVelocity());
-		System.out.println("Desired Velocity: "+movement.getRotationalAxis().getDesiredVelocity());
+		//System.out.println("Velocity: "+movement.getRotationalAxis().getVelocity());
+		//System.out.println("Desired Velocity: "+movement.getRotationalAxis().getDesiredVelocity());
 	}
 
 }

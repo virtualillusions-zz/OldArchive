@@ -3,6 +3,7 @@ package com.tps1.util;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,24 @@ import com.jmex.model.ogrexml.OgreLoader;
  
 public class ogre {
     private static Node model;
+   
+  //store character nodes
+	public static HashMap<String, ogre> charList = new HashMap<String, ogre>();  
+	/**
+	 * returns character geometry from generated from ogre class
+	 * @return ogreNode
+	 */
+	public static Node getCharacter(String theName)
+	{
+		if(!charList.containsKey(theName))
+			charList.put(theName, new ogre(theName));			
+		return ((ogre)charList.get(theName)).newClone();
+	}    
+    
+    
+    private static String modelpath = "com/tps1/data/models/";
+
+    private String name;
 
     /**
      * @author Kyle Williams
@@ -25,10 +44,7 @@ public class ogre {
      * @return Node Model
      * @Description loads a model from file**Remember to create a jbin converter.
      */
-    private static String modelpath = "com/tps1/data/models/";
-
-    private String name;
-    public ogre(String modelName){
+    private ogre(String modelName){
     	name=modelName;
     	loadModel(modelName);
     }
@@ -73,7 +89,11 @@ public class ogre {
         
 	}
 	
-	public Node newClone(){        
+	/**
+	 * returns on clone of an original model
+	 * @return the cloned model
+	 */
+	private Node newClone(){        
         Node clone = MeshCloner.cloneMesh(model);
         clone.setName(name);
 		return clone;
