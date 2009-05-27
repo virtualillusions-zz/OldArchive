@@ -1,6 +1,5 @@
 package com.tps1.character;
 
-import java.util.HashMap;
 import java.util.logging.Logger;
 
 import com.jme.bounding.BoundingBox;
@@ -28,7 +27,7 @@ public class playerGameState extends BasicGameState {
     private static final Logger logger = Logger.getLogger(playerGameState.class
             .getName());
 	private Node charNode;	
-	
+	  private int[] characterStats;
 
 	/**
 	 * Creates a new playerGameState with a given name.
@@ -40,6 +39,7 @@ public class playerGameState extends BasicGameState {
 	//remember camera is initialized in PlayerController also remember to attach it to shoulder 
          //sets up lighting
 		setupLight(rootNode);
+	   	characterStats = CharacterStats.get().name(theName);
 		init(theName);
 	 	GameStateManager.getInstance().attachChild(this);
     	}
@@ -52,11 +52,11 @@ public class playerGameState extends BasicGameState {
 
 	    //reduction in based on scale
 		charNode.updateGeometricState(0.0f, true);
-		float N=.04f;
+		float N=CharacterStats.get().getWorldScale();
 		charNode.updateWorldBound();
-		//BoundingBox bb = (BoundingBox) charNode.getWorldBound();
-		float wantedScale = Math.min(N/charNode.getLocalScale().x, N/charNode.getLocalScale().y);
-		wantedScale = Math.min(N/charNode.getLocalScale().z, wantedScale);
+		BoundingBox bb = (BoundingBox) charNode.getWorldBound();
+		float wantedScale = Math.min(N/bb.xExtent, N/bb.yExtent);
+		wantedScale = Math.min(N/bb.zExtent, wantedScale);
 		charNode.setLocalScale(wantedScale);	
 		//////Sets up model to be deployed in world////////////
 		charNode.setModelBound(new BoundingBox()); 	  
@@ -65,8 +65,8 @@ public class playerGameState extends BasicGameState {
 	   rootNode.attachChild(charNode);
 	   rootNode.updateRenderState();
 	   rootNode.updateGeometricState(0.0f, true);
+	   
    	   rootNode.addController(new PlayerController(this));
-
 	}	
 	
 
@@ -90,6 +90,8 @@ public class playerGameState extends BasicGameState {
 	}
 	public void cleanup() {	/* TODO Auto-generated method stub*/	}	
 	public Node getCharNode(){return charNode;}
+	/**@see {@link CharacterStats#name(String value)}*/
+	public int[] getCharacterStates(){return characterStats;}
 
 }
 
