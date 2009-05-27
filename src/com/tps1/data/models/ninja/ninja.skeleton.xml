@@ -6801,7 +6801,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="Idle1" length="1.75">
+        <animation name="ninjaIdle" length="1.75">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>
@@ -8757,7 +8757,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="Jump" length="0.666667">
+        <animation name="ninjaJump" length="0.666667">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>
@@ -9383,7 +9383,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="JumpNoHeight" length="0.666667">
+        <animation name="ninjaRight" length="0.666667">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>
@@ -11495,7 +11495,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="Spin" length="0.916667">
+        <animation name="ninjaLeft" length="0.916667">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>
@@ -12091,7 +12091,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="Stealth" length="1.25">
+        <animation name="ninjaBackward" length="1.25">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>
@@ -12591,7 +12591,7 @@
                 </track>
             </tracks>
         </animation>
-        <animation name="Walk" length="1.08333">
+        <animation name="ninjaForward" length="1.08333">
             <tracks>
                 <track bone="Joint1">
                     <keyframes>

@@ -53,9 +53,8 @@ public class SkyBoxManager {
         sb = new Skybox("skybox",200,200,200);
           
         //remember to number the skybox folders 1 2 3 etc...
-        String[] skyStyles = { "Example", "Example 2"};
-        Random s = new Random();
-        String sky = skyStyles[s.nextInt(skyStyles.length)];
+        String[] skyStyles = { "Example 1","Example 2","Example 3","Example 4"};
+        String sky = skyStyles[new Random().nextInt(skyStyles.length)];
                
         try{
             ResourceLocatorTool.addResourceLocator(

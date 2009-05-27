@@ -7,17 +7,17 @@ import com.jme.input.action.InputActionEvent;
 import com.jme.input.util.SyntheticButton;
 import com.jme.math.FastMath;
 import com.jme.math.Quaternion;
-import com.jme.math.Ray;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
 
 import com.jmex.physics.DynamicPhysicsNode;
+import com.jmex.physics.Joint;
+import com.jmex.physics.RotationalJointAxis;
 import com.jmex.physics.contact.ContactInfo;
 import com.jmex.physics.contact.MutableContactInfo;
 import com.jmex.physics.geometry.PhysicsCapsule;
 import com.jmex.physics.geometry.PhysicsSphere;
-import com.jmex.physics.impl.ode.joints.OdeJoint;
-import com.jmex.physics.impl.ode.joints.RotationalOdeJointAxis;
+
 import com.jmex.physics.material.Material;
 
 import com.tps1.GameState.gameSingleton;
@@ -36,10 +36,10 @@ public class characterMove {
 	}
 	
 	private static final Material characterMaterial;
-	private final OdeJoint joint;
-	private RotationalOdeJointAxis rotAxis;
+	private final Joint joint;
+	private RotationalJointAxis rotAxis;
 	private boolean offGround,allowFall, isMoving;
-	private float Speed =4;	private int scale=5;
+	private float Speed, scale;
     private final InputHandler contactDetect = new InputHandler();
 	static {
 	        characterMaterial = new Material( "Character Material" );
@@ -55,24 +55,24 @@ public class characterMove {
 	private final DynamicPhysicsNode feetNode, physNode;
 	private final Node baseNode, charNode;
 	/**
-	 * Initalizes the ode Ogre walking system
+	 * Initalizes the Ogre walking system
 	 * @param mainNode the Node that acts as the base to hold the branches of the system
 	 * @param modelNode the Node containing character Geometry
 	 * @param physicsSpace the active and dominate physicsSpace
 	 * @param input
 	 */
 	public characterMove(playerGameState player) {
+		Speed=player.getCharacterStates()[4];
+		scale=CharacterStats.get().getWorldScale(); 
 		physNode= gameSingleton.get().getPhysicsSpace().createDynamicNode();physNode.setName("physNode");;
 		baseNode = player.getRootNode();
 		charNode = player.getCharNode();
 		feetNode=gameSingleton.get().getPhysicsSpace().createDynamicNode();feetNode.setName("feetNode");
-		joint = (OdeJoint) gameSingleton.get().getPhysicsSpace().createJoint();
+		joint = gameSingleton.get().getPhysicsSpace().createJoint();
 		offGround=false;
 		isMoving=true;
 		createPhysics();
-		ray = new Ray(physNode.getLocalTranslation(), new Vector3f(0f,-1f,0f));
 	}
-		Ray ray;
 	/**
 	 * creates a basic movement system for characters
 	 */
@@ -101,14 +101,16 @@ public class characterMove {
 		physNode.attachChild(charNode);
 		baseNode.attachChild(physNode); 
 		
-		joint.setName("ROTATIONAL ODE AXIS");
+		joint.setName("ROTATIONAL AXIS");
 		// A single joint is created and the Direction Will change depending on the users needs:
-		rotAxis = (RotationalOdeJointAxis) joint.createRotationalAxis();
+		rotAxis =  joint.createRotationalAxis();
 		rotAxis.setDirection(Vector3f.UNIT_Z);
 		joint.attach(physNode, feetNode);		
 		rotAxis.setRelativeToSecondObject( true );		
 		rotAxis.setAvailableAcceleration(0f);rotAxis.setDesiredVelocity(0f);
 		setUp();
+		
+		feetNode.setMass(0.7455306f);physNode.setMass(2.6873279f);
 	}
 	
 	private Vector3f directioned= new Vector3f(0,0,0);
@@ -159,7 +161,7 @@ public class characterMove {
 	            public void performAction( InputActionEvent evt ) {
 	                ContactInfo contactInfo = (ContactInfo) evt.getTriggerData();
 	                Vector3f vec = contactInfo.getContactNormal(null);
-	          
+	                
 	                if (vec.dot(Vector3f.UNIT_Y) > 1f){
 	                    offGround = true;
 	                }
@@ -197,8 +199,8 @@ public class characterMove {
 	 	if(direction.getDirection()!= vec){	
 	 		try{
 			 	rotAxis.setDirection(directioned.addLocal(direction.getDirection()));
-			 	rotAxis.setAvailableAcceleration( Speed );
-				rotAxis.setDesiredVelocity( Speed );}
+			 	rotAxis.setAvailableAcceleration( 5*Speed );
+				rotAxis.setDesiredVelocity( 5*Speed );}
 	 		catch(Exception e){rotAxis.setDesiredVelocity(0f);	}	
 	 		
 							 	
@@ -228,6 +230,6 @@ public class characterMove {
             
 	}*/
 	
-	public RotationalOdeJointAxis getRotationalAxis(){return rotAxis;}
+	public RotationalJointAxis getRotationalAxis(){return rotAxis;}
 	public boolean getOffGround(){return offGround;}
 }

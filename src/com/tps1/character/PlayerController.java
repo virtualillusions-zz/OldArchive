@@ -1,6 +1,7 @@
 package com.tps1.character;
 
 import com.jme.input.InputHandler;
+import com.jme.math.Vector3f;
 import com.jme.scene.Controller;
 import com.jmex.game.StandardGame;
 import com.jmex.game.state.GameStateManager;
@@ -50,17 +51,17 @@ characterMove move;Animationator animator;controlManager controls;
 				e.printStackTrace();
 			}
 			
-			//gameSingleton.get().lock();
+			gameSingleton.get().stop=true;
 
-			 Charactertype PLAYER1 = new Charactertype("robot");	
-			 PLAYER1.setActive(true);	
+			 Charactertype PLAYER1 = new Charactertype("robot");
+			// PLAYER1.getCharNode().getLocalRotation().fromAngleNormalAxis( 1.5f, new Vector3f( 0, -1, 0 ) );
+			 PLAYER1.setActive(true);
+			
 						 
-			 //gameSingleton.get().unlock();
-				     
+			 gameSingleton.get().stop=false;
+			 
 		     final DefineGameState base = new DefineGameState(); 
 		     base.setActive(true);	
-		     
-		     System.out.println(ogre.charList.keySet());
 
 		   }
 
