@@ -1,12 +1,11 @@
 package com.tps1.character;
 
-import java.util.logging.Logger;
-
 import com.jme.bounding.BoundingBox;
 import com.jme.light.PointLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
 import com.jme.scene.Node;
+
 import com.jme.scene.state.LightState;
 import com.jme.scene.state.ZBufferState;
 import com.jmex.game.state.BasicGameState;
@@ -17,16 +16,15 @@ import com.tps1.util.ogre;
 
 
 /**
- * <code>playerGameState</code> provides an extremely basic gamestate 
- * that handles motion and player controls
+ * <code>playerGameState</code> 
+ * provides an extremely basic gamestate 
+ * that handles loading objects and setting them in 3D space
  *  
  * @author Kyle D. Williams
  */
 public class playerGameState extends BasicGameState {	
 	
-    private static final Logger logger = Logger.getLogger(playerGameState.class
-            .getName());
-	private Node charNode;	
+   	private Node charNode,moveNode;	
 	  private int[] characterStats;
 
 	/**
@@ -34,42 +32,48 @@ public class playerGameState extends BasicGameState {
 	 * 
 	 * @param name The name of this GameState.
 	 */
-	public playerGameState(String theName) { 
+	protected playerGameState(String theName) { 
 		super(theName);
-	//remember camera is initialized in PlayerController also remember to attach it to shoulder 
          //sets up lighting
 		setupLight(rootNode);
 	   	characterStats = CharacterStats.get().name(theName);
 		init(theName);
 	 	GameStateManager.getInstance().attachChild(this);
-    	}
-	
+    	} 
+
 	//Initalizes system
-	private void init(String baseNodeName) {		
-			        
+	private void init(String baseNodeName) {				        
 		//Loads Inital Model//////////////////////////////////
-	    charNode = ogre.getCharacter(baseNodeName);	     
+	    charNode = ogre.getCharacter(baseNodeName);			
+		
+		//reduction in based on scale
+		scale(charNode);
 
-	    //reduction in based on scale
-		charNode.updateGeometricState(0.0f, true);
-		float N=CharacterStats.get().getWorldScale();
-		charNode.updateWorldBound();
-		BoundingBox bb = (BoundingBox) charNode.getWorldBound();
-		float wantedScale = Math.min(N/bb.xExtent, N/bb.yExtent);
-		wantedScale = Math.min(N/bb.zExtent, wantedScale);
-		charNode.setLocalScale(wantedScale);	
-		//////Sets up model to be deployed in world////////////
-		charNode.setModelBound(new BoundingBox()); 	  
-		charNode.updateModelBound(); charNode.updateWorldBound();
-
-	   rootNode.attachChild(charNode);
-	   rootNode.updateRenderState();
-	   rootNode.updateGeometricState(0.0f, true);
-	   
-   	   rootNode.addController(new PlayerController(this));
+		rootNode.getLocalTranslation().set((charNode.getWorldBound().getCenter()).negate());
+		rootNode.getLocalTranslation().y+=((BoundingBox)charNode.getWorldBound()).yExtent;
+		rootNode.updateGeometricState(0, true);
+		charNode.setLocalTranslation(rootNode.getLocalTranslation());
+		charNode.updateGeometricState(0, true);
+		
+		moveNode= new Node(baseNodeName+" move");
+		moveNode.attachChild(charNode);
+		moveNode.updateWorldBound();
+		rootNode.attachChild(moveNode);			
+		rootNode.updateWorldBound();
+	     rootNode.updateGeometricState(0.0f, true);
+	     rootNode.updateRenderState();
 	}	
 	
-
+	private void scale(Node theNode){
+		float N=CharacterStats.get().getWorldScale();
+		theNode.updateWorldBound();
+		BoundingBox bb = (BoundingBox) theNode.getWorldBound();	
+		float wantedScale = Math.min(Math.min(N/bb.xExtent, N/bb.yExtent),N/bb.zExtent);		
+		theNode.setLocalScale(wantedScale);	
+		theNode.setModelBound(new BoundingBox()); 
+		theNode.updateModelBound();
+		theNode.updateGeometricState(0, true);
+	}
 		
 	private void setupLight(Node rootNode){
 		ZBufferState buf = gameSingleton.get().getDisplay.getRenderer().createZBufferState();
@@ -88,10 +92,30 @@ public class playerGameState extends BasicGameState {
         lightState.attach(light);
         rootNode.setRenderState(lightState); 
 	}
-	public void cleanup() {	/* TODO Auto-generated method stub*/	}	
+	
+	public void cleanup() {	/* TODO Auto-generated method stub*/}	
 	public Node getCharNode(){return charNode;}
+	public Node getMoveNode(){return moveNode;}
 	/**@see {@link CharacterStats#name(String value)}*/
 	public int[] getCharacterStates(){return characterStats;}
-
+	@Override
+	public void update(float tpf){
+		super.update(tpf);
+		//make sure that if the player left the level we don't crash. When we add collisions,
+        //the fence will do its job and keep the player inside.
+        float characterMinHeight = gameSingleton.get().getCurrentBlock().getHeight(getRootNode()
+        		.getLocalTranslation());   
+        if (!Float.isInfinite(characterMinHeight) && !Float.isNaN(characterMinHeight)) {
+        	getRootNode().getLocalTranslation().setY(characterMinHeight);        			
+        }
+		   
+   //get the normal of the terrain at our current location. We then apply it to the up vector of the player.
+        gameSingleton.get().getCurrentBlock().getSurfaceNormal(getRootNode().getLocalTranslation(), normal);
+        if(normal != null) {
+        	getRootNode().rotateUpTo(normal);
+        }	
+	}
+	//store the normal of the terrain
+	private Vector3f normal = new Vector3f();
 }
 

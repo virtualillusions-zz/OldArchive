@@ -1,11 +1,7 @@
-package com.tps1.character;
 
-import com.jme.bounding.BoundingBox;
 import com.jme.math.Vector3f;
-import com.jme.scene.Node;
-import com.jmex.terrain.TerrainBlock;
-import com.tps1.GameState.gameSingleton;
- 
+
+import com.tps1.character.playerGameState;
 
 public class characterMove {
 	public enum Direction{
@@ -19,26 +15,39 @@ public class characterMove {
 		BACKWARD_RIGHT{ public Vector3f getDirection() { return new Vector3f(-1,0,-1); }};		
 		 public abstract Vector3f getDirection();			
 	}
+	
 
-	Node player;
-	public characterMove(playerGameState player){
-		this.player = player.getCharNode();
-		
+	public characterMove(playerGameState player) {
 		
 	}
 	
-	public void move(Direction forward) {
-		// TODO Auto-generated method stub
+	
+	public void update(float tpf){
 		
-	} 
+		}
+	
+	/**
+	 * Jump directly up. direction influenced from previous momentum
+	 * @param scale how heavy is the force up
+	 */	 
+	public void jump(){
+	}
+	
+	/**OverLoaded jump() method
+	 * Jump in a given direction
+	 * @param scale how heavy is the force up
+	 * @return 
+	 */	 
+	public void jump(float x,int scale, float z){
+	}
+	
+	/**
+	 * moves uniform in a given direction
+	 * @param direction use the Direction enum to set a specific direction
+	 */
+	public void move(Direction direction){
+	
+	 	}
 
-	public void jump() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void update(float time){
-	
-	}
-	
+
 }

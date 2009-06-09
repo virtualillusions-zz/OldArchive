@@ -1,19 +1,28 @@
 package com.tps1.lvlLoader;
 
+import javax.swing.ImageIcon;
+
+import jmetest.terrain.TestTerrain;
+
 import com.jme.bounding.BoundingBox;
+import com.jme.image.Texture;
 import com.jme.input.FirstPersonHandler;
 import com.jme.input.InputHandler;
 import com.jme.light.PointLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.Camera;
 import com.jme.renderer.ColorRGBA;
-import com.jme.scene.shape.Box;
+import com.jme.renderer.Renderer;
 import com.jme.scene.state.CullState;
 import com.jme.scene.state.LightState;
+import com.jme.scene.state.TextureState;
 import com.jme.system.DisplaySystem;
+import com.jme.util.TextureManager;
 import com.jmex.game.state.BasicGameState;
-import com.jmex.physics.PhysicsSpace;
-import com.jmex.physics.StaticPhysicsNode;
+
+import com.jmex.terrain.TerrainBlock;
+import com.jmex.terrain.util.MidPointHeightMap;
+import com.jmex.terrain.util.ProceduralTextureGenerator;
 import com.tps1.GameState.gameSingleton;
 
 public class CopyOfCopyOflevelTester extends BasicGameState {
@@ -24,38 +33,52 @@ public class CopyOfCopyOflevelTester extends BasicGameState {
     	super("act:"+act+"-scene:"+scene);	
     	cam = gameSingleton.get().getCamNode.getCamera();
     	display = gameSingleton.get().getDisplay;
-    	initLevel(gameSingleton.get().getPhysicsSpace());
+    	initLevel();
         input = new FirstPersonHandler(DisplaySystem.getDisplaySystem().getRenderer().getCamera(),8,1);
+        gameSingleton.get().setCurrentBlock(tb);
     }
-  
-    protected void initLevel(PhysicsSpace base) {    
+    private TerrainBlock tb;
+    protected void initLevel() {    
         
     	initSetup();
         
-    	 // first we will create the floor
-        // as the floor can't move we create a _static_ physics node
-        StaticPhysicsNode staticNode = base.createStaticNode();
+    	MidPointHeightMap heightMap = new MidPointHeightMap(64, 1f);
+        // Scale the data
+        Vector3f terrainScale = new Vector3f(4, 0.0575f, 4);
+        // create a terrainblock
+         tb = new TerrainBlock("Terrain", heightMap.getSize(), terrainScale,
+                heightMap.getHeightMap(), new Vector3f(0, 0, 0));
 
-        // attach the node to the root node to have it updated each frame
-        rootNode.attachChild( staticNode );
+        tb.setModelBound(new BoundingBox());
+        tb.updateModelBound();
 
-        // now we do not create a collision geometry but a visual box
-        final Box visualFloorBox = new Box( "floor", new Vector3f(), 200, 0.25f, 200 );
-        // note: we have used the constructor (name, center, xExtent, yExtent, zExtent)
-        //       thus our box is centered at (0,0,0) and has size (10, 0.5f, 10)
+        // generate a terrain texture with 2 textures
+        ProceduralTextureGenerator pt = new ProceduralTextureGenerator(
+                heightMap);
+        pt.addTexture(new ImageIcon(TestTerrain.class.getClassLoader()
+                .getResource("jmetest/data/texture/grassb.png")), -128, 0, 128);
+        pt.addTexture(new ImageIcon(TestTerrain.class.getClassLoader()
+                .getResource("jmetest/data/texture/dirt.jpg")), 0, 128, 255);
+        pt.addTexture(new ImageIcon(TestTerrain.class.getClassLoader()
+                .getResource("jmetest/data/texture/highest.jpg")), 128, 255,
+                384);
+        pt.createTexture(32);
+        
+        // assign the texture to the terrain
+        TextureState ts = display.getRenderer().createTextureState();
+        Texture t1 = TextureManager.loadTexture(pt.getImageIcon().getImage(),
+                Texture.MinificationFilter.Trilinear, Texture.MagnificationFilter.Bilinear, true);
+        ts.setTexture(t1, 0);
 
-        // we have to attach it to our node
-        staticNode.attachChild( visualFloorBox );
+        tb.setRenderState(ts);
+        tb.setRenderQueueMode(Renderer.QUEUE_OPAQUE);
+        
+        rootNode.attachChild(tb);
 
-        // now we let jME Physics 2 generate the collision geometry for our box
-        staticNode.setModelBound(new BoundingBox());
-        staticNode.updateModelBound();
-        staticNode.generatePhysicsGeometry();
-        rootNode.getLocalTranslation().set(0, -8f, 0);                 
         rootNode.updateGeometricState(0, true);
 		rootNode.updateWorldBound();
 		rootNode.updateRenderState();
-        
+		gameSingleton.get().setCurrentBlock(tb);
     }
     
     private void initSetup(){

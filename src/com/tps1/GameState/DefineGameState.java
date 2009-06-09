@@ -8,11 +8,12 @@ import com.jme.input.action.InputAction;
 import com.jme.input.action.InputActionEvent;
 import com.jme.renderer.Renderer;
 import com.jme.system.DisplaySystem;
+import com.jme.util.geom.Debugger;
+import com.jmex.game.StandardGame;
 import com.jmex.game.state.BasicGameState;
 import com.jmex.game.state.GameState;
 import com.jmex.game.state.GameStateManager;
 import com.jmex.game.state.StatisticsGameState;
-import com.jmex.physics.PhysicsDebugger;
 import com.tps1.aMain.Game;
 
 public class DefineGameState extends BasicGameState {
@@ -24,19 +25,18 @@ public class DefineGameState extends BasicGameState {
 	////////////
     protected boolean statisticsCreated = false;
     ////////////
-	public DefineGameState() {
-		super("PhysicsDebugger");
+    /**
+     * True if the renderer should display bounds.
+     */
+    protected boolean showBounds = false;
+    StandardGame standardGame;
+	public DefineGameState(StandardGame standardGame) {
+		super("Debugger");
+		this.standardGame = standardGame;
         KeyBindingManager.getKeyBindingManager().set("exit", KeyInput.KEY_ESCAPE);
         
-        ////////////////////SET UP PHYSICS DEBUGGER/////////////
         input = new InputHandler();
-        input.addAction( new InputAction() {
-            public void performAction( InputActionEvent evt ) {
-                if ( evt.getTriggerPressed() ) {
-                    showPhysics = !showPhysics;
-                }
-            }
-        }, InputHandler.DEVICE_KEYBOARD, KeyInput.KEY_V, InputHandler.AXIS_NONE, false );
+       
  	   /////////////////////SETUP SCENEMONITOR///////////////////
         showSceneMonitor=false;
         input.addAction( new InputAction() 
@@ -56,8 +56,10 @@ public class DefineGameState extends BasicGameState {
         }, InputHandler.DEVICE_KEYBOARD, KeyInput.KEY_B, InputHandler.AXIS_NONE, false );
         
  	    ////////////////////STATISTICS
-        KeyBindingManager.getKeyBindingManager().set("toggle_stats",
-                KeyInput.KEY_C);
+        KeyBindingManager.getKeyBindingManager().set("toggle_stats", KeyInput.KEY_C);
+        /////model bounds        
+        /** Assign key v to action "toggle_bounds". */
+        KeyBindingManager.getKeyBindingManager().set( "toggle_bounds", KeyInput.KEY_V );
         
         GameStateManager.getInstance().attachChild(this);        
     }
@@ -69,9 +71,11 @@ public class DefineGameState extends BasicGameState {
     protected boolean showPhysics, showSceneMonitor;
 
 	public void cleanup()
-	{
-		 System.out.println("Good Bye");
-         System.exit(0);
+	{	
+		 System.out.println("Closing Application");
+		 if(showSceneMonitor)
+			 SceneMonitor.getMonitor().cleanup();
+         standardGame.finish();
 	}
 
 	/**
@@ -83,19 +87,21 @@ public class DefineGameState extends BasicGameState {
 	public void update(float tpf)
 	{
 		super.update(tpf);
+		 //////////////////////////////////////////////////////////////////
+        if( showSceneMonitor)   {  	SceneMonitor.getMonitor().updateViewer(tpf);       }
+    	input.update( tpf );
+		///////////////////////////////////        
 		
-		//////////////////////////////////
-		input.update( tpf );
-		///////////////////////////////////
+		/** If toggle_bounds is a valid command (via key v), change bounds. */
+        if ( KeyBindingManager.getKeyBindingManager().isValidCommand(
+                "toggle_bounds", false ) ) {
+            showBounds = !showBounds;
+        }
+		//////////////////////////////////	
 		
 		 // check if ESC has been pressed, exit the application if needed 
-        if (KeyBindingManager.getKeyBindingManager().isValidCommand("exit", false))
-        { cleanup();SceneMonitor.getMonitor().cleanup();} //OK, this is just a demo...
-        if( showSceneMonitor)
-        { 
-        	SceneMonitor.getMonitor().updateViewer(tpf);
-        }
-        
+        if (KeyBindingManager.getKeyBindingManager().isValidCommand("exit", false)){ cleanup();}
+      ////////////////////////////////////////////////////////////////////////////////
         /** If toggle_stats is a valid command (via key F4), change depth. */
         if (KeyBindingManager.getKeyBindingManager().isValidCommand("toggle_stats", false))
         {
@@ -112,7 +118,7 @@ public class DefineGameState extends BasicGameState {
 	}
 	
 	public DisplaySystem getDisplay() {
-		return display;
+		return display; 
 	}
 	
 	
@@ -127,8 +133,13 @@ public class DefineGameState extends BasicGameState {
 	 
     /////////////////////////////////////
     protected void doDebug(Renderer r) {
-        if ( showPhysics ) {
-            PhysicsDebugger.drawPhysics( gameSingleton.get().getPhysicsSpace(), r );
+               
+    	 /**
+         * If showing bounds, draw rootNode's bounds, and the bounds of all its
+         * children.
+         */
+        if ( showBounds ) {
+        	registerBounds(r);
         }
         
         if( showSceneMonitor) {
@@ -140,6 +151,13 @@ public class DefineGameState extends BasicGameState {
     	for(int i = 0 ; i<GameStateManager.getInstance().getQuantity(); i++)
     	{
         SceneMonitor.getMonitor().registerNode(((BasicGameState) GameStateManager.getInstance().getChild(i)).getRootNode());
+       	}
+    }
+    
+    private void registerBounds(Renderer r){
+    	for(int i = 0 ; i<GameStateManager.getInstance().getQuantity(); i++)
+    	{
+    		Debugger.drawBounds(((BasicGameState) GameStateManager.getInstance().getChild(i)).getRootNode(),r,true);
        	}
     }
 }
