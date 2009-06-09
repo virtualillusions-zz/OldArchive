@@ -74,7 +74,7 @@ private String name;
 	public MeshAnimationController getController(){	return animControl;	}
 	public characterMove getMovements(){return movement;}
 	public void update(float time) {
-		
+		/**
 		if(movement.getOffGround()){moveForward(null);}
 		else if(movement.getRotationalAxis().getVelocity()>0.0)
 		{	Vector3f direction = new Vector3f();
@@ -85,8 +85,7 @@ private String name;
 			else if(direction.getX()<0)strafeRight(null);
 		}else idle(null);
 
-		//System.out.println("Velocity: "+movement.getRotationalAxis().getVelocity());
-		//System.out.println("Desired Velocity: "+movement.getRotationalAxis().getDesiredVelocity());
+		*/
 	}
 
 }

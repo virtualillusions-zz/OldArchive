@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jME Physics 2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmeRequired"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmePhysicsRequired"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FengGUI"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="src/com/tps1/util/swing-layout-1.0.3.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/FengGUI"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SceneMonitor"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jMERequired"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jME"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

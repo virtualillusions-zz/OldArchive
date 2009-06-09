@@ -14,14 +14,14 @@ import com.tps1.util.ogre;
 
 
 @SuppressWarnings("serial")
-public class PlayerController extends Controller{
+public class AIController extends Controller{
 characterMove move;Animationator animator;controlManager controls;
 /**
  * @auther Kyle Williams
  * @description main controller class handles animations, movements and input
  * @param playerGameState player
  */
-	public PlayerController(Charactertype player){
+	public AIController(Charactertype player){
 		
 	//	player.getRootNode().detachAllChildren();
 		//move = new characterMove(player);

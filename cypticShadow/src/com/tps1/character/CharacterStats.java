@@ -2,7 +2,7 @@ package com.tps1.character;
 
 import java.util.HashMap;
 
-
+ 
 public class CharacterStats {
 	private static HashMap<String, int[]> statList = new HashMap<String, int[]>();  
 	private static CharacterStats instance = null;
