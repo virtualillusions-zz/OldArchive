@@ -14,7 +14,7 @@ public class CharacterStats {
 	public static CharacterStats get() {
 		if(instance == null){instance = new CharacterStats();}
 		return instance;
-	}
+	} 
 	private CharacterStats(){
 		statList.put( "Avenger",new int[]{3,3,2,1,1});
 		statList.put( "Phantom",new int[]{1,2,1,2,3});
@@ -28,7 +28,7 @@ public class CharacterStats {
 	 * 1:Shield Strength
 	 * 2:Accuracy
 	 * 3:Reflex
-	 * 4:Speed
+	 * 4:Max Speed
 	 * @param value the name of the character to find if its not found the character will have default stats
 	 * @return an array of a characters base stats
 	 */

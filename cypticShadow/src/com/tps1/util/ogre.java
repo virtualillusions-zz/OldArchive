@@ -18,7 +18,7 @@ import com.jmex.model.ogrexml.OgreLoader;
 
  
 public class ogre {
-    private static Node model;
+    private Node model;
    
   //store character nodes
 	public static HashMap<String, ogre> charList = new HashMap<String, ogre>();  
@@ -27,7 +27,7 @@ public class ogre {
 	 * @return ogreNode
 	 */
 	public static Node getCharacter(String theName)
-	{
+	{ 
 		if(!charList.containsKey(theName))
 			charList.put(theName, new ogre(theName));			
 		return ((ogre)charList.get(theName)).newClone();
@@ -76,6 +76,7 @@ public class ogre {
             if (matURL != null){
                 matLoader.load(matURL.openStream());
                 if (matLoader.getMaterials().size() > 0)
+//                	matLoader.getMaterials().put("Examples/Robot",matLoader.getMaterials().get("Examples/Ninja"));
                     loader.setMaterials(matLoader.getMaterials());
             }
                 	model = (Node) loader.loadModel(meshURL);
