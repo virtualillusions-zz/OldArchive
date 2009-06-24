@@ -3,11 +3,11 @@ package com.tps1.character;
 import com.jme.math.Vector3f;
 import com.jmex.game.StandardGame;
 import com.jmex.game.state.GameStateManager;
+
 import com.tps1.GameState.DefineGameState;
 import com.tps1.GameState.gameSingleton;
 import com.tps1.lvlLoader.CopyOfCopyOflevelTester;
 import com.tps1.scene.SkyBoxManager.SkyBoxGameState;
-
 
 public class Charactertype extends playerGameState { 	  	  
     //the one and only instance of the playerGameState
@@ -20,15 +20,14 @@ public class Charactertype extends playerGameState {
      * @return instance of this field
      */
     public static Charactertype build(String theName,boolean isHuman){
-    	 if (isHuman == true)
+    	 if (isHuman)
     	 {     	  instance = new Charactertype(theName);
 	           	  instance.getRootNode().addController(new PlayerController(instance));
 	     } else {
 	    	      instance = new Charactertype(theName);
-	           	  instance.getRootNode().addController(new AIController(instance));
+	              instance.getRootNode().addController(new AIController(instance));
     	 		}
-     	   gameSingleton.get().timer.reset();
-	        return instance;
+ 	        return instance;
     }
     
     /**
@@ -41,8 +40,9 @@ public class Charactertype extends playerGameState {
 	 	        return instance;
    }
     // the constructor is private, it can only be called inside this class
-    private Charactertype(String theName){
+    public Charactertype(String theName){
     	  super(theName);
+   	  // gameSingleton.get().timer.reset();
     } 
    
     // return the character name type
@@ -50,33 +50,8 @@ public class Charactertype extends playerGameState {
       return name;
     }
     
-	
-	
-	
-	public static void main(String[] args) throws InterruptedException{
-		 System.setProperty("jme.stats", "set");
-		 StandardGame standardGame = new StandardGame("GameControl", StandardGame.GameType.GRAPHICAL, null);
-	     standardGame.getSettings().setVerticalSync(false);
-		 standardGame.start();     
-
-	        try {SkyBoxGameState.Manager().setActive(true);
-				 CopyOfCopyOflevelTester nex = new CopyOfCopyOflevelTester(0,0);
-			 	   GameStateManager.getInstance().attachChild(nex);
-			 	    nex.setActive(true);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-
-			 Charactertype PLAYER1 = Charactertype.build("robot",true);
-			 PLAYER1.getRootNode().setLocalTranslation(new Vector3f(50,0, 50));
-			 PLAYER1.setActive(true);
-			
-						 
-			 
-		     final DefineGameState base = new DefineGameState(standardGame); 
-		     base.setActive(true);	
-
-		   }
+    public void setCharacterTranslation(Vector3f newLoc){
+    	this.getRootNode().setLocalTranslation(newLoc);
+    	this.getRootNode().updateWorldBound();
+    }
 }

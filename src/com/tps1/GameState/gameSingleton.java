@@ -1,7 +1,11 @@
 package com.tps1.GameState;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+
 import com.jme.scene.CameraNode;
 import com.jme.system.DisplaySystem;
+import com.jme.util.GameTaskQueue;
 import com.jme.util.Timer;
 import com.jmex.game.state.BasicGameState;
 import com.jmex.game.state.GameStateManager;
@@ -53,6 +57,11 @@ public class gameSingleton extends BasicGameState{
 	public void update(float tpf) {
 		if(firstFrame){timer.reset();firstFrame=false;}
 	}
+	
+	 public void update(Runnable action) {
+	        
+	    }
+	 
 	@Override public void cleanup() {/* TODO Auto-generated method stub*/}
 	@Override 	public void render(float tpf) {/* TODO Auto-generated method stub*/}
 

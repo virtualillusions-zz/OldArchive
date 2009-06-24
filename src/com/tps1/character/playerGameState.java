@@ -14,7 +14,7 @@ import com.jmex.game.state.GameStateManager;
 import com.tps1.GameState.gameSingleton;
 import com.tps1.util.ogre;
 
-
+ 
 /**
  * <code>playerGameState</code> 
  * provides an extremely basic gamestate 
@@ -26,6 +26,8 @@ public class playerGameState extends BasicGameState {
 	
    	private Node charNode,moveNode;	
 	  private int[] characterStats;
+	  private float characterMinHeight;
+	private boolean isOffGround;
 
 	/**
 	 * Creates a new playerGameState with a given name.
@@ -60,8 +62,10 @@ public class playerGameState extends BasicGameState {
 		moveNode.updateWorldBound();
 		rootNode.attachChild(moveNode);			
 		rootNode.updateWorldBound();
-	     rootNode.updateGeometricState(0.0f, true);
-	     rootNode.updateRenderState();
+	    rootNode.updateGeometricState(0.0f, true);
+	    rootNode.updateRenderState();
+	    rootNode.setIsCollidable(true);
+	   // rootNode.hasCollision(scene, true);	   
 	}	
 	
 	private void scale(Node theNode){
@@ -70,9 +74,11 @@ public class playerGameState extends BasicGameState {
 		BoundingBox bb = (BoundingBox) theNode.getWorldBound();	
 		float wantedScale = Math.min(Math.min(N/bb.xExtent, N/bb.yExtent),N/bb.zExtent);		
 		theNode.setLocalScale(wantedScale);	
+		theNode.getWorldScale().set(wantedScale,wantedScale,wantedScale);
 		theNode.setModelBound(new BoundingBox()); 
 		theNode.updateModelBound();
 		theNode.updateGeometricState(0, true);
+		theNode.updateWorldBound();
 	}
 		
 	private void setupLight(Node rootNode){
@@ -84,7 +90,7 @@ public class playerGameState extends BasicGameState {
         final PointLight light = new PointLight();
         light.setDiffuse(new ColorRGBA(0.75f, 0.75f, 0.75f, 0.75f));
         light.setAmbient(new ColorRGBA(0.5f, 0.5f, 0.5f, 1.0f));
-        light.setLocation(new Vector3f(100, 100, 100));
+        light.setLocation(new Vector3f(10, 180, 100));
         light.setEnabled(true);
 
         final LightState lightState = gameSingleton.get().getDisplay.getRenderer().createLightState();
@@ -98,15 +104,19 @@ public class playerGameState extends BasicGameState {
 	public Node getMoveNode(){return moveNode;}
 	/**@see {@link CharacterStats#name(String value)}*/
 	public int[] getCharacterStates(){return characterStats;}
+	public float getCharacterMinHeight(){return  characterMinHeight;}
+	public boolean getOffGround(){return  isOffGround;}
+
 	@Override
 	public void update(float tpf){
 		super.update(tpf);
+		isOffGround=false;
 		//make sure that if the player left the level we don't crash. When we add collisions,
         //the fence will do its job and keep the player inside.
-        float characterMinHeight = gameSingleton.get().getCurrentBlock().getHeight(getRootNode()
+           characterMinHeight = gameSingleton.get().getCurrentBlock().getHeight(getRootNode()
         		.getLocalTranslation());   
-        if (!Float.isInfinite(characterMinHeight) && !Float.isNaN(characterMinHeight)) {
-        	getRootNode().getLocalTranslation().setY(characterMinHeight);        			
+        if (!Float.isInfinite(characterMinHeight) && !Float.isNaN(characterMinHeight)) {        	 
+        	 getRootNode().getLocalTranslation().setY(characterMinHeight);        		
         }
 		   
    //get the normal of the terrain at our current location. We then apply it to the up vector of the player.
