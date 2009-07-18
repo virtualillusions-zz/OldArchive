@@ -42,15 +42,15 @@ public class sceneManager extends BasicGameState{
 	    }
 	 //creates a skybox
 	public sceneManager() {
-		super("SkyBox");
+		super("sceneManager~SkyBox");
 			//Create a skybox to surround our world
         setupSky();
         //gameSingleton.get().setupLight(getRootNode());		
         gameSingleton.get().getSceneHandlerNode().attachChild(getCreatedSkyBox());
         new startLensFlare(getCreatedSkyBox());
+        getRootNode().attachChild(gameSingleton.get().getSceneHandlerNode());
         getRootNode().updateGeometricState(0, true);
         getRootNode().updateRenderState();
-        getRootNode().attachChild(gameSingleton.get().getSceneHandlerNode());
         //equivalent to attaching to gameStateManager
         gameSingleton.get().attachChild(this);
 	}

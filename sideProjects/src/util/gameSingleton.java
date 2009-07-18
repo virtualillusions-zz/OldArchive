@@ -24,8 +24,8 @@ public class gameSingleton extends GameStateNode<GameState>{
 	public static final Logger getLogger = Logger.getLogger(gameSingleton.class.getName());
     public static InputHandler input;
     public static StandardGame game;
-    private final Node  charHandlerNode = new Node("Character Handler"),
-    			       SceneHandlerNode = new Node("Scene Handler"),
+    private final Node  charHandlerNode = new Node("Character Handler"), /*Attached in the characterManager class*/
+    			       SceneHandlerNode = new Node("Scene Handler"), /*Attached in the sceneManager class*/
     			             MasterNode = new Node("MASTER~NODE");
 	
 		
@@ -46,7 +46,7 @@ public class gameSingleton extends GameStateNode<GameState>{
 		super("Utilites-Manager");
 		gameSingleton.game=game;
 		//setupLight();		
-        input = new FirstPersonHandler(getCamNode.getCamera(),8,1);
+        input = new FirstPersonHandler(getCamNode.getCamera(),100,1);
 	//	rootNode.updateGeometricState( 0.0f, true );
       //  rootNode.updateRenderState();
        // rootNode.attachChild(MasterNode);

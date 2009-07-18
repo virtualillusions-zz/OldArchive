@@ -14,8 +14,6 @@ import com.jmex.model.ModelFormatException;
 import com.jmex.model.ogrexml.MaterialLoader;
 import com.jmex.model.ogrexml.MeshCloner;
 import com.jmex.model.ogrexml.OgreLoader;
-
-
  
 public class ogre {
     private Node model;

@@ -1,4 +1,5 @@
 import Levels.DefaultTest;
+import TestCharacter.characterManager;
 import TestTerrain.sceneManager;
 
 import com.jmex.game.StandardGame;
@@ -23,6 +24,9 @@ public class Launcher {
      sceneManager.Manager().getTerrainHandler().registerTerrain(new DefaultTest());
      sceneManager.Manager().getTerrainHandler().build("DefaultTest");
       
+     characterManager.get().setActive(true);
+     characterManager.get().load("ninja", "TestModel");
+     //characterManager.get().Manager("TestModel").setAsHuman();
       
    //   DebugGameState bugger = new DebugGameState();
    //   GameStateManager.getInstance().attachChild(bugger);

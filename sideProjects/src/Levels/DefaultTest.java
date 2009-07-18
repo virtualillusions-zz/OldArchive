@@ -7,11 +7,10 @@ import util.gameSingleton;
 import jmetest.terrain.TestTerrain;
 
 import com.jme.image.Texture;
-import com.jme.input.NodeHandler;
 import com.jme.light.DirectionalLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
-import com.jme.scene.CameraNode;
+import com.jme.scene.Spatial;
 import com.jme.scene.state.CullState;
 import com.jme.scene.state.TextureState;
 import com.jme.util.TextureManager;
@@ -27,7 +26,7 @@ public class DefaultTest extends sceneNode{
 		super("DefaultTest");
 		init();
 	}
-	
+	TerrainPage terrain;
 	public void init(){
 		// Set cam above terrain
 		gameSingleton.get().getCamNode.setLocalTranslation(new Vector3f(0, 250, -20));
@@ -52,7 +51,7 @@ public class DefaultTest extends sceneNode{
 				(byte) 2);
 		heightMap.setHeightScale(0.001f);
 		Vector3f terrainScale = new Vector3f(10, 1, 10);
-		TerrainPage terrain = new TerrainPage("Terrain", 33, heightMap
+		terrain = new TerrainPage("Terrain", 33, heightMap
 				.getSize(), terrainScale, heightMap.getHeightMap());
 		terrain.setDetailTexture(1, 16);
 		this.attachChild(terrain);
@@ -100,5 +99,20 @@ public class DefaultTest extends sceneNode{
 		t2.setCombineOp1RGB(Texture.CombinerOperandRGB.SourceColor);
 		this.setRenderState(ts);
 	}
+
+	@Override
+	public Vector3f spawnpoints() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector3f startpoint() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TerrainPage getTerrain() {return terrain;}
 
 }

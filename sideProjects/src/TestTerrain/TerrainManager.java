@@ -8,6 +8,8 @@ import java.util.HashMap;
 import util.gameSingleton;
 
 import com.jme.scene.Node;
+import com.jme.scene.Spatial;
+import com.jmex.terrain.TerrainPage;
 
 /**
  * @author Kyle Williams
@@ -16,7 +18,8 @@ import com.jme.scene.Node;
 public class TerrainManager{
 	 //store character nodes
 	private  HashMap<String, sceneNode> terrainList = new HashMap<String, sceneNode>();  
-	private Node Handler,baseNode,terrainNode;
+	private Node Handler,baseNode;
+	private sceneNode terrainNode;
 	public TerrainManager() {
 		Handler = gameSingleton.get().getSceneHandlerNode();
 		baseNode=null;
@@ -64,4 +67,5 @@ public class TerrainManager{
 	  /**the TerrainManager's cleanup function*/
 		public void cleanup() {	Handler.detachAllChildren(); Handler=null;}
 
+		public TerrainPage getTerrain(){return terrainNode.getTerrain();	}
 }
