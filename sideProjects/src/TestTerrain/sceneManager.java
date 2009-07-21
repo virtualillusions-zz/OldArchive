@@ -72,7 +72,7 @@ public class sceneManager extends BasicGameState{
 	public void Randomize(){setupSky();}
 	
 	private void setupSky(){
-        sb = new Skybox("skybox",200,200,200);
+        sb = new Skybox("skybox",10,10,10);
           
         //remember to number the skybox folders 1 2 3 etc...
         String[] skyStyles = { "Example 1","Example 2","Example 3","Example 4"};
@@ -107,6 +107,11 @@ public class sceneManager extends BasicGameState{
         													Texture.MinificationFilter.BilinearNearestMipMap,
         														Texture.MagnificationFilter.Bilinear));
         sb.preloadTextures();
+        
+        sb.updateRenderState();
+        
+        sb.lockBounds();
+        sb.lockMeshes();
     }
 	// return the reference to the Skybox
     public Skybox getCreatedSkyBox() {  return sb;  }
@@ -115,7 +120,9 @@ public class sceneManager extends BasicGameState{
     public void update(float tpf){
     	super.update(tpf);
     	//Move the skybox into position
-    	getCreatedSkyBox().getLocalTranslation().set(cam.getLocation().x, cam.getLocation().y, cam.getLocation().z); 
+    	getCreatedSkyBox().setLocalTranslation(gameSingleton.get().getCamNode.getWorldTranslation());
+
+    	getCreatedSkyBox().setLocalTranslation(cam.getLocation()); 
     }
     
     private TerrainManager terrainInstance = null;

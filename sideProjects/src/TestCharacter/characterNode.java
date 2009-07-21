@@ -14,25 +14,25 @@ import com.jme.scene.state.ZBufferState;
 import com.jmex.terrain.TerrainBlock;
 
 public class characterNode extends Node{
-	private Node characterNode;
+	private Node charNode;
 	private AIController ai = null;
 	private playerController player = null;
 	public characterNode(String modelURL){
-		characterNode = ogre.getCharacter(modelURL);
+		charNode = ogre.getCharacter(modelURL);
 		this.setName(modelURL);
-		characterNode.setName(modelURL=":mesh");
+		charNode.setName(modelURL=":mesh");
 		characterStats = CharacterStats.get().name(modelURL);
 		
 		scale();
 		
 		
-		this.getLocalTranslation().set((characterNode.getWorldBound().getCenter()).negate());
-		this.getLocalTranslation().y+=((BoundingBox)characterNode.getWorldBound()).yExtent;
+		this.getLocalTranslation().set((charNode.getWorldBound().getCenter()).negate());
+		this.getLocalTranslation().y+=((BoundingBox)charNode.getWorldBound()).yExtent;
 		this.updateGeometricState(0, true);
-		characterNode.setLocalTranslation(this.getLocalTranslation());
-		characterNode.updateGeometricState(0, true);
+		charNode.setLocalTranslation(this.getLocalTranslation());
+		charNode.updateGeometricState(0, true);
 				
-		this.attachChild(characterNode);			
+		this.attachChild(charNode);			
 		this.updateWorldBound();
 		//this.setIsCollidable(true);
 		this.updateGeometricState(0.0f, true);
@@ -63,16 +63,16 @@ public class characterNode extends Node{
 	
 	public void scale(){
 		float N=CharacterStats.get().getWorldScale();
-		characterNode.updateWorldBound();
-		BoundingBox bb = (BoundingBox) characterNode.getWorldBound();	
+		charNode.updateWorldBound();
+		BoundingBox bb = (BoundingBox) charNode.getWorldBound();	
 		float wantedScale = Math.min(Math.min(N/bb.xExtent, N/bb.yExtent),N/bb.zExtent);		
-		characterNode.setLocalScale(wantedScale);	
-		characterNode.getWorldScale().set(wantedScale,wantedScale,wantedScale);
-		characterNode.setModelBound(new BoundingBox()); 
-		characterNode.updateModelBound();
-		characterNode.updateWorldBound();
-		characterNode.updateGeometricState(0, true);
-		characterNode.updateRenderState();
+		charNode.setLocalScale(wantedScale);	
+		charNode.getWorldScale().set(wantedScale,wantedScale,wantedScale);
+		charNode.setModelBound(new BoundingBox()); 
+		charNode.updateModelBound();
+		charNode.updateWorldBound();
+		charNode.updateGeometricState(0, true);
+		charNode.updateRenderState();
 	}
 	public void update(float tpf){
    		//make sure that if the player left the level we don't crash. When we add collisions,
@@ -110,7 +110,7 @@ public class characterNode extends Node{
 	//store the normal of the terrain
 	private Vector3f normal = new Vector3f();
 	public float getCharacterMinHeight(){return  characterMinHeight;}
-	public Node getCharNode(){return characterNode;}
+	public Node getCharNode(){return charNode;}
 	/**@see {@link CharacterStats#name(String value)}*/
 	public int[] getCharacterStates(){return characterStats;}
 }

@@ -12,6 +12,7 @@ import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
 import com.jme.scene.Spatial;
 import com.jme.scene.state.CullState;
+import com.jme.scene.state.FogState;
 import com.jme.scene.state.TextureState;
 import com.jme.util.TextureManager;
 import com.jmex.terrain.TerrainPage;
@@ -98,6 +99,21 @@ public class DefaultTest extends sceneNode{
 		t2.setCombineSrc1RGB(Texture.CombinerSource.Previous);
 		t2.setCombineOp1RGB(Texture.CombinerOperandRGB.SourceColor);
 		this.setRenderState(ts);
+		
+		
+		FogState fs = gameSingleton.get().getRenderer.createFogState();
+		 fs.setDensity(.005f);
+	        fs.setEnabled(true);
+	        fs.setColor(new ColorRGBA(.95f,.95f,.95f,1.0f));
+	        fs.setEnd(300);
+	        fs.setStart(75);
+	        fs.setDensityFunction(FogState.DensityFunction.Linear);
+	        fs.setQuality(FogState.Quality.PerVertex);
+	        
+	        this.setRenderState(fs);
+		
+		this.updateGeometricState(0, true);
+		this.updateRenderState();
 	}
 
 	@Override
