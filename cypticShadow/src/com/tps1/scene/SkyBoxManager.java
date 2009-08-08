@@ -50,7 +50,7 @@ public class SkyBoxManager {
     }
 
     private void setupSky(){
-        sb = new Skybox("skybox",200,200,200);
+        sb = new Skybox("skybox",10,10,10);
           
         //remember to number the skybox folders 1 2 3 etc...
         String[] skyStyles = { "Example 1","Example 2","Example 3","Example 4"};
