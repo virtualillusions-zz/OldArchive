@@ -9,6 +9,7 @@ import com.jme.light.PointLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
 import com.jme.scene.Node;
+import com.jme.scene.state.FogState;
 import com.jme.scene.state.LightState;
 import com.jme.scene.state.ZBufferState;
 import com.jmex.terrain.TerrainBlock;
@@ -32,15 +33,16 @@ public class characterNode extends Node{
 		charNode.setLocalTranslation(this.getLocalTranslation());
 		charNode.updateGeometricState(0, true);
 				
-		this.attachChild(charNode);			
+		this.attachChild(charNode);	
 		this.updateWorldBound();
-		//this.setIsCollidable(true);
-		this.updateGeometricState(0.0f, true);
-		this.updateRenderState();
-		
+		this.updateWorldVectors();
 		setupLight();
+		this.updateGeometricState(0.0f, true);
+		this.updateRenderState();		
+		
 		ai = new AIController(this);
 		this.addController(ai);
+		this.setIsCollidable(true);
 	}
 
 	public void setAsHuman() {
@@ -104,6 +106,18 @@ public class characterNode extends Node{
         lightState.setEnabled(true);
         lightState.attach(light);
         this.setRenderState(lightState); 
+        
+        FogState fs = gameSingleton.get().getRenderer.createFogState();
+		fs.setDensity(.005f);	     
+					
+		fs.setColor(new ColorRGBA(.9411764706f,1.0f,.9450980392f,1.0f));
+
+        fs.setStart(200);
+        fs.setEnd(400);	       
+        fs.setDensityFunction(FogState.DensityFunction.Linear);
+        fs.setQuality(FogState.Quality.PerVertex);	   
+        fs.setEnabled(true);
+      // this.setRenderState(fs);
 	}
 	private int[] characterStats;
     private float characterMinHeight;

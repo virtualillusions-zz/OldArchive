@@ -10,6 +10,7 @@ import com.jme.image.Texture;
 import com.jme.light.DirectionalLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
+import com.jme.renderer.pass.RenderPass;
 import com.jme.scene.Spatial;
 import com.jme.scene.state.CullState;
 import com.jme.scene.state.FogState;
@@ -23,12 +24,9 @@ import TestTerrain.sceneNode;
 
 public class DefaultTest extends sceneNode{
 
-	public DefaultTest() {
-		super("DefaultTest");
-		init();
-	}
+	public DefaultTest() {	super("DefaultTest");fs.setEnabled(false);}
 	TerrainPage terrain;
-	public void init(){
+	public void setupTerrain(){
 		// Set cam above terrain
 		gameSingleton.get().getCamNode.setLocalTranslation(new Vector3f(0, 250, -20));
 		gameSingleton.get().getCamNode.updateWorldData(0);
@@ -98,22 +96,7 @@ public class DefaultTest extends sceneNode{
 		t2.setCombineOp0RGB(Texture.CombinerOperandRGB.SourceColor);
 		t2.setCombineSrc1RGB(Texture.CombinerSource.Previous);
 		t2.setCombineOp1RGB(Texture.CombinerOperandRGB.SourceColor);
-		this.setRenderState(ts);
-		
-		
-		FogState fs = gameSingleton.get().getRenderer.createFogState();
-		 fs.setDensity(.005f);
-	        fs.setEnabled(true);
-	        fs.setColor(new ColorRGBA(.95f,.95f,.95f,1.0f));
-	        fs.setEnd(300);
-	        fs.setStart(75);
-	        fs.setDensityFunction(FogState.DensityFunction.Linear);
-	        fs.setQuality(FogState.Quality.PerVertex);
-	        
-	        this.setRenderState(fs);
-		
-		this.updateGeometricState(0, true);
-		this.updateRenderState();
+		this.setRenderState(ts);		
 	}
 
 	@Override
