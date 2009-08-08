@@ -1,6 +1,6 @@
 package time.timeexample;
 
-import org.fenggui.util.Timer;
+
 
 
 public class seconds_counter implements Runnable{
