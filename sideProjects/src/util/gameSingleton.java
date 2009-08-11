@@ -2,6 +2,8 @@ package util;
 
 import java.util.logging.Logger;
 
+import TestCharacter.CharacterStats;
+
 import com.jme.input.FirstPersonHandler;
 import com.jme.input.InputHandler;
 import com.jme.input.KeyBindingManager;
@@ -22,8 +24,9 @@ import com.jmex.game.state.GameStateManager;
 
 public class gameSingleton extends GameStateNode<GameState>{
 	public static final Logger getLogger = Logger.getLogger(gameSingleton.class.getName());
-    public static InputHandler input;
-    public static StandardGame game;
+	private static InputHandler input;
+    private static StandardGame game;
+    private static CharacterStats cStats=null;
     private final Node  charHandlerNode = new Node("Character Handler"), /*Attached in the characterManager class*/
     			       SceneHandlerNode = new Node("Scene Handler"), /*Attached in the sceneManager class*/
     			             MasterNode = new Node("MASTER~NODE");
@@ -47,9 +50,7 @@ public class gameSingleton extends GameStateNode<GameState>{
 		gameSingleton.game=game;
 		//setupLight();		
         input = new FirstPersonHandler(getCamNode.getCamera(),100,1);
-	//	rootNode.updateGeometricState( 0.0f, true );
-      //  rootNode.updateRenderState();
-       // rootNode.attachChild(MasterNode);
+
         MasterNode.attachChild(charHandlerNode);
         MasterNode.attachChild(SceneHandlerNode);
         GameStateManager.getInstance().attachChild(this);
@@ -87,4 +88,8 @@ public class gameSingleton extends GameStateNode<GameState>{
 	 /**Used to organize all Scene elements loaded in a single Node*/
 	 public Node getSceneHandlerNode(){return SceneHandlerNode; }
 	 public Node getMasterNode(){return MasterNode; }
+	 public static CharacterStats getStats() {
+			if(cStats == null){cStats = new CharacterStats();}
+			return cStats;
+		} 
 }

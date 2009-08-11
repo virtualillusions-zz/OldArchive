@@ -22,17 +22,10 @@ public class characterNode extends Node{
 		charNode = ogre.getCharacter(modelURL);
 		this.setName(modelURL);
 		charNode.setName(modelURL=":mesh");
-		characterStats = CharacterStats.get().name(modelURL);
+		characterStats = gameSingleton.getStats().name(modelURL);
 		
 		scale();
 		
-		
-		this.getLocalTranslation().set((charNode.getWorldBound().getCenter()).negate());
-		this.getLocalTranslation().y+=((BoundingBox)charNode.getWorldBound()).yExtent;
-		this.updateGeometricState(0, true);
-		charNode.setLocalTranslation(this.getLocalTranslation());
-		charNode.updateGeometricState(0, true);
-				
 		this.attachChild(charNode);	
 		this.updateWorldBound();
 		this.updateWorldVectors();
@@ -60,11 +53,8 @@ public class characterNode extends Node{
 			this.addController(ai);
 	}
 	
-	
-	
-	
 	public void scale(){
-		float N=CharacterStats.get().getWorldScale();
+		float N=gameSingleton.getStats().getWorldScale();
 		charNode.updateWorldBound();
 		BoundingBox bb = (BoundingBox) charNode.getWorldBound();	
 		float wantedScale = Math.min(Math.min(N/bb.xExtent, N/bb.yExtent),N/bb.zExtent);		
@@ -80,8 +70,10 @@ public class characterNode extends Node{
    		//make sure that if the player left the level we don't crash. When we add collisions,
 		characterMinHeight = sceneManager.Manager().getTerrainHandler().getTerrain().getHeight(
 				this.getLocalTranslation());   
-        if (!Float.isInfinite(characterMinHeight) && !Float.isNaN(characterMinHeight)) {        	 
-        	this.getLocalTranslation().setY(characterMinHeight);        		
+        if (!Float.isInfinite(characterMinHeight) && !Float.isNaN(characterMinHeight)) { 
+        	if(this.getLocalTranslation().getY()>characterMinHeight)
+        		{this.getLocalTranslation().y-=gameSingleton.getStats().getFallRate();}
+        	else this.getLocalTranslation().setY(characterMinHeight);        		
         }
 
         //get the normal of the terrain at our current location. We then apply it to the up vector of the player.

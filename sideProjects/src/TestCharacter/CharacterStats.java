@@ -7,20 +7,19 @@ public class CharacterStats {
 	private static HashMap<String, int[]> statList = new HashMap<String, int[]>();  
 	private static CharacterStats instance = null;
 	private int Scale;
+	private float FallRate;
 	/**
 	 * A hashmap of stats for differnt characters
 	 * @return instance of CharacterStats
 	 */
-	public static CharacterStats get() {
-		if(instance == null){instance = new CharacterStats();}
-		return instance;
-	} 
-	private CharacterStats(){
+	
+	public CharacterStats(){
 		statList.put( "Avenger",new int[]{3,3,2,1,1});
 		statList.put( "Phantom",new int[]{1,2,1,2,3});
 		statList.put("Sentinel",new int[]{2,1,3,3,2});
 		statList.put( "DEFAULT",new int[]{1,1,1,1,1});
 		Scale = 2;
+		FallRate=1f;
 	}
 	/**
 	 * Returns an array of character stats; stats are in this order
@@ -35,6 +34,8 @@ public class CharacterStats {
 	public int[] name(String value){
 		return statList.containsKey(value)==true? statList.get(value):statList.get("DEFAULT");
 	}
+	public float getFallRate(){return FallRate;}
 	public int getWorldScale(){return Scale;}
 	public void setWorldScale(int newScale){Scale=newScale;}
+	public void setFallRate(int newFallRate){FallRate=newFallRate;}
 }

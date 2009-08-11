@@ -32,7 +32,7 @@ public class ogre {
 	}    
     
     
-    private static String modelpath = "com/tps1/data/models/";
+    private String modelpath = "data/models/";
 
     private String name;
 

@@ -26,16 +26,18 @@ public class Launcher {
       gameSingleton.init(standardGame).setActive(true);
      // new TestFly();
      sceneManager.Manager().setActive(true);
-     sceneManager.Manager().getTerrainHandler().registerTerrain(new DefaultTest());
-     sceneManager.Manager().getTerrainHandler().build("DefaultTest");
-      CharacterStats.get().setWorldScale(50);
+    // sceneManager.Manager().getTerrainHandler().registerTerrain(new DefaultTest());
+     sceneManager.Manager().getTerrainHandler().registerTerrains();
+    sceneManager.Manager().getTerrainHandler().build("DefaultTest");
+     //gameSingleton.getStats().setWorldScale(50);
      characterManager.get().setActive(true);
      characterManager.get().load("ninja", "TestModel");
      //characterManager.get().Manager("TestModel").setAsHuman();
       
-      //DebugGameState bugger = new DebugGameState();
-   //   GameStateManager.getInstance().attachChild(bugger);
-   //   bugger.setActive(true);
+    //  DebugGameState bugger = new DebugGameState();
+     // GameStateManager.getInstance().attachChild(bugger);
+     // bugger.getRootNode().attachChild(characterManager.get().getRootNode());
+     // bugger.setActive(true);
     }
     
     public static void preStartup(final StandardGame standardGame){

@@ -6,12 +6,14 @@ import util.gameSingleton;
 
 import jmetest.terrain.TestTerrain;
 
+import com.jme.bounding.BoundingBox;
 import com.jme.image.Texture;
 import com.jme.light.DirectionalLight;
 import com.jme.math.Vector3f;
 import com.jme.renderer.ColorRGBA;
 import com.jme.renderer.pass.RenderPass;
 import com.jme.scene.Spatial;
+import com.jme.scene.shape.Box;
 import com.jme.scene.state.CullState;
 import com.jme.scene.state.FogState;
 import com.jme.scene.state.TextureState;
@@ -24,26 +26,13 @@ import TestTerrain.sceneNode;
 
 public class DefaultTest extends sceneNode{
 
-	public DefaultTest() {	super("DefaultTest");fs.setEnabled(false);}
+	public DefaultTest() {	super("DefaultTest");}
 	TerrainPage terrain;
 	public void setupTerrain(){
 		// Set cam above terrain
 		gameSingleton.get().getCamNode.setLocalTranslation(new Vector3f(0, 250, -20));
 		gameSingleton.get().getCamNode.updateWorldData(0);
 
-
-		// Set basic render states
-		CullState cs = gameSingleton.get().getRenderer.createCullState();
-		cs.setCullFace(CullState.Face.Back);
-		cs.setEnabled(true);
-		this.setRenderState(cs);
-
-		// Some light
-		DirectionalLight dl = new DirectionalLight();
-		dl.setDiffuse(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
-		dl.setDirection(new Vector3f(1, -0.5f, 1));
-		dl.setEnabled(true);
-		gameSingleton.get().getLightState.attach(dl);
 
 		// The terrain
 		HillHeightMap heightMap = new HillHeightMap(129, 2000, 5.0f, 20.0f,
@@ -96,7 +85,7 @@ public class DefaultTest extends sceneNode{
 		t2.setCombineOp0RGB(Texture.CombinerOperandRGB.SourceColor);
 		t2.setCombineSrc1RGB(Texture.CombinerSource.Previous);
 		t2.setCombineOp1RGB(Texture.CombinerOperandRGB.SourceColor);
-		this.setRenderState(ts);		
+		this.setRenderState(ts);	
 	}
 
 	@Override

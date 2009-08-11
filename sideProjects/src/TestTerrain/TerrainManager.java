@@ -3,12 +3,17 @@
  */
 package TestTerrain;
 
+import java.io.File;
+
+import java.net.URI;
+
 import java.util.HashMap;
 
+import util.FileClassLoader;
 import util.gameSingleton;
 
+
 import com.jme.scene.Node;
-import com.jme.scene.Spatial;
 import com.jmex.terrain.TerrainPage;
 
 /**
@@ -17,7 +22,7 @@ import com.jmex.terrain.TerrainPage;
  */
 public class TerrainManager{
 	 //store character nodes
-	private  HashMap<String, sceneNode> terrainList = new HashMap<String, sceneNode>();  
+	private  HashMap<String, Node> terrainList = new HashMap<String, Node>();  
 	private Node Handler,baseNode;
 	private sceneNode terrainNode;
 	public TerrainManager() {
@@ -52,12 +57,26 @@ public class TerrainManager{
 		gameSingleton.getLogger.severe("NO TERRAIN WITH SUCH NAME REGISTERED");
 		return;
 		}
-		if(name.contains("base:")){attachBase(terrainList.get(name));return;}
-		attachScene(terrainList.get(name));		
+		if(name.contains("base:")){attachBase(((sceneNode) terrainList.get(name)).startup());return;}
+		attachScene(((sceneNode) terrainList.get(name)).startup());		
 	}
 	/**registers a terrain with the terrainList please identify the base Node with base:
 	 * @param scene the scene to register*/
-	public void registerTerrain(sceneNode scene){terrainList.put(scene.getName(), scene);}
+	//public void registerTerrain(sceneNode scene){terrainList.put(scene.getName(), scene);}
+	public void registerTerrains(){
+		URI levelURI = null;
+		try {
+			levelURI = TerrainManager.class.getClassLoader()
+							.getResource("Levels/").toURI();
+			File directory = new File(levelURI);
+
+			terrainList = (HashMap<String, Node>) FileClassLoader.loadNodeClasses(directory);
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
 	  /**detaches the current terrainNode*/
 	  public void detachTerrainNode() {
 	        Handler.detachChild(terrainNode);
