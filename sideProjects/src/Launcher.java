@@ -22,7 +22,7 @@ public class Launcher {
       
 
       
-      
+       
       gameSingleton.init(standardGame).setActive(true);
      // new TestFly();
      sceneManager.Manager().setActive(true);
