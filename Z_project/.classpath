@@ -10,5 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jMERequired"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jME Physics 2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/crypticShadow"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SimplePhysics"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
