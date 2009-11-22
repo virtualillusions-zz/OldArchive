@@ -1,6 +1,5 @@
 package com.tps1.GameState;
 
-import com.acarter.scenemonitor.SceneMonitor;
 import com.jme.input.InputHandler;
 import com.jme.input.KeyBindingManager;
 import com.jme.input.KeyInput;
@@ -37,23 +36,8 @@ public class DefineGameState extends BasicGameState {
         
         input = new InputHandler();
        
- 	   /////////////////////SETUP SCENEMONITOR///////////////////
-        showSceneMonitor=false;
-        input.addAction( new InputAction() 
-        {
-            public void performAction( InputActionEvent evt ) 
-            {
-                if ( evt.getTriggerPressed() ) 
-                {
-                	showSceneMonitor = !showSceneMonitor;
-                	if(showSceneMonitor==true)
-                	{
-                	registerSceneNodes();
-                	SceneMonitor.getMonitor().showViewer(true);
-                	}
-                }
-            }
-        }, InputHandler.DEVICE_KEYBOARD, KeyInput.KEY_B, InputHandler.AXIS_NONE, false );
+
+        
         
  	    ////////////////////STATISTICS
         KeyBindingManager.getKeyBindingManager().set("toggle_stats", KeyInput.KEY_C);
@@ -68,13 +52,12 @@ public class DefineGameState extends BasicGameState {
 	 * 
 	 * @see GameState#cleanup()
 	 */
-    protected boolean showPhysics, showSceneMonitor;
+    protected boolean showPhysics;
 
 	public void cleanup()
 	{	
 		 System.out.println("Closing Application");
-		 if(showSceneMonitor)
-			 SceneMonitor.getMonitor().cleanup();
+		
          standardGame.finish();
 	}
 
@@ -88,7 +71,7 @@ public class DefineGameState extends BasicGameState {
 	{
 		super.update(tpf);
 		 //////////////////////////////////////////////////////////////////
-        if( showSceneMonitor)   {  	SceneMonitor.getMonitor().updateViewer(tpf);       }
+       
     	input.update( tpf );
 		///////////////////////////////////        
 		
@@ -141,19 +124,9 @@ public class DefineGameState extends BasicGameState {
         if ( showBounds ) {
         	registerBounds(r);
         }
-        
-        if( showSceneMonitor) {
-    		SceneMonitor.getMonitor().renderViewer(display.getRenderer());
-        }        
+       
     }
-    
-    private void registerSceneNodes(){
-    	for(int i = 0 ; i<GameStateManager.getInstance().getQuantity(); i++)
-    	{
-        SceneMonitor.getMonitor().registerNode(((BasicGameState) GameStateManager.getInstance().getChild(i)).getRootNode());
-       	}
-    }
-    
+       
     private void registerBounds(Renderer r){
     	for(int i = 0 ; i<GameStateManager.getInstance().getQuantity(); i++)
     	{

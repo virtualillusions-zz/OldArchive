@@ -64,7 +64,7 @@ public class mainClass extends SimpleGame{
 		
 		collisionScene = new CollisionScene();
 		collisionScene.attachDynamic(dynamNode);
-		collisionScene.attachStatic(new StaticCollider(page,100)).getPhysicMaterial().set(.01f, 0, false);
+		collisionScene.attachStatic(new StaticCollider(page,25)).getPhysicMaterial().set(.01f, 0, false);
 		System.out.println("Building octree, wait a minute...");
 		OctreeDebugger.initialize(display, rootNode);
 		collisionScene.build();
