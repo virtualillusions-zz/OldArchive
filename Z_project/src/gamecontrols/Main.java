@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         standardGame = new StandardGame("GameControl", StandardGame.GameType.GRAPHICAL, null);
         standardGame.start();
- 
+ System.out.println("ACTIVE THREAD COUNT: "+Thread.activeCount());
         GameState cubeState = new CubeGameState();
         GameStateManager.getInstance().attachChild(cubeState);
         cubeState.setActive(true);

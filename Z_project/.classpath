@@ -2,13 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmeRequired"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FengGUI"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jmePhysicsRequired"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jMERequired"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jME Physics 2"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SimplePhysics"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jme"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/A Cryptic Shadow"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jME Required"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SimplePhysics"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/processing-head"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
