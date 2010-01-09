@@ -10,5 +10,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jME Required"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SimplePhysics"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/processing-head"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jme3"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jME3 Required"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
