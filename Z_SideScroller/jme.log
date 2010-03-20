@@ -1,0 +1,73 @@
+INFO JmeSystem 4:26:09 AM Running on jMonkey Engine 3 ALPHA 0.50
+FINE Natives 4:26:09 AM Copied lwjgl.dll to lwjgl.dll
+INFO LwjglAbstractDisplay 4:26:09 AM Using LWJGL 2.3
+INFO LwjglDisplay 4:26:09 AM Selected display mode: 640 x 480 x 0 @0Hz
+INFO LwjglAbstractDisplay 4:26:10 AM Display created.
+FINE LwjglAbstractDisplay 4:26:10 AM Running on thread: LWJGL Renderer Thread
+INFO LwjglAbstractDisplay 4:26:10 AM Vendor: NVIDIA Corporation
+INFO LwjglAbstractDisplay 4:26:10 AM Renderer: GeForce 9500 GT/PCI/SSE2
+INFO LwjglAbstractDisplay 4:26:10 AM Adapter: RDPDD
+INFO LwjglAbstractDisplay 4:26:10 AM Driver Version: null
+INFO LwjglAbstractDisplay 4:26:10 AM OpenGL Version: 3.2.0
+INFO LwjglAbstractDisplay 4:26:10 AM GLSL Ver: 1.50 NVIDIA via Cg compiler
+INFO LwjglTimer 4:26:10 AM Timer resolution: 1000 ticks per second
+FINER LwjglRenderer 4:26:10 AM VTF Units: 32
+FINER LwjglRenderer 4:26:10 AM Texture Units: 32
+FINER LwjglRenderer 4:26:10 AM Vertex Uniforms: 4,096
+FINER LwjglRenderer 4:26:10 AM Fragment Uniforms: 2,048
+FINER LwjglRenderer 4:26:10 AM Preferred Batch Vertex Count: 1,048,576
+FINER LwjglRenderer 4:26:10 AM Preferred Batch Index Count: 1,048,576
+FINER LwjglRenderer 4:26:10 AM Maximum Texture Resolution: 8,192
+FINER LwjglRenderer 4:26:10 AM Maximum CubeMap Resolution: 8,192
+FINER LwjglRenderer 4:26:10 AM FBO RB Max Size: 8,192
+FINER LwjglRenderer 4:26:10 AM FBO Max renderbuffers: 8
+FINER LwjglRenderer 4:26:10 AM FBO Max Samples: 16
+FINER LwjglRenderer 4:26:10 AM FBO Max MRT renderbuffers: 8
+INFO Camera 4:26:10 AM Camera created (W: 640, H: 480)
+INFO LwjglMouseInput 4:26:10 AM Mouse created.
+INFO LwjglKeyInput 4:26:10 AM Keyboard created.
+FINER DesktopAssetManager 4:26:10 AM Loaded font2d.j3md with J3MLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded cooper_00.png with AWTLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded cooper.fnt with BitmapFontLoader
+INFO Node 4:26:10 AM Child (BitmapFont) attached to this node (Gui Node)
+FINER DesktopAssetManager 4:26:10 AM Loaded plain_texture.j3md with J3MLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded Monkey.jpg with AWTLoader
+INFO Node 4:26:10 AM Child (box) attached to this node (null)
+INFO Node 4:26:10 AM Child (null) attached to this node (Root Node)
+INFO Node 4:26:10 AM Child (box2) attached to this node (null)
+INFO Node 4:26:10 AM Child (base) attached to this node (Root Node)
+FINER DesktopAssetManager 4:26:10 AM Loaded plain_texture.vert with GLSLLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded texture.glsllib with GLSLLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded common.glsllib with GLSLLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded plain_texture.frag with GLSLLoader
+FINEST GLObjectManager 4:26:10 AM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINE LwjglRenderer 4:26:10 AM plain_texture.vert compile success
+FINEST GLObjectManager 4:26:10 AM Registered: ShaderSource[name=plain_texture.vert, defines, type=Vertex]
+FINE LwjglRenderer 4:26:10 AM plain_texture.frag compile success
+FINEST GLObjectManager 4:26:10 AM Registered: ShaderSource[name=plain_texture.frag, defines, type=Fragment]
+FINE LwjglRenderer 4:26:10 AM shader link success
+FINEST GLObjectManager 4:26:10 AM Registered: Shader[language=GLSL100, numSources=2, numUniforms=2]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINER DesktopAssetManager 4:26:10 AM Loaded sprite2d.vert with GLSLLoader
+FINER DesktopAssetManager 4:26:10 AM Loaded font.frag with GLSLLoader
+FINEST GLObjectManager 4:26:10 AM Registered: Texture2D[name=cooper_00.png, img=256x256-Luminance8]
+FINE LwjglRenderer 4:26:10 AM sprite2d.vert compile success
+FINEST GLObjectManager 4:26:10 AM Registered: ShaderSource[name=sprite2d.vert, defines, type=Vertex]
+FINE LwjglRenderer 4:26:10 AM font.frag compile success
+FINEST GLObjectManager 4:26:10 AM Registered: ShaderSource[name=font.frag, defines, type=Fragment]
+FINE LwjglRenderer 4:26:10 AM shader link success
+FINEST GLObjectManager 4:26:10 AM Registered: Shader[language=GLSL100, numSources=2, numUniforms=2]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=204]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=136]
+FINEST GLObjectManager 4:26:10 AM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=102]
+FINE Application 4:26:19 AM Closing application: TestClass
+INFO LwjglMouseInput 4:26:19 AM Mouse destroyed.
+INFO LwjglKeyInput 4:26:19 AM Keyboard destroyed.
+INFO LwjglAbstractDisplay 4:26:19 AM Display destroyed.
