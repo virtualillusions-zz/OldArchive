@@ -1,0 +1,105 @@
+INFO G3DSystem 8:07:14 PM Running on jMonkey Engine 3 ALPHA 0.30
+INFO LwjglAbstractDisplay 8:07:14 PM Using LWJGL 2.1.0
+INFO LwjglDisplay 8:07:14 PM Selected display mode: 640 x 480 x 0 @0Hz
+INFO LwjglAbstractDisplay 8:07:14 PM Display created.
+FINE LwjglAbstractDisplay 8:07:14 PM Running on thread: LWJGL Renderer Thread
+INFO LwjglAbstractDisplay 8:07:14 PM Vendor: NVIDIA Corporation
+INFO LwjglAbstractDisplay 8:07:14 PM Renderer: GeForce 9500 GT/PCI/SSE2
+INFO LwjglAbstractDisplay 8:07:14 PM Adapter: RDPDD
+INFO LwjglAbstractDisplay 8:07:14 PM Driver Version: null
+INFO LwjglAbstractDisplay 8:07:14 PM OpenGL Version: 3.2.0
+INFO LwjglAbstractDisplay 8:07:14 PM GLSL Ver: 1.50 NVIDIA via Cg compiler
+INFO LwjglTimer 8:07:14 PM Timer resolution: 1000 ticks per second
+FINER LwjglRenderer 8:07:14 PM VTF Units: 32
+FINER LwjglRenderer 8:07:14 PM Texture Units: 32
+FINER LwjglRenderer 8:07:14 PM Vertex Uniforms: 4,096
+FINER LwjglRenderer 8:07:14 PM Fragment Uniforms: 2,048
+FINER LwjglRenderer 8:07:14 PM Preferred Batch Vertex Count: 1,048,576
+FINER LwjglRenderer 8:07:14 PM Preferred Batch Index Count: 1,048,576
+FINER LwjglRenderer 8:07:14 PM Maximum Texture Resolution: 8,192
+FINER LwjglRenderer 8:07:14 PM Maximum CubeMap Resolution: 8,192
+FINER LwjglRenderer 8:07:14 PM FBO RB Max Size: 8,192
+FINER LwjglRenderer 8:07:14 PM FBO Max renderbuffers: 8
+FINER LwjglRenderer 8:07:14 PM FBO Max Samples: 16
+INFO Camera 8:07:14 PM Camera created (W: 640, H: 480)
+INFO LwjglMouseInput 8:07:14 PM Mouse created.
+INFO LwjglKeyInput 8:07:14 PM Keyboard created.
+FINER AssetManager 8:07:15 PM Loaded font2d.j3md with J3MLoader
+FINER AssetManager 8:07:15 PM Loaded cooper_00.png with AWTLoader
+FINER AssetManager 8:07:15 PM Loaded cooper.fnt with BitmapFontLoader
+INFO Node 8:07:15 PM Child (BitmapFont) attached to this node (Gui Node)
+FINER AssetManager 8:07:15 PM Loaded plain_texture.j3md with J3MLoader
+FINER AssetManager 8:07:15 PM Loaded Monkey.jpg with AWTLoader
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+INFO Node 8:07:15 PM Child (Box) attached to this node (Root Node)
+FINER AssetManager 8:07:15 PM Loaded sprite2d.vert with GLSLLoader
+FINER AssetManager 8:07:15 PM Loaded font.frag with GLSLLoader
+FINEST GLObjectManager 8:07:15 PM Registered: Texture2D[name=cooper_00.png, img=256x256-Luminance8]
+FINE LwjglRenderer 8:07:15 PM sprite2d.vert compile success
+FINEST GLObjectManager 8:07:15 PM Registered: ShaderSource[name=sprite2d.vert, defines, type=Vertex]
+FINE LwjglRenderer 8:07:15 PM font.frag compile success
+FINEST GLObjectManager 8:07:15 PM Registered: ShaderSource[name=font.frag, defines, type=Fragment]
+FINE LwjglRenderer 8:07:15 PM shader link success
+FINEST GLObjectManager 8:07:15 PM Registered: Shader[language=GLSL100, numSources=2, numUniforms=2]
+FINEST GLObjectManager 8:07:15 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=204]
+FINEST GLObjectManager 8:07:15 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=136]
+FINEST GLObjectManager 8:07:15 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=102]
+FINER AssetManager 8:07:16 PM Loaded plain_texture.vert with GLSLLoader
+FINER AssetManager 8:07:16 PM Loaded texture.glsllib with GLSLLoader
+FINER AssetManager 8:07:16 PM Loaded common.glsllib with GLSLLoader
+FINER AssetManager 8:07:16 PM Loaded plain_texture.frag with GLSLLoader
+FINEST GLObjectManager 8:07:16 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINE LwjglRenderer 8:07:16 PM plain_texture.vert compile success
+FINEST GLObjectManager 8:07:16 PM Registered: ShaderSource[name=plain_texture.vert, defines, type=Vertex]
+FINE LwjglRenderer 8:07:16 PM plain_texture.frag compile success
+FINEST GLObjectManager 8:07:16 PM Registered: ShaderSource[name=plain_texture.frag, defines, type=Fragment]
+FINE LwjglRenderer 8:07:16 PM shader link success
+FINEST GLObjectManager 8:07:16 PM Registered: Shader[language=GLSL100, numSources=2, numUniforms=2]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:16 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:16 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:16 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:16 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:17 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:17 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:17 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:17 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:17 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:18 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:18 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+FINEST GLObjectManager 8:07:18 PM Registered: Texture2D[name=Monkey.jpg, img=512x512-BGR8]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Position, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=Normal, usage=Dynamic, elements=72]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=Float, type=TexCoord, usage=Dynamic, elements=48]
+FINEST GLObjectManager 8:07:18 PM Registered: VertexBuffer[fmt=UnsignedShort, type=Index, usage=Dynamic, elements=36]
+INFO LwjglMouseInput 8:07:52 PM Mouse destroyed.
+INFO LwjglKeyInput 8:07:52 PM Keyboard destroyed.
+INFO LwjglAbstractDisplay 8:07:52 PM Display destroyed.

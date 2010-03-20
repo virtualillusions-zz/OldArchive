@@ -28,7 +28,7 @@ public class TestBoxAccuracy extends SimpleApplication {
     }
     
     private void drawBox(int x,int y, int width, int height){
-    	Box b = new Box(new Vector3f(x + width / 2,0,y + height / 2),width/2,10,height/2);
+    	Box b = new Box(new Vector3f(x + width / 2,-(y + height / 2),0),width/2,10,height/2);
     	
         Geometry geom = new Geometry("Box", b);
         geom.updateModelBound();

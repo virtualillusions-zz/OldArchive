@@ -1,1 +1,0 @@
-java -jar jops-editor-0.51.002.jar
