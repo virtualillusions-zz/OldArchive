@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : characterData.xml
+    Created on : April 11, 2010, 12:23 AM
+    Author     : Kyle Williams
+    Description: An organizational list of all fighters and thier stances.
+-->
+
+<characters>
+    <fighter name="roboto">
+        <stance name="" archetype="Basic">
+            <move idle="idle" walk="walk" run="run" jump="jump" crouch="crouch"/>
+            <basic Attack1="jab" Attack2="kick" Attack3="punch" Attack4="sideKick"/>
+            <retribution penance="taunt" vengence="taunt" rage="taunt"/>
+        </stance>
+    </fighter>
+</characters>

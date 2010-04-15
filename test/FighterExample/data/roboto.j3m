@@ -1,0 +1,7 @@
+Material Roboto : phong_lighting.j3md {
+    MaterialParameters {
+        m_DiffuseMap : roboto.jpg
+        m_NormalMap  : roboto_normal.tga
+        m_Shininess  : 16.0
+    }
+}
