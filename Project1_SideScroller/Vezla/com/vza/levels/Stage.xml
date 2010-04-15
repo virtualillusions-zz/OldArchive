@@ -1,0 +1,13 @@
+<stage name="">
+	<platforms>
+		<platform >
+			<position x="" y="" z=""></position>
+			<scale width="" height="" depth=""></scale><rotation angle="">
+				<axis x="" y="" z=""></axis></rotation>
+			</platform></platforms>
+	
+	
+	<spawnPoint><player>
+	<location x="" y="" z=""></location></player>
+		<enemies>
+			<location x="" y="" z=""></location></enemies></spawnPoint></stage>
