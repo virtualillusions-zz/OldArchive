@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session version="2.0.0" name="VezlaTestSounds" sample-rate="44100" id-counter="18">
+  <Config>
+    <end-marker-is-free val="yes"/>
+  </Config>
+  <Sources/>
+  <Regions/>
+  <DiskStreams/>
+  <Locations>
+    <Location id="17" name="start" start="0" end="0" flags="IsMark,IsStart" locked="no"/>
+    <Location id="16" name="end" start="13230000" end="13230000" flags="IsMark,IsEnd" locked="no"/>
+  </Locations>
+  <Connections/>
+  <Routes/>
+  <EditGroups/>
+  <MixGroups/>
+  <Playlists/>
+  <UnusedPlaylists/>
+  <NamedSelections/>
+  <TempoMap>
+    <Tempo start="1|1|0" beats-per-minute="120.000000" note-type="4.000000" movable="no"/>
+    <Meter start="1|1|0" note-type="4.000000" beats-per-bar="4.000000" movable="no"/>
+  </TempoMap>
+  <ControlProtocols>
+    <Protocol name="Mackie" active="no"/>
+    <Protocol name="Generic MIDI" active="no"/>
+  </ControlProtocols>
+</Session>

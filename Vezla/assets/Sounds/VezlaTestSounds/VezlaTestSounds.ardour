@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session version="2.0.0" name="VezlaTestSounds" sample-rate="44100" id-counter="68">
+  <Config>
+    <Option name="output-auto-connect" value="2"/>
+    <Option name="input-auto-connect" value="1"/>
+    <end-marker-is-free val="yes"/>
+  </Config>
+  <Sources/>
+  <Regions/>
+  <DiskStreams/>
+  <Locations>
+    <Location id="17" name="start" start="0" end="0" flags="IsMark,IsStart" locked="no"/>
+    <Location id="16" name="end" start="13230000" end="13230000" flags="IsMark,IsEnd" locked="no"/>
+    <Location id="60" name="Loop" start="0" end="13230000" flags="IsAutoLoop,IsHidden" locked="no"/>
+    <Location id="61" name="Punch" start="0" end="13230000" flags="IsAutoPunch,IsHidden" locked="no"/>
+  </Locations>
+  <Connections/>
+  <Routes>
+    <Route flags="MasterOut" default-type="audio" muted="no" soloed="no" phase-invert="no" denormal-protection="no" mute-affects-pre-fader="no" mute-affects-post-fader="no" mute-affects-control-outs="no" mute-affects-main-outs="no" meter-point="MeterPostFader" order-keys="editor=0:signal=0">
+      <IO name="master" id="18" active="yes" inputs="{}{}" outputs="{system:playback_1}{system:playback_2}" gain="1.000000000000" iolimits="-1,2,-1,2">
+        <Panner linked="no" link_direction="SameDirection" bypassed="no">
+          <Output x="0" y="0"/>
+          <Output x="1" y="0"/>
+          <StreamPanner x="0" type="Equal Power Stereo" muted="no">
+            <Automation>
+              <AutomationList id="56" default="0" min_yval="0" max_yval="1" max_xval="0" state="Off" style="Absolute"/>
+            </Automation>
+            <controllable name="panner" id="55"/>
+          </StreamPanner>
+          <StreamPanner x="1" type="Equal Power Stereo" muted="no">
+            <Automation>
+              <AutomationList id="59" default="1" min_yval="0" max_yval="1" max_xval="0" state="Off" style="Absolute"/>
+            </Automation>
+            <controllable name="panner" id="58"/>
+          </StreamPanner>
+        </Panner>
+        <controllable name="gaincontrol" id="19"/>
+        <Automation>
+          <AutomationList id="20" default="1" min_yval="0" max_yval="2" max_xval="0" state="Off" style="Absolute"/>
+        </Automation>
+      </IO>
+      <controllable name="solo" id="22"/>
+      <controllable name="mute" id="23"/>
+      <remote_control id="1"/>
+      <extra>
+        <GUI color="27295:102:44499" height="70" shown_editor="yes" shown_mixer="yes">
+          <gain height="70" shown="no"/>
+          <pan height="70" shown="no"/>
+        </GUI>
+      </extra>
+    </Route>
+  </Routes>
+  <EditGroups/>
+  <MixGroups/>
+  <Playlists/>
+  <UnusedPlaylists/>
+  <Click>
+    <IO name="click" id="24" active="yes" inputs="" outputs="{system:playback_1}{system:playback_2}" gain="1.000000000000" iolimits="0,0,-1,-1">
+      <Panner linked="no" link_direction="SameDirection" bypassed="no">
+        <Output x="0" y="0"/>
+        <Output x="1" y="0"/>
+        <StreamPanner x="0.5" type="Equal Power Stereo" muted="no">
+          <Automation>
+            <AutomationList id="53" default="0.5" min_yval="0" max_yval="1" max_xval="0" state="Off" style="Absolute"/>
+          </Automation>
+          <controllable name="panner" id="52"/>
+        </StreamPanner>
+      </Panner>
+      <controllable name="gaincontrol" id="25"/>
+      <Automation>
+        <AutomationList id="26" default="1" min_yval="0" max_yval="2" max_xval="0" state="Off" style="Absolute"/>
+      </Automation>
+    </IO>
+  </Click>
+  <NamedSelections/>
+  <TempoMap>
+    <Tempo start="1|1|0" beats-per-minute="120.000000" note-type="4.000000" movable="no"/>
+    <Meter start="1|1|0" note-type="4.000000" beats-per-bar="4.000000" movable="no"/>
+  </TempoMap>
+  <ControlProtocols>
+    <Protocol name="Mackie" active="no"/>
+    <Protocol name="Generic MIDI" active="no"/>
+  </ControlProtocols>
+</Session>

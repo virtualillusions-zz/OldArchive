@@ -1,0 +1,6 @@
+<characterList>
+	<character name="Test" Instructions List="" archetype="">
+	       <SetUp Jump="jump" Crouch="crouch" Attack1="jab" Attack2="kick" Attack3="punch" Attack4="sidekick"></SetUp>
+	       <Specials Penance="" Vengence=""></Specials>
+	       <comboList>remaining walk,tuant idle, run</comboList></character>
+</characterList>
