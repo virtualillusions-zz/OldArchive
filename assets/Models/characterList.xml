@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : characterList.xml
+    Created on : June 3, 2010, 1:51 AM
+    Author     : Kyle Williams
+    Description:
+        Purpose of the document follows.
+-->
+
+<characterList>
+	<character name="Reino"/>
+        <character name="Reino2"/>
+</characterList>

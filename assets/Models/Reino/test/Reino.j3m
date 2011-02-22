@@ -1,0 +1,9 @@
+Material Character : Common/MatDefs/Light/Lighting.j3md {
+    MaterialParameters {
+        m_Shininess: 11.0
+         m_NormalMap: Models/Reino2/ReinoNormalMap.dds
+        m_DiffuseMap: Models/Reino2/ReinoTextureMap.dds
+        m_LowQuality : false
+        m_VertexLighting : true
+    }
+}
