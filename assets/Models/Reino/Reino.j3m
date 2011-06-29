@@ -1,0 +1,24 @@
+Material My Material : Common/MatDefs/Light/Lighting.j3md {
+     MaterialParameters {
+        DiffuseMap : Models/Reino/ReinoTextureMap.dds
+        NormalMap : Models/Reino/ReinoNormalMap.dds
+        Shininess : 0.0
+        AlphaDiscardThreshold : 0.0
+        WardIso : false
+        LowQuality : false
+        EnvMapAsSphereMap : false
+        UseMaterialColors : false
+        UseVertexColor : false
+        Minnaert : false
+        VertexLighting : false
+        UseAlpha : false
+        LATC : false
+        HighQuality : false
+        VTangent : false
+        GlowColor : 0.6 0.6 0.6 1.0
+        Specular : 0.0 0.8 0.8 1.0
+        Diffuse : 1.0 0.0 0.0 1.0
+     }
+    AdditionalRenderState {
+    }
+}

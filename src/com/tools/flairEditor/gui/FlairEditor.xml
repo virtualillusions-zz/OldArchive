@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+<!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- load default styles and controls -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
+
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- start screen -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <screen id="start" controller="com.tools.flairEditor.gui.FlairEditorGUIController">
+         <layer id="mainLayer" childLayout="vertical">  
+            <panel id="header" style="nifty-panel-simple" width="100%" height="5%" childLayout="center">
+                <text id="title" text="Flair Editor Tool" style="base-font" align="center" valign="center" color="#FFFF00"/>
+            </panel>
+            <panel id="Top Row" width="100%" height="45%" childLayout="horizontal">
+                <!--List Of Series-->
+                <panel id="Top Left" style="nifty-panel-bright" width="50%" height="100%" childLayout="vertical">
+                    <panel id="LOS" style="nifty-panel-bright" height="100%" childLayout="vertical">
+                        <text id="LOStitle" text="List of Series" style="base-font" align="center" valign="center" color="#FF0000" height="5%" width="100%"/>
+                        <!--SECTION FOR LIST OF SERIES LISTBOX-->
+                    </panel>               
+                </panel>    
+                <!--List Of Cards In Series-->
+                <panel id="Top Right" style="nifty-panel-bright" width="50%" height="100%" childLayout="vertical">
+                    <panel id="LOCS" childLayout="vertical" height="90%" >
+                        <text id="LOCtitle" text="List of Cards" style="base-font" align="center" valign="center" color="#FF0000" height="5%" width="100%"/>
+                         <!--SECTION FOR LIST OF CARDS LISTBOX-->
+                    </panel>
+                    <panel id="LOCSMOD" style="nifty-panel-no-shadow" childLayout="center" height="10%" >
+                        <control id="addNew" name="button" label="Add New" width="100%" height="100%">
+                            <effect>
+                                <onHover name="hint" hintText="Adds A new Card To the List" hintDelay="100" />
+                            </effect>    
+                        </control>
+                     </panel>                    
+                </panel>
+            </panel>
+            <!--List Of Card Attributes-->
+            <panel id="Bottom ROW" style="nifty-panel-bright" width="50%" height="45%" childLayout="vertical">
+                <panel id="LOA" childLayout="vertical" height="90%">  
+                    <text id="LOAtitle" text="Card Attributes" style="base-font" align="center" valign="center" color="#FF0000" height="5%" width="100%"/>
+                    <!--SECTION FOR LIST OF ATTRIBUTES ScrollPanel-->
+                </panel>
+                <panel id="LOAMOD" style="nifty-panel-no-shadow" childLayout="absolute" height="10%">
+                    <control id="edit"   name="button" label="Edit"   width="35%" height="100%" x="10%" y="0%">
+                        <effect>
+                            <onHover name="hint" hintText="Goes to the Editing Screen For this Card" hintDelay="100" />
+                        </effect>    
+                    </control>
+                    <control id="delete" name="button" label="Delete" width="35%" height="100%" x="55%" y="0%">
+                        <effect>
+                            <onHover name="hint" hintText="Permanently Deletes This Card From the List" hintDelay="100" />
+                        </effect>    
+                    </control>
+                 </panel>
+            </panel>
+            <!--Modifying Buttons-->
+            <panel id="footer" style="nifty-panel-no-shadow" childLayout="absolute" width="100%" height="5%">
+                <control id="sync"    name="button" label="SYNC"    width="30%" height="90%" x="0" y="10%">
+                    <effect>
+                        <onHover name="hint" hintText="Saves The Current List of Cards And Moves the Previous to Backup" hintDelay="100" />
+                    </effect>    
+                </control>
+                <control id="restore" name="button" label="RESTORE" width="30%" height="90%" x="35%" y="10%">
+                    <effect>
+                        <onHover name="hint" hintText="Restores A Previously Synced Card List" hintDelay="100" />
+                    </effect>    
+                </control>
+                <control id="exit"    name="button" label="EXIT"    width="30%" height="90%" x="70%" y="10%">
+                    <effect>
+                        <onHover name="hint" hintText="Exits The Program...Unrecommended If this program is running as an Applet withing a Browser" hintDelay="100" />
+                    </effect>    
+                </control>
+            </panel>
+        </layer>
+    </screen>
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- edit screen -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <screen id="editScreen" controller="com.tools.flairEditor.gui.EditScreenController">
+         <layer id="mainLayer2" childLayout="vertical">  
+            <panel id="header" style="nifty-panel-simple" width="100%" height="5%" childLayout="center">
+                <text id="editTitle" text="Card Editing Screen" style="base-font" align="center" valign="center" color="#FFFF00"/>
+            </panel>
+            <panel id="Top Row" width="100%" height="45%" childLayout="horizontal">
+                <!--Section 1 & 2-->
+                <panel id="Top Left" style="nifty-panel-bright" width="33.3%" height="100%" childLayout="vertical">
+                    <panel id="B1" width="100%" height="10%" childLayout="horizontal">
+                        <panel id="section1Tab" style="nifty-panel-red-no-shadow"    width="50%" height="100%" childLayout="center">
+                            <text id="sect1Title" text="Section 1" style="base-font" align="center" valign="center" color="#000000"/>
+                            <interact onClick="section(1)" />
+                        </panel>
+                        <panel id="section2Tab" style="nifty-panel-bright" width="50%" height="100%" childLayout="center">
+                            <text id="sect2Title" text="Section 2" style="base-font" align="center" valign="center" color="#000000"/>
+                            <interact onClick="section(2)" />
+                        </panel>
+                    </panel>
+                    <panel id="Card Attributes" width="100%" height="90%" childLayout="overlay">
+                        <!--SECTIONS FOR B1-->
+                        <panel id="section1" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                        <panel id="section2" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                    </panel>  
+                </panel>
+                <!--Animation And Stats-->
+                <panel id="Top Middle" style="nifty-panel-bright" width="33.3%" height="100%" childLayout="vertical">
+                    <panel id="B4.5" width="100%" height="10%" childLayout="horizontal">
+                        <panel id="animationTab" style="nifty-panel-red-no-shadow"    width="50%" height="100%" childLayout="center">
+                            <text id="animTitle" text="Animation" style="base-font" align="center" valign="center" color="#000000"/>
+                            <interact onClick="section(3)" />
+                        </panel>
+                        <panel id="statsTab" style="nifty-panel-bright" width="50%" height="100%" childLayout="center">
+                            <text id="statsTitle" text="StatsCapsules" style="base-font" align="center" valign="center" color="#000000"/>
+                            <interact onClick="section(4)" />
+                        </panel>
+                    </panel>
+                    <panel id="AnimStats" width="100%" height="90%" childLayout="overlay">
+                        <!--SECTIONS FOR B4.5-->
+                        <panel id="animationList" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                        <panel id="statsList" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                    </panel>  
+                </panel>  
+                <!--Section 3-->
+                <panel id="Top Right" style="nifty-panel-bright" width="33.3%" height="100%" childLayout="vertical">
+                    <panel id="B.2.3.Container" childLayout="vertical" height="90%" >
+                        <panel id="B.2.3" childLayout="Horizontal" height="10%" >
+                            <panel id="effectsTab" style="nifty-panel-red-no-shadow"    width="50%" height="100%" childLayout="center">
+                                <text id="EffectsTitle" text="Effect" style="base-font" align="center" valign="center" color="#000000"/>
+                                <interact onClick="section(5)" />
+                            </panel>
+                            <panel id="audioTab" style="nifty-panel-bright" width="50%" height="100%" childLayout="center">
+                                <text id="audioTitle" text="Audio" style="base-font" align="center" valign="center" color="#000000"/>
+                                <interact onClick="section(6)" />
+                            </panel>
+                        </panel> 
+                        <panel id="EffectsAudio" childLayout="overlay" height="90%" >
+                            <!--SECTIONS FOR B2 and B3-->
+                            <panel id="effects" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                            <panel id="audio" style="nifty-panel-bright" childLayout="vertical" height="100%"/>
+                        </panel>   
+                    </panel>
+                    <panel id="B2.3.MOD" style="nifty-panel-no-shadow" childLayout="horizontal" height="10%" >
+                        <control id="addEffectAudio" name="button" label="Add New" width="50%" height="100%" >
+                            <effect>
+                                <onHover name="hint" hintText="Add a new Effect or Audio" hintDelay="100" />
+                            </effect>    
+                        </control>
+                        <control id="deleteEffectAudio" name="button" label="Delete" width="50%" height="100%" >
+                            <effect>
+                                <onHover name="hint" hintText="Delete an Effect or Audio" hintDelay="100" />
+                            </effect>    
+                        </control>
+                     </panel>                    
+                </panel>
+            </panel>
+            <!--B4-->
+            <panel id="Bottom ROW" style="nifty-panel-bright" width="50%" height="45%" childLayout="vertical">
+                <panel id="EffectsAudioPane" childLayout="overlay" height="100%">                    
+                    <!--Section for AUDIO or EFFECT attributes-->
+                </panel>
+            </panel>
+            <!--Modifying Buttons-->
+            <panel id="footer" style="nifty-panel-no-shadow" childLayout="absolute" width="100%" height="5%">
+                <control id="back"    name="button" label="Back"    width="30%" height="90%" x="0%" y="10%">
+                    <effect>
+                        <onHover name="hint" hintText="Returns To Previous Page Without Saving" hintDelay="100" />
+                    </effect>    
+                </control>
+                <control id="sync"    name="button" label="SYNC"    width="30%" height="90%" x="35%" y="10%">                
+                    <effect>
+                        <onHover name="hint" hintText="Saves Changes And Returns To Previous Page" hintDelay="100" />
+                    </effect>    
+                </control>
+                <control id="play"    name="button" label="RePlay"    width="30%" height="90%" x="70%" y="10%">                
+                    <effect>
+                        <onHover name="hint" hintText="Performs Card Animations and Effects" hintDelay="100" />
+                    </effect>    
+                </control>
+            </panel>
+        </layer>
+        <layer id="extraLayer" childLayout="absolute">
+            <panel id="extra" height="45%" width="50%" x="50%" y="50%" childLayout="overlay"/>
+        </layer>
+    </screen>
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- sure to exit popup -->
+   <registerSound id="popup" filename="com/tools/flairEditor/sounds/popup.wav" />
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <popup id="Popup" childLayout="center" backgroundColor="#000a">
+    <effect> 
+      <onStartScreen name="fade" startColor="#0000" endColor="#000a" length="250" />
+      <onStartScreen name="playSound" sound="popup" startDelay="250" />
+      <onEndScreen name="fade" startColor="#000a" endColor="#0000" length="250" startDelay="250" />
+    </effect>
+    <panel id="mainContainer" style="nifty-panel-red" childLayout="center" padding="18px,28px,40px,16px" width="30%" height="20%" align="center" valign="center">
+      <panel childLayout="vertical" align="center" valign="center">
+        <panel id="controls" childLayout="vertical" height="70%" width="100%">
+          <text id="text" text="????" style="base-font" align="center" valign="center" color="#000f"/>
+        </panel>
+        <panel id="buttons" childLayout="horizontal" align="center" height="30%">
+          <!--<panel childLayout="center" width="50%">
+            <control id="leftButton" name="button" label="Yes" width="100px" align="center"/>
+          </panel>
+          <panel childLayout="center" width="50%">
+            <control id="rightButton" name="button" label="No" width="100px" align="center"/>
+          </panel>-->
+        </panel>
+      </panel>
+    </panel>
+  </popup>
+</nifty>

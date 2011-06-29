@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.sourceforge.net/nifty.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty.xsd http://nifty-gui.sourceforge.net/nifty.xsd">
+   <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Lifebar styles -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <style id="backGround">
+        <effect>
+            <onStartScreen name="fade" start="#0" end="#f" length="750"/>
+            <onStartScreen name="imageSize" startSize="2.0" endSize="1.0" length="750" />
+            <onStartScreen name="pulsate" scaleFactor="0.008" startColor="#fff0" endColor="#000f" post="true" />
+        </effect>
+    </style>
+   <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Lifebar styles -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <style id="LifeAnimation">
+        <effect>
+            <onStartScreen name="fade" start="#0" end="#f" length="750" startDelay="$startDelay"/>
+            <onStartScreen name="imageSize" startSize="2.0" endSize="1.0" length="750" startDelay="$startDelay"/>
+        </effect>
+    </style>
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Text styles -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <style id="text">
+        <attributes font="aurulent-sans-17.fnt"/>
+        <effect>
+            <onStartScreen name="fade" start="#0" end="#f" startDelay="800" length="750" />
+            <onActive name="textSize" endSize="$size" />
+        </effect>
+    </style>
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- emblem styles -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <style id="emblem">
+        <effect>
+            <onStartScreen name="fade" start="#0" end="#f" length="750"/> <!--primarily for emptyEmblem background-->
+            <onShow name="fade" start="#0" end="#f" length="750"/>
+            <onHide name="move" mode="out" direction="$direction" length="300" inherit="true"/>
+        </effect>
+    </style>
+</nifty-styles>

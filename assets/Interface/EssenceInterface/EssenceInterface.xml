@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty.xsd http://nifty-gui.sourceforge.net/nifty.xsd">
+
+   <useStyles filename="Interface/EssenceInterface/EssenceInterfaceStyles.xml"/>
+
+
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- start screen -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <screen id="start" controller="com.spectre.controller.gui.GuiEssenceController">
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- background -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="backGroundLayer" childLayout="overlay">
+      <image id="backGround" filename="Interface/EssenceInterface/BackGround.png" style="backGround"/>
+    </layer>
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- main-Life-Bars -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="mainLifeBars" childLayout="overlay">
+      <image id="mainLife1" filename="Interface/EssenceInterface/Life/mainLife1.png" style="LifeAnimation" startDelay="200" />
+      <image id="mainLife2" filename="Interface/EssenceInterface/Life/mainLife2.png" style="LifeAnimation" startDelay="400"/>
+      <image id="mainLife3" filename="Interface/EssenceInterface/Life/mainLife3.png" style="LifeAnimation" startDelay="600"/>
+      <image id="mainLife4" filename="Interface/EssenceInterface/Life/mainLife4.png" style="LifeAnimation" startDelay="800"/>
+      <image id="mainLife5" filename="Interface/EssenceInterface/Life/mainLife5.png" style="LifeAnimation" startDelay="1000"/>
+    </layer>
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- sub-Life-Bars -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="subLifeBars" childLayout="overlay">
+      <image id="subLife1" filename="Interface/EssenceInterface/Life/subLife1.png" style="LifeAnimation" startDelay="225" />
+      <image id="subLife2" filename="Interface/EssenceInterface/Life/subLife2.png" style="LifeAnimation" startDelay="388" />
+      <image id="subLife3" filename="Interface/EssenceInterface/Life/subLife3.png" style="LifeAnimation" startDelay="613" />
+      <image id="subLife4" filename="Interface/EssenceInterface/Life/subLife4.png" style="LifeAnimation" startDelay="1000" />
+    </layer> 
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Emblems -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="emblem" childLayout="overlay">
+      <image id="emptyEmblem" filename="Interface/EssenceInterface/Emblem/Empty.png" style="emblem"/>
+      <image id="emblemUp" style="emblem" direction="top"/>
+      <image id="emblemDown" style="emblem" direction="bottom"/>
+      <image id="emblemLeft" style="emblem" direction="left"/>
+      <image id="emblemRight" style="emblem" direction="right"/>
+    </layer>
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Queued -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="queued" childLayout="overlay">
+      <image id="queued1"/>
+      <image id="queued2"/>
+      <image id="queued3"/>
+    </layer>    
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Text-Fields -->
+    <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <layer id="textFields" childLayout="absolute">
+       <!-- Focus -->
+       <text id="focusText"  text="0/0" x="50%" y="55%" color="#f00f" style="text" size="5"/>
+        <!-- Remaining Life -->     
+       <text id="lifeText" text="0" x="50%" y="73%" color="#ffff" style="text" size="1.5"/>
+        <!-- Remaining Cards -->
+       <text id="cardsLeftText" text="0" x="38%" y="90%" color="#000f" style="text" size="1"/>
+    </layer>  
+  </screen>
+</nifty>

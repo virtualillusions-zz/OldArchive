@@ -1,0 +1,8 @@
+Material My Material : Common/MatDefs/Light/Lighting.j3md {
+     MaterialParameters {
+        DiffuseMap : Scenes/sceneElements/blender/totemColorMap.dds
+        NormalMap : Scenes/sceneElements/blender/totemNormalMap.dds
+     }
+    AdditionalRenderState {
+    }
+}

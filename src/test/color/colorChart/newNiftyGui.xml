@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty.xsd http://nifty-gui.sourceforge.net/nifty.xsd">
+ <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- load default styles and controls -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
+
+ <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- start screen -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+    <screen id="start" controller="test.color.colorChart.NiftyBug">
+        <layer id="layer" backgroundColor="#003f" childLayout="center">
+           <panel id="panel" height="75%" width="75%" align="center" valign="center" backgroundColor="#f60f" childLayout="horizontal" visibleToMouse="true">
+                <panel id="chooser" childLayout="center" width="50%" >
+                    <effect>
+                        <onActive name="gradient" post="true" direction="horizontal">
+                            <value offset="0%" color="#0000" />  
+                            <value offset="100%" color="#ffff" />
+                        </onActive>
+                        <onActive name="gradient" post="true" direction="vertical">
+                            <value offset="0%" color="#0000" /> 
+                            <value offset="100%" color="#000f" />
+                        </onActive>  
+                    </effect>
+                </panel>
+                <panel childLayout="center" width="5%" backgroundColor="#0f0f">
+                    <control id="hueBar" name="verticalSlider" height="75%" valign="center" min="0" max="359" initial="0" stepSize="1" buttonStepSize="1"/>
+                </panel>
+                <panel childLayout="vertical" width="45%" backgroundColor="#ffff">
+                    <panel id="resultingColor" childLayout="vertical" width="75%" align="center" height="45%"  backgroundColor="#000f"/>
+                    <panel childLayout="vertical" width="100%" height="55%">
+                        <panel childLayout="absolute">
+                            <text  style="base-font" color="#000f" text="R"                 x="40px" y="0px"/>
+                            <control id="Red" name="textfield" maxLength="3"  width="45px"  x="50px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="H"                 x="100px" y="0px"/>
+                            <control id="Hue" name="textfield" maxLength="3"   width="45px"   x="110px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="o"                 x="160px" y="0px"/>
+                        </panel>
+                        <panel childLayout="absolute">
+                            <text  style="base-font" color="#000f" text="G"                         x="40px" y="0px"/>
+                            <control id="Green" name="textfield" maxLength="3" width="45px"         x="50px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="S"                         x="100px" y="0px"/>
+                            <control id="Saturation" name="textfield" maxLength="3" width="45px"    x="110px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="%"                 x="160px" y="0px"/>
+                        </panel>
+                        <panel childLayout="absolute">
+                            <text  style="base-font" color="#000f" text="B"                 x="40px" y="0px"/>
+                            <control id="Blue" name="textfield" maxLength="3"  width="45px" x="50px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="V"                 x="100px" y="0px"/>
+                            <control id="Value" name="textfield" maxLength="3"  width="45px"x="110px" y="0px"/>
+                            <text  style="base-font" color="#000f" text="%"                 x="160px" y="0px"/>
+                        </panel>
+                        <panel childLayout="absolute">
+                           <text  style="base-font" color="#000f" text="#"                 x="40px" y="0px"/>
+                           <control id="Hex" name="textfield" maxLength="3"  width="105px" x="50px" y="0px"/>   
+                        </panel>
+                    </panel>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+</nifty>

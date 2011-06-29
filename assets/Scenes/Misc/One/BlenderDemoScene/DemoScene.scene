@@ -1,0 +1,302 @@
+<scene formatVersion="1.0.0">
+  <nodes>
+    <node name="Sun">
+      <position x="0.000000" y="36.242599" z="0.000000"/>
+      <quaternion x="-0.707107" y="0.000000" z="0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Sun" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="10.000000" g="10.000000" b="10.000000"/>
+        <colourSpecular r="10.000000" g="10.000000" b="10.000000"/>
+        <lightRange inner="45.000000" outer="45.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.040000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Curve.010">
+      <position x="11.495160" y="3.743973" z="2.406704"/>
+      <quaternion x="0.000000" y="0.000000" z="-1.000000" w="-0.000000"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.010" meshFile="Mesh.001.mesh"/>
+    </node>
+    <node name="Lamp">
+      <position x="4.076245" y="5.903862" z="-1.005454"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Lamp" type="point">
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Camera">
+      <position x="7.481132" y="7.156962" z="7.479049"/>
+      <quaternion x="-0.212056" y="0.386910" z="0.085793" w="0.893293"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <camera name="Camera" fov="28.841546" projectionType="perspective">
+        <clipping nearPlaneDist="0.100000" farPlaneDist="100.000000"/>
+      </camera>
+    </node>
+    <node name="Empty">
+      <position x="-6.572341" y="4.027100" z="5.406677"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Cube">
+      <position x="0.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="Cube" meshFile="Cube.001.mesh"/>
+    </node>
+    <node name="Curve.008">
+      <position x="-14.094512" y="-0.428079" z="7.307316"/>
+      <quaternion x="-0.707107" y="0.000000" z="0.000000" w="0.707107"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.008" meshFile="Mesh.001.mesh"/>
+    </node>
+    <node name="Lamp.009">
+      <position x="9.982135" y="4.089288" z="26.903427"/>
+      <quaternion x="0.403953" y="0.000000" z="-0.000000" w="0.914780"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Plane">
+      <position x="0.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="3.114300" y="3.114300" z="3.114300"/>
+      <entity name="Plane" meshFile="Plane.mesh"/>
+    </node>
+    <node name="Empty.004">
+      <position x="23.757248" y="-0.371411" z="17.883841"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Lamp.015">
+      <position x="-12.896180" y="4.374228" z="6.768126"/>
+      <quaternion x="-0.433619" y="0.000000" z="-0.000000" w="0.901096"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.003" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.014">
+      <position x="8.830386" y="0.446337" z="6.309872"/>
+      <quaternion x="0.403953" y="0.000000" z="-0.000000" w="0.914780"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.003" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.013">
+      <position x="3.398746" y="4.374228" z="3.756741"/>
+      <quaternion x="-0.885600" y="-0.000000" z="0.000000" w="0.464449"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.003" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.012">
+      <position x="13.919465" y="4.374228" z="6.440800"/>
+      <quaternion x="-0.593838" y="0.383871" z="-0.383871" w="0.593838"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.003" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.011">
+      <position x="-6.815984" y="0.184478" z="3.953136"/>
+      <quaternion x="0.887074" y="0.000000" z="-0.000000" w="0.461628"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.003" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Empty.003">
+      <position x="-22.274742" y="-0.371411" z="-23.483469"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Sun.003">
+      <position x="0.000000" y="21.040010" z="0.000000"/>
+      <quaternion x="-0.707107" y="0.000000" z="0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Sun.003" type="directional">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="0.000000" g="6.400000" b="0.064684"/>
+        <colourSpecular r="0.000000" g="6.400000" b="0.064684"/>
+      </light>
+    </node>
+    <node name="Sun.002">
+      <position x="0.000000" y="36.242599" z="-0.000004"/>
+      <quaternion x="-0.536947" y="0.000000" z="0.000000" w="0.843616"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Sun.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="10.000000" g="10.000000" b="10.000000"/>
+        <colourSpecular r="10.000000" g="10.000000" b="10.000000"/>
+        <lightRange inner="45.000000" outer="45.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.040000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Sun.001">
+      <position x="0.000000" y="36.242599" z="0.000000"/>
+      <quaternion x="-0.818912" y="0.000000" z="0.000000" w="0.573919"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Sun.001" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="10.000000" g="10.000000" b="10.000000"/>
+        <colourSpecular r="10.000000" g="10.000000" b="10.000000"/>
+        <lightRange inner="45.000000" outer="45.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.040000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Curve.009">
+      <position x="-13.671542" y="3.743973" z="2.967796"/>
+      <quaternion x="0.707107" y="0.000000" z="-0.000000" w="0.707107"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.009" meshFile="Mesh.001.mesh"/>
+    </node>
+    <node name="Curve.007">
+      <position x="12.646909" y="8.485204" z="23.000259"/>
+      <quaternion x="0.000000" y="0.000000" z="-1.000000" w="-0.000000"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.007" meshFile="Mesh.000.mesh"/>
+    </node>
+    <node name="Curve.004">
+      <position x="-12.942764" y="3.214873" z="27.900871"/>
+      <quaternion x="-0.707107" y="0.000000" z="0.000000" w="0.707107"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.004" meshFile="Mesh.000.mesh"/>
+    </node>
+    <node name="Curve.005">
+      <position x="-12.519794" y="8.485204" z="23.561352"/>
+      <quaternion x="0.707107" y="0.000000" z="-0.000000" w="0.707107"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.005" meshFile="Mesh.000.mesh"/>
+    </node>
+    <node name="Curve.003">
+      <position x="12.223937" y="3.214873" z="28.461966"/>
+      <quaternion x="-0.000000" y="1.000000" z="-0.000000" w="-0.000000"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <entity name="Curve.003" meshFile="Mesh.000.mesh"/>
+    </node>
+    <node name="Lamp.010">
+      <position x="-11.744431" y="8.017180" z="27.361681"/>
+      <quaternion x="-0.433619" y="0.000000" z="-0.000000" w="0.901096"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Stairs">
+      <position x="0.000000" y="3.891744" z="3.153954"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="-0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="Stairs" meshFile="Cube.mesh"/>
+    </node>
+    <node name="SpiralStairs">
+      <position x="3.593104" y="0.313808" z="-14.969417"/>
+      <quaternion x="0.000000" y="-0.999685" z="0.000000" w="0.025111"/>
+      <scale x="3.114300" y="3.114300" z="3.114300"/>
+      <entity name="SpiralStairs" meshFile="SpiralStairs.mesh"/>
+    </node>
+    <node name="Empty.001">
+      <position x="7.666982" y="-0.371411" z="19.261152"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Camera.002">
+      <position x="-14.511475" y="3.884084" z="24.819113"/>
+      <quaternion x="-0.500000" y="-0.500000" z="0.500000" w="0.500000"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <camera name="Camera.002" fov="28.841546" projectionType="perspective">
+        <clipping nearPlaneDist="0.100000" farPlaneDist="100.000000"/>
+      </camera>
+    </node>
+    <node name="Lamp.008">
+      <position x="4.550494" y="8.017180" z="24.350296"/>
+      <quaternion x="-0.885600" y="-0.000000" z="0.000000" w="0.464449"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Empty.002">
+      <position x="7.666982" y="-0.371411" z="-23.483469"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Lamp.006">
+      <position x="-5.664235" y="3.827430" z="24.546692"/>
+      <quaternion x="0.887074" y="0.000000" z="-0.000000" w="0.461628"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.007">
+      <position x="15.071214" y="8.017180" z="27.034355"/>
+      <quaternion x="-0.593838" y="0.383871" z="-0.383871" w="0.593838"/>
+      <scale x="0.544644" y="0.544644" z="0.544644"/>
+      <light name="Lamp.002" type="spotLight" castShadows="true">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+        <lightRange inner="150.000000" outer="150.000000" falloff="1.0"/>
+        <lightAttenuation range="40.000000" constant="1.000000" linear="0.050000" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="SpiralStairs.001">
+      <position x="8.668954" y="0.000000" z="-4.543950"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="3.114300" y="3.114300" z="3.114300"/>
+      <entity name="SpiralStairs.001" meshFile="SpiralStairs.001.mesh"/>
+    </node>
+  </nodes>
+  <externals>
+    <item type="material">
+      <file name="Scene.material"/>
+    </item>
+  </externals>
+  <environment>
+    <colourAmbient r="0.000000" g="0.000000" b="0.000000"/>
+    <colourBackground r="0.050876" g="0.050876" b="0.050876"/>
+  </environment>
+</scene>

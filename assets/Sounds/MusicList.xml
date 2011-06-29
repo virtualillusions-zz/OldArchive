@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MusicList.xml
+    Created on : February 20, 2011, 5:07 PM
+    Author     : Kyle Williams
+    Description:
+        Purpose of the document follows.
+-->
+
+<musicList>
+    <!-- Tag List
+        * Ambient
+        * Battle
+        * Lose
+    -->
+    <Song tag="Ambient"     artist="Celldweller"        title="Eon"                    location="Sounds/etc/Celldweller_Eon.wav" />
+    <Song tag="Ambient"     artist="Celldweller"        title="Outland"                location="Sounds/etc/Celldweller_Outland.wav" />
+    <Song tag="Ambient"     artist="ECHOED"             title="Claire"                 location="Sounds/etc/ECHOED_Claire.wav" />
+    <Song tag="Ambient"     artist="Far East Movement"  title="Like A G6"              location="Sounds/etc/FarEastMovement_LikeAG6.wav" />
+    <Song tag="Ambient"     artist="Celldweller"        title="Last Firstborn"         location="Sounds/etc/LastFirstborn_Celldweller.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Chernobyl"              location="Sounds/etc/Receptor_Chernobyl.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Cigarette Lighter"      location="Sounds/etc/Receptor_CigaretteLighter.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Crematorium"            location="Sounds/etc/Receptor_Crematorium.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Girls"                  location="Sounds/etc/Receptor_Girls.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Rhyno"                  location="Sounds/etc/Receptor_Rhyno.wav" />
+    <Song tag="Ambient"     artist="Receptor"           title="Run Run Run"            location="Sounds/etc/Receptor_RunRunRun.wav" />
+</musicList>

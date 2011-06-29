@@ -1,0 +1,6 @@
+All models should link to 
+skeleton but do not have to 
+export all animations
+
+animations are added from base skeleton 
+meshes in spectre modelLoader

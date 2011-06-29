@@ -1,0 +1,18 @@
+
+    /**AnimData data = (AnimData) assetManager.loadAsset("MySkeleton.skeleton.xml");
+
+        Spatial model1 = assetManager.loadModel("Bob.mesh.xml");
+        AnimControl ctrl1 = model1.getControl(AnimControl.class);
+
+        Spatial model2 = assetManager.loadModel("Joe.mesh.xml");
+        AnimControl ctrl2 = model2.getControl(AnimControl.class);
+
+        Spatial model3 = assetManager.loadModel("Lucy.mesh.xml");
+        AnimControl ctrl3 = model3.getControl(AnimControl.class);
+
+        for (BoneAnimation anim : data.anims){
+            ctrl1.addAnim(anim);
+            ctrl2.addAnim(anim);
+            ctrl3.addAnim(anim);
+        }
+

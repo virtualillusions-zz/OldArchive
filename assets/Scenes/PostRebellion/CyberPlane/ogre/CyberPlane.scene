@@ -1,0 +1,87 @@
+<scene formatVersion="1.0.0">
+  <nodes>
+    <node name="spawn.002">
+      <position x="24.223648" y="-0.000000" z="-20.021980"/>
+      <quaternion x="0.000000" y="-0.917063" z="-0.000000" w="0.398742"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="spawn.003">
+      <position x="21.155167" y="2.923538" z="23.568840"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="spawn.001">
+      <position x="-19.761917" y="0.000000" z="-16.197088"/>
+      <quaternion x="0.000000" y="-0.274190" z="-0.000000" w="0.961676"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Lamp">
+      <position x="-39.628323" y="87.087708" z="-6.215332"/>
+      <quaternion x="0.045972" y="-0.789277" z="-0.460760" w="0.403273"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Lamp" type="directional">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+      </light>
+    </node>
+    <node name="Town Piece 1">
+      <position x="0.000000" y="0.000001" z="0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="0.248887" y="0.248887" z="0.248887"/>
+      <entity name="Town Piece 1" meshFile="Cube.mesh"/>
+    </node>
+    <node name="spawn">
+      <position x="0.000000" y="0.000000" z="27.112474"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+    </node>
+    <node name="Camera">
+      <position x="-29.625362" y="72.906372" z="30.293407"/>
+      <quaternion x="-0.355652" y="-0.383737" z="-0.121708" w="0.843472"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <camera name="Camera" fov="28.841546" projectionType="perspective">
+        <clipping nearPlaneDist="0.100000" farPlaneDist="100.000000"/>
+      </camera>
+    </node>
+    <node name="Lamp.001">
+      <position x="60.714001" y="87.087708" z="-6.215332"/>
+      <quaternion x="0.525596" y="0.590610" z="0.610963" w="0.040649"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Lamp.001" type="directional">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.002">
+      <position x="-0.426647" y="87.087715" z="51.659653"/>
+      <quaternion x="-0.188594" y="0.312182" z="0.783556" w="0.503006"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Lamp.002" type="directional">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.003">
+      <position x="0.299058" y="87.087715" z="-50.301910"/>
+      <quaternion x="-0.781109" y="-0.506912" z="-0.198485" w="0.305798"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Lamp.003" type="directional">
+        <normal x="0.0" y="0.0" z="-1.0"/>
+        <colourDiffuse r="1.000000" g="1.000000" b="1.000000"/>
+        <colourSpecular r="1.000000" g="1.000000" b="1.000000"/>
+      </light>
+    </node>
+  </nodes>
+  <externals>
+    <item type="material">
+      <file name="Scene.material"/>
+    </item>
+  </externals>
+  <environment>
+    <colourAmbient r="0.000000" g="0.000000" b="0.000000"/>
+    <colourBackground r="0.050876" g="0.050876" b="0.050876"/>
+  </environment>
+</scene>

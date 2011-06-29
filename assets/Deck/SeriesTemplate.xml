@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : SeriesTemplate.xml
+    Created on : April 29, 2011, 2:45 AM
+    Author     : Kyle Williams
+    Description:
+        Purpose of the document follows.
+Section1    *Name *Picture *Description *Level *Predacessor
+Section2    *Range(ie long med short self)  *Angle  *Series *Trait(ie DMG,DEF,BUG,DBUG,SUMN,TRANS)
+Section3    AnimName *Effect[] *Audio{} *Translation
+Section4    player or opponent (HP,MP,Knockback,Speed,Defense,Deck)
+            Section4 will support many tokens 
+-->
+
+<SeriesName>
+    <Card name="" maxUses="" prev="" next="maybe more than one">
+        <Info description=""/>
+        <Info range="" angle="" series="" trait=""/>
+        <Info animationName=""/>
+        <Stats HP="" MP="" knockback=""/>
+        <Stats speed="" deffense="" deck=""/>
+        <Translation forward="" backward="" left="" right="" speed="" rate=""/>
+        <Effects>
+            <Effect name="" preset="" type="" particleNumber="">
+                <EffectShape shape="" _="varying params for shapes"/>
+                <EffectBone bones="" />
+                <EffectProperty startColor="" endColor="" startSize="" endSize="" highLife="" lowLife="" />
+                <EffectProperty image="" imagesX="" imagesY=""/>
+                <EffectProperty normal="" facingVelocity="" gravity=""/>
+                <EffectProperty numParticles="" randomAngle=""/>
+                <EffectProperty initialVelocity="" velocityVariation=""/>                
+            </Effect>
+        </Effects>
+        <Audio>
+            <Track location="" pitch="" reverb="" timeOffset="" volume=""/>
+        </Audio>    
+    </Card>
+</SeriesName>

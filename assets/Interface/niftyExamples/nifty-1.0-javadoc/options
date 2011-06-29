@@ -1,0 +1,21 @@
+-classpath '/Users/void/nifty-release/nifty-gui/target/checkout/target/classes:/Users/void/.m2/repository/slick/slick/239/slick-239.jar:/Users/void/.m2/repository/lwjgl/jinput/2.0.1/jinput-2.0.1.jar:/Users/void/.m2/repository/lwjgl/lwjgl/2.0.1/lwjgl-2.0.1.jar:/Users/void/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/Users/void/.m2/repository/lwjgl/lwjgl-util/2.0.1/lwjgl-util-2.0.1.jar'
+ -encoding
+'ISO-8859-1'
+-protected
+-sourcepath
+'/Users/void/nifty-release/nifty-gui/target/checkout/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2009. All Rights Reserved.'
+-charset
+'ISO-8859-1'
+-d
+'/Users/void/nifty-release/nifty-gui/target/checkout/target/apidocs'
+-doctitle
+'nifty 1.0 API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'nifty 1.0 API'

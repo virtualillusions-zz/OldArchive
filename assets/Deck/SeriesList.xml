@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : SeriesList.xml
+    Created on : April 29, 2011, 2:35 AM
+    Author     : Kyle Williams
+    Description: Lists the Series
+-->
+
+<seriesList>
+    <series id="Raw"/>
+    <!--
+    <series id="Ice"/>
+    <series id="Fire"/>
+    <series id="Wind"/>
+    <series id="Earth"/>
+    <series id="Metal"/>
+    <series id="Lightning"/>
+    <series id="Void"/>
+    <series id="Aether"/>  
+    <series id="Matter_Control"/>   
+    <series id="Creation"/>
+    -->
+</seriesList>
