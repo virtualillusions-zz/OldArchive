@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com">
+    <module_version install_time="1311139202326" last="true" origin="installer" specification_version="1.0">
+        <file crc="3112810646" name="config/Modules/com.xml"/>
+        <file crc="2437253843" name="modules/com.jar"/>
+    </module_version>
+</module>

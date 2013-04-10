@@ -1,0 +1,10 @@
+C:\Program Files\jmonkeyplatform\platform=1303267632160
+C:\Users\Kyle Williams\Documents\My Dropbox\gameDevelopment\Shadow Of Illusions\ParticleEmitterSuite\build\cluster=1311139202407
+C:\Program Files\jmonkeyplatform\extra=1300058928000
+C:\Program Files\jmonkeyplatform\harness=1300058928000
+C:\Program Files\jmonkeyplatform\ide=1303267633782
+C:\Program Files\jmonkeyplatform\java=1303267635217
+C:\Program Files\jmonkeyplatform\jmonkeyplatform=1303268802887
+C:\Program Files\jmonkeyplatform\platform=1303267632160
+C:\Users\Kyle Williams\Documents\My Dropbox\gameDevelopment\Shadow Of Illusions\ParticleEmitterSuite\build\testuserdir=1311139202407
+crc=7

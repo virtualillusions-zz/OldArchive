@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE module_updates PUBLIC "-//NetBeans//DTD Autoupdate Catalog 2.6//EN" "http://www.netbeans.org/dtds/autoupdate-catalog-2_6.dtd">
+<module_updates timestamp="20/09/04/20/07/2011">
+
+
+<module_group name="jMP User Contributions">
+
+<module codenamebase="jme3dae.plugin" distribution="jme3dae-plugin.nbm" downloadsize="29097" homepage="" license="AD9FBBC9" moduleauthor="pgi" needsrestart="true" releasedate="2011/07/20">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="jme3dae.plugin" OpenIDE-Module-Display-Category="jMP User Contributions" OpenIDE-Module-Implementation-Version="298" OpenIDE-Module-Java-Dependencies="Java &gt; 1.5" OpenIDE-Module-Long-Description="Collada Support for jMonkeyPlatform" OpenIDE-Module-Module-Dependencies="com.jme3.gde.core/1 &gt; 0.11, com.jme3.gde.core.baselibs/1 &gt; 0.6, org.netbeans.api.progress/1 &gt; 1.20.1, org.netbeans.modules.projectapi/1 &gt; 1.31.1, org.openide.awt &gt; 7.23.1, org.openide.dialogs &gt; 7.15.1, org.openide.filesystems &gt; 7.38.1, org.openide.loaders &gt; 7.16.1, org.openide.nodes &gt; 7.16.1, org.openide.text &gt; 6.30.1, org.openide.util &gt; 8.6.1, org.openide.util.lookup &gt; 8.3.1, org.openide.windows &gt; 6.33.1" OpenIDE-Module-Name="Collada Support" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Collada Support" OpenIDE-Module-Specification-Version="0.8.2.298"/>
+    
+</module>
+
+<module codenamebase="be.stanhebben.xjmp" distribution="be-stanhebben-xjmp.nbm" downloadsize="19482" homepage="http://jmonkeyengine.org/groups/contribution-depot-jme3/forum/topic/directx-to-j3o-converter/" license="AD9FBBC9" moduleauthor="Stan Hebben" needsrestart="false" releasedate="2011/07/20">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="be.stanhebben.xjmp" OpenIDE-Module-Display-Category="jMP User Contributions" OpenIDE-Module-Implementation-Version="298" OpenIDE-Module-Java-Dependencies="Java &gt; 1.5" OpenIDE-Module-Long-Description="This plugin adds support for DirectX .x files to jMP" OpenIDE-Module-Module-Dependencies="com.jme3.gde.core/1 &gt; 0.11, com.jme3.gde.core.baselibs/1 &gt; 0.7.0.6218, org.openide.filesystems &gt; 7.37, org.openide.loaders &gt; 7.15, org.openide.nodes &gt; 7.15, org.openide.util &gt; 8.5, org.openide.util.lookup &gt; 8.2" OpenIDE-Module-Name="DirectX Mesh File Support" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Adds support for DirectX .x files to jMP" OpenIDE-Module-Specification-Version="1.0.298"/>
+    
+</module>
+
+<module codenamebase="net.java.nboglpack.glsleditor" distribution="net-java-nboglpack-glsleditor.nbm" downloadsize="57601" homepage="http://kenai.com/projects/netbeans-opengl-pack" license="DA99A989" moduleauthor="Mathias Henze, Michael Bien" needsrestart="false" releasedate="2011/07/20">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="net.java.nboglpack.glsleditor" OpenIDE-Module-Display-Category="jMP User Contributions" OpenIDE-Module-Implementation-Version="355" OpenIDE-Module-Java-Dependencies="Java &gt; 1.5" OpenIDE-Module-Long-Description="Provides syntax highlighting and code completion with documentation for jME3 GLSL shader files." OpenIDE-Module-Module-Dependencies="org.netbeans.modules.editor.completion/1 &gt; 1.13.2, org.netbeans.modules.editor.lib/3 &gt; 2.0, org.netbeans.modules.languages/0-1 &gt; 1.84.0.1, org.netbeans.modules.lexer/2 &gt; 1.20.0.1, org.openide.filesystems &gt; 6.4.1, org.openide.loaders &gt; 5.9.1, org.openide.nodes &gt; 6.7.1, org.openide.text &gt; 6.21.2, org.openide.util &gt; 6.8.1, org.openide.windows &gt; 6.16" OpenIDE-Module-Name="GLSL editor" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Editor for jME3 shader files" OpenIDE-Module-Specification-Version="2.0.1.355"/>
+    
+</module>
+
+<module codenamebase="com.jme3.gde.lightwave" distribution="com-jme3-gde-lightwave.nbm" downloadsize="9171" homepage="http://jmonkeyengine.org/groups/contribution-depot-jme3/forum/topic/lwo-hps-asset-loaders/" license="AD9FBBC9" moduleauthor="hazmat" needsrestart="true" releasedate="2011/07/20">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="com.jme3.gde.lightwave" OpenIDE-Module-Display-Category="jMP User Contributions" OpenIDE-Module-Implementation-Version="169" OpenIDE-Module-Java-Dependencies="Java &gt; 1.5" OpenIDE-Module-Long-Description="Lightwave LWO Support for jMP" OpenIDE-Module-Module-Dependencies="com.jme3.gde.core/1 &gt; 0.11, com.jme3.gde.core.baselibs/1 &gt; 0.7, org.openide.awt &gt; 7.22, org.openide.filesystems &gt; 7.37, org.openide.loaders &gt; 7.15, org.openide.nodes &gt; 7.15, org.openide.text &gt; 6.30, org.openide.util &gt; 8.5, org.openide.util.lookup &gt; 8.2, org.openide.windows &gt; 6.32" OpenIDE-Module-Name="Lightwave LWO Support" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Lightwave LWO Support" OpenIDE-Module-Specification-Version="0.8.169"/>
+    
+</module>
+
+<module codenamebase="com.jme3.gde.neotexture" distribution="com-jme3-gde-neotexture.nbm" downloadsize="157643" homepage="http://neotextureedit.sourceforge.net/index.html" license="6566AAF5" moduleauthor="Holger Dammertz" needsrestart="true" releasedate="2011/07/20">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="com.jme3.gde.neotexture" OpenIDE-Module-Display-Category="jMP User Contributions" OpenIDE-Module-Implementation-Version="383" OpenIDE-Module-Java-Dependencies="Java &gt; 1.5" OpenIDE-Module-Long-Description="NeoTextureEditor allows you to create procedural textures." OpenIDE-Module-Module-Dependencies="com.jme3.gde.core/1 &gt; 0.8, com.jme3.gde.core.baselibs/1 &gt; 0.6, org.netbeans.modules.settings/1 &gt; 1.26.0, org.openide.awt &gt; 7.23.0, org.openide.filesystems &gt; 7.38.0, org.openide.loaders &gt; 7.16.0, org.openide.nodes &gt; 7.16.0, org.openide.text &gt; 6.30.0, org.openide.util &gt; 8.6.0, org.openide.util.lookup &gt; 8.3.0, org.openide.windows &gt; 6.32.0" OpenIDE-Module-Name="NeoTextureEditor" OpenIDE-Module-Requires="org.openide.windows.WindowManager, org.netbeans.api.javahelp.Help, org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Tool to create procedural textures" OpenIDE-Module-Specification-Version="0.6.4.383"/>
+    
+</module>
+
+</module_group>
+
+<license name="6566AAF5" url="licenses/6566AAF5.license"/>
+<license name="DA99A989" url="licenses/DA99A989.license"/>
+<license name="AD9FBBC9" url="licenses/AD9FBBC9.license"/>
+</module_updates>
+
