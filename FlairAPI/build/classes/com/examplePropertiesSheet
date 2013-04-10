@@ -1,0 +1,46 @@
+    @Override
+    protected Sheet createSheet() {
+        Sheet sheet = Sheet.createDefault();
+        Sheet.Set set = Sheet.createPropertiesSet();
+
+        Animation obj = getLookup().lookup(Animation.class);
+
+        if (obj == null) {
+            return sheet;
+        }
+//
+//        try {
+//            //Animation Name
+//            PropertySupport.Reflection animName = new PropertySupport.Reflection(obj, String.class, "animation");
+//            //animName.setPropertyEditorClass(DatePropertyEditor.class);
+//            animName.setDisplayName("Animation: ");
+//            animName.setShortDescription(" The name of the selected Animation ");
+//            set.put(animName);
+//            //Start Time
+//            PropertySupport.Reflection startTime = new PropertySupport.Reflection(obj, String.class, "startTime");
+//            //startTime.setPropertyEditorClass(DatePropertyEditor.class);
+//            startTime.setDisplayName("Start Time: ");
+//            startTime.setShortDescription(" The Position The Currently Playing Animation Should Begin\n without exception it should be greater than 0 and less than the end time ");
+//            set.put(startTime);
+//            //End Time
+//            PropertySupport.Reflection endTime = new PropertySupport.Reflection(obj, String.class, "endTime");
+//            //endTime.setPropertyEditorClass(DatePropertyEditor.class);
+//            endTime.setDisplayName("End Time: ");
+//            endTime.setShortDescription(" The Position The Currently Playing Animation Should End\n without exception it should be more than the initial start time yet less than the maximum animation Time ");
+//            set.put(endTime);
+//            //Speed
+//            PropertySupport.Reflection speed = new PropertySupport.Reflection(obj, String.class, "speed");
+//            //speed.setPropertyEditorClass(DatePropertyEditor.class);
+//            speed.setDisplayName("Speed: ");
+//            speed.setShortDescription(" The Pace the currently Playing Animation Should  Play At");
+//            set.put(speed);
+//            
+//        } catch (NoSuchMethodException ex) {
+//            ErrorManager.getDefault();
+//            System.exit(1);
+//        }
+//
+//        sheet.put(set);
+
+        return sheet;
+    }

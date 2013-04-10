@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tc-ref version="2.2">
+    <module name="com.jme3.gde.scenecomposer" spec="0.1" />
+    <tc-id id="SceneComposerTopComponent" />
+    <state opened="false" />
+</tc-ref>

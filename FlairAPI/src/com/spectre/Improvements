@@ -1,0 +1,8 @@
+
+2. Add Card Requirements Support
+    a) Add extra pane to flair editor at least 10 rows 2 columns[key Value] 
+            i) this is for abstract values not listed such as requirements etc...
+    b) Add Hashmap to Card.java variable name: Extra
+
+3. Decide on a general starting MP and implement it into MPCost & MPIncrease of FlairDataEditor
+

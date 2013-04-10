@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.spectre.flairapi
+OpenIDE-Module-Layer: com/spectre/flairapi/layer.xml
+OpenIDE-Module-Localizing-Bundle: com/spectre/flairapi/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

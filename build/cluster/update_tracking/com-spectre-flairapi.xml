@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com.spectre.flairapi">
+    <module_version install_time="1360912784878" last="true" origin="installer" specification_version="1.0">
+        <file crc="1656705430" name="config/Modules/com-spectre-flairapi.xml"/>
+        <file crc="3259972974" name="modules/com-spectre-flairapi.jar"/>
+        <file crc="3718567113" name="modules/ext/Spectre.jar"/>
+        <file crc="470069060" name="modules/ext/eclipselink.jar"/>
+    </module_version>
+</module>

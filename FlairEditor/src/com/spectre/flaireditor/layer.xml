@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <!--
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="com-spectre-flairvisualeditor-FlairVisualEditorTopComponent.instance">
+                <attr name="iconBase" stringvalue="com/spectre/flairvisualeditor/icon.png"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+                <attr name="preferredID" stringvalue="FlairVisualEditorTopComponent"/>
+            </file>
+        </folder>
+    </folder>
+   -->
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="com-spectre-flairanimationexplorer-FlairAnimationExplorerTopComponent.instance_hidden"/>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="com-spectre-flairanimationexplorer-FlairAnimationExplorerTopComponent.shadow_hidden"/>
+        </folder>
+    </folder>
+</filesystem>

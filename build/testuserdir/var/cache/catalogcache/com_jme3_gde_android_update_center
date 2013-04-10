@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE module_updates PUBLIC "-//NetBeans//DTD Autoupdate Catalog 2.6//EN" "http://www.netbeans.org/dtds/autoupdate-catalog-2_6.dtd">
+<module_updates timestamp="07/19/10/12/04/2012">
+
+
+<module_group name="Mobility">
+
+<module codenamebase="org.netbeans.modules.android.kit" distribution="org-netbeans-modules-android-kit.nbm" downloadsize="8248" homepage="http://www.nbandroid.org" license="B2B74E56" moduleauthor="Martin Adamek, Radim Kubacki, Tomas Zezula" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="org.netbeans.modules.android.kit" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Long-Description="Integrated support for Android mobile platform  projects and tools." OpenIDE-Module-Module-Dependencies="com.android.common &gt; 1.17, com.android.ddmlib &gt; 1.17, org.netbeans.modules.android.androidprefs &gt; 1.17, org.netbeans.modules.android.core/2 &gt; 1.29, org.netbeans.modules.android.grammars &gt; 1.11, org.netbeans.modules.android.logcat &gt; 1.12, org.netbeans.modules.android.project &gt; 1.47, org.netbeans.modules.android.sdklib &gt; 1.17, org.netbeans.modules.android.xml &gt; 1.5, org.netbeans.modules.java.kit &gt; 1.0" OpenIDE-Module-Name="Android" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Plugin for developing Android applications" OpenIDE-Module-Specification-Version="1.13"/>
+    
+</module>
+
+<module autoload="true" codenamebase="com.android.common" distribution="com-android-common.nbm" downloadsize="18535" homepage="" license="B2B74E56" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="com.android.common" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.4" OpenIDE-Module-Name="Android common library" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Specification-Version="1.17"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.core" distribution="org-netbeans-modules-android-core.nbm" downloadsize="263323" homepage="" license="AD9FBBC9" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.core/2" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Module-Dependencies="com.android.ddmlib &gt; 1.0, org.netbeans.api.java.classpath/1 &gt; 1.19.1, org.netbeans.modules.android.androidprefs &gt; 1.0, org.netbeans.modules.android.sdklib &gt; 1.0, org.netbeans.modules.extexecution/2 &gt; 1.21.1, org.netbeans.modules.options.api/1 &gt; 1.12.2, org.openide.actions &gt; 6.8.1.1, org.openide.awt &gt; 7.3.1.1, org.openide.dialogs &gt; 7.8.1, org.openide.explorer &gt; 6.28.1, org.openide.filesystems &gt; 7.13.1.1.1, org.openide.loaders &gt; 7.2.3, org.openide.modules &gt; 7.7.1, org.openide.nodes &gt; 7.7.3.1, org.openide.util &gt; 7.18.1.1, org.openide.util.lookup &gt; 8.3.1" OpenIDE-Module-Name="Android Core" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Core plugin for developing Android applications" OpenIDE-Module-Specification-Version="1.29"/>
+    
+</module>
+
+<module autoload="true" codenamebase="com.android.ddmlib" distribution="com-android-ddmlib.nbm" downloadsize="69359" homepage="" license="72F9DB1B" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="com.android.ddmlib" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.4" OpenIDE-Module-Name="Android Ddmlib" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Specification-Version="1.17"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.grammars" distribution="org-netbeans-modules-android-grammars.nbm" downloadsize="24426" homepage="http://www.nbandroid.org" license="B2B74E56" moduleauthor="Martin Adamek, Radim Kubacki, Tomas Zezula" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.grammars" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Long-Description="Supports editing of XML files in Android projects." OpenIDE-Module-Module-Dependencies="org.netbeans.api.java.classpath/1 &gt; 1.25.1, org.netbeans.libs.javacapi &gt; 0.13.1.1, org.netbeans.modules.android.core/2 &gt; 1.9, org.netbeans.modules.android.project = 1, org.netbeans.modules.android.sdklib &gt; 1.14, org.netbeans.modules.java.source &gt; 0.60.1.10.8.4, org.netbeans.modules.project.ant/1 &gt; 1.26.1, org.netbeans.modules.projectapi/1 &gt; 1.19.1, org.netbeans.modules.xml.core/2 &gt; 1.15.1.4, org.openide.awt &gt; 7.3.1.1, org.openide.filesystems &gt; 7.13.1.1.1, org.openide.nodes &gt; 7.7.1.1, org.openide.util &gt; 7.18.1.1" OpenIDE-Module-Name="Android Grammars" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Supports editing of XML files in Android projects." OpenIDE-Module-Specification-Version="1.14"/>
+    
+</module>
+
+<module autoload="true" codenamebase="org.netbeans.modules.android.androidprefs" distribution="org-netbeans-modules-android-androidprefs.nbm" downloadsize="9364" homepage="" license="B2B74E56" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.androidprefs" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.4" OpenIDE-Module-Name="AndroidPrefs" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Specification-Version="1.17"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.project" distribution="org-netbeans-modules-android-project.nbm" downloadsize="107390" homepage="http://www.nbandroid.org" license="B2B74E56" moduleauthor="Martin Adamek, Radim Kubacki, Tomas Zezula" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.project" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="1" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Long-Description="Supports plain Android projects for application that can be deployed to Android devices. " OpenIDE-Module-Module-Dependencies="com.android.common &gt; 1.12, com.android.ddmlib &gt; 1.3, org.apache.tools.ant.module/3 &gt; 3.12, org.netbeans.api.debugger.jpda/2 &gt; 2.27.1, org.netbeans.api.java/1 &gt; 1.13, org.netbeans.api.java.classpath/1 &gt; 1.18, org.netbeans.api.progress/1 &gt; 1.8, org.netbeans.libs.javacapi &gt; 0.5, org.netbeans.modules.android.androidprefs &gt; 1.0, org.netbeans.modules.android.core/2 &gt; 1.27, org.netbeans.modules.android.sdklib &gt; 1.3, org.netbeans.modules.ant.browsetask, org.netbeans.modules.extexecution/2 &gt; 1.21.1, org.netbeans.modules.java.project/1 &gt; 1.12, org.netbeans.modules.java.source &gt; 0.2, org.netbeans.modules.java.sourceui/1 &gt; 1.1, org.netbeans.modules.options.api/1 &gt; 1.18.1, org.netbeans.modules.project.ant/1 &gt; 1.16, org.netbeans.modules.project.libraries/1, org.netbeans.modules.projectapi/1 &gt; 1.13, org.netbeans.modules.projectuiapi/1 &gt; 1.24, org.netbeans.modules.queries/1 &gt; 1.9, org.netbeans.spi.debugger.ui/1 &gt; 2.23.1, org.openide.actions &gt; 6.2, org.openide.awt &gt; 6.2, org.openide.dialogs &gt; 6.2, org.openide.execution &gt; 1.2, org.openide.filesystems &gt; 7.28, org.openide.io &gt; 1.23.1, org.openide.loaders, org.openide.modules &gt; 6.2, org.openide.nodes &gt; 6.5, org.openide.util &gt; 7.8, org.openide.util.lookup &gt; 8.3.1, org.openide.windows &gt; 6.2" OpenIDE-Module-Name="Android Project" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Support for general Google Android projects." OpenIDE-Module-Specification-Version="1.48"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.testrunner69" distribution="org-netbeans-modules-android-testrunner69.nbm" downloadsize="6247" homepage="" license="AD9FBBC9" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="org.netbeans.modules.android.testrunner69" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Module-Dependencies="com.android.ddmlib &gt; 1.2, org.netbeans.api.debugger/1 &gt; 1.26.1, org.netbeans.modules.android.core/2 &gt; 1.5, org.netbeans.modules.android.project &gt; 1.15, org.netbeans.modules.android.sdklib &gt; 1.2, org.netbeans.modules.projectapi/1 &gt; 1.31.1, org.netbeans.spi.debugger.ui/1 &gt; 2.23.1, org.openide.actions &gt; 6.16.1, org.openide.util &gt; 8.6.1, org.openide.util.lookup &gt; 8.3.1, org.netbeans.modules.gsf.testrunner = 201006101454" OpenIDE-Module-Name="Android Test Runner for NetBeans 6.9" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Integration between Android test runner and test results output window." OpenIDE-Module-Specification-Version="1.3"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.testrunner691" distribution="org-netbeans-modules-android-testrunner691.nbm" downloadsize="5793" homepage="" license="AD9FBBC9" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="org.netbeans.modules.android.testrunner691" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Module-Dependencies="com.android.ddmlib &gt; 1.2, org.netbeans.api.debugger/1 &gt; 1.26.1, org.netbeans.modules.android.core/2 &gt; 1.5, org.netbeans.modules.android.project &gt; 1.15, org.netbeans.modules.android.sdklib &gt; 1.2, org.netbeans.modules.projectapi/1 &gt; 1.31.1, org.netbeans.spi.debugger.ui/1 &gt; 2.23.1, org.openide.actions &gt; 6.16.1, org.openide.util &gt; 8.6.1, org.openide.util.lookup &gt; 8.3.1, org.netbeans.modules.gsf.testrunner = 201007282301" OpenIDE-Module-Name="Android Test Runner for NetBeans 6.9.1" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Integration between Android test runner and test results output window." OpenIDE-Module-Specification-Version="1.3"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.testrunner" distribution="org-netbeans-modules-android-testrunner.nbm" downloadsize="5756" homepage="" license="AD9FBBC9" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="true" OpenIDE-Module="org.netbeans.modules.android.testrunner" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Module-Dependencies="com.android.ddmlib &gt; 1.2, org.netbeans.api.debugger/1 &gt; 1.26.1, org.netbeans.modules.android.core/2 &gt; 1.5, org.netbeans.modules.android.project &gt; 1.15, org.netbeans.modules.android.sdklib &gt; 1.2, org.netbeans.modules.projectapi/1 &gt; 1.31.1, org.netbeans.spi.debugger.ui/1 &gt; 2.23.1, org.openide.actions &gt; 6.16.1, org.openide.util &gt; 8.6.1, org.openide.util.lookup &gt; 8.3.1, org.netbeans.modules.gsf.testrunner &gt; 1.19.1" OpenIDE-Module-Name="Android Test Runner for NetBeans 7.0+" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Integration between Android test runner and test results output window." OpenIDE-Module-Specification-Version="1.3"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.xml" distribution="org-netbeans-modules-android-xml.nbm" downloadsize="14789" homepage="http://www.nbandroid.org" license="B2B74E56" moduleauthor="Martin Adamek, Radim Kubacki, Tomas Zezula" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.xml" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Long-Description="Handling of Android XML configuration files" OpenIDE-Module-Module-Dependencies="org.jdesktop.layout/1 &gt; 1.13.1, org.netbeans.core.multiview/1 &gt; 1.12.1, org.netbeans.modules.xml.multiview/1 = 2, org.netbeans.modules.xml.retriever/1 &gt; 1.3.1, org.netbeans.modules.xml.xam/1 &gt; 1.4.1, org.netbeans.modules.xml.xdm/1 &gt; 1.4.1, org.openide.awt &gt; 7.3.1.1, org.openide.filesystems &gt; 7.13.1.1.1, org.openide.loaders &gt; 7.2.1, org.openide.nodes &gt; 7.7.1.1, org.openide.text &gt; 6.21.1, org.openide.util &gt; 7.18.1.1, org.openide.windows &gt; 6.24.1" OpenIDE-Module-Name="Android XML" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Android XML files" OpenIDE-Module-Specification-Version="1.5"/>
+    
+</module>
+
+<module codenamebase="org.netbeans.modules.android.logcat" distribution="org-netbeans-modules-android-logcat.nbm" downloadsize="38134" homepage="" license="AD9FBBC9" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.logcat" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.6" OpenIDE-Module-Module-Dependencies="com.android.ddmlib &gt; 1.0, org.netbeans.api.java.classpath/1 &gt; 1.25.1, org.netbeans.modules.android.core/2 &gt; 1.3, org.netbeans.modules.settings/1 &gt; 1.15.1, org.openide.awt &gt; 7.3.1.1, org.openide.filesystems &gt; 7.3, org.openide.loaders &gt; 7.16.1, org.openide.modules &gt; 7.3, org.openide.nodes &gt; 7.16.1, org.openide.text &gt; 6.30.1, org.openide.util &gt; 7.18.1.1, org.openide.util.lookup &gt; 8.3.1, org.openide.windows &gt; 6.24.1" OpenIDE-Module-Name="LogCat" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Specification-Version="1.12"/>
+    
+</module>
+
+<module autoload="true" codenamebase="org.netbeans.modules.android.sdklib" distribution="org-netbeans-modules-android-sdklib.nbm" downloadsize="103808" homepage="" license="B2B74E56" moduleauthor="" needsrestart="false" releasedate="2012/04/12">
+    <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.netbeans.modules.android.sdklib" OpenIDE-Module-Display-Category="Mobility" OpenIDE-Module-Implementation-Version="43" OpenIDE-Module-Java-Dependencies="Java &gt; 1.4" OpenIDE-Module-Module-Dependencies="com.android.common &gt; 1.12, org.netbeans.modules.android.androidprefs &gt; 1.0" OpenIDE-Module-Name="SDK Library" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Specification-Version="1.17"/>
+    
+</module>
+
+</module_group>
+
+<license name="72F9DB1B" url="licenses/72F9DB1B.license"/>
+<license name="AD9FBBC9" url="licenses/AD9FBBC9.license"/>
+<license name="B2B74E56" url="licenses/B2B74E56.license"/>
+</module_updates>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com.spectre.flaireditor">
+    <module_version install_time="1360920950567" last="true" origin="installer" specification_version="1.0">
+        <file crc="2118136862" name="config/Modules/com-spectre-flaireditor.xml"/>
+        <file crc="337167638" name="modules/com-spectre-flaireditor.jar"/>
+        <file crc="86069109" name="modules/ext/Spectre.jar"/>
+    </module_version>
+</module>
