@@ -9,37 +9,40 @@ import com.simsilica.es.EntityComponent;
 /**
  * Boolean used to check if focus rate should be increased and by how much
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class IncreaseFocusRatePiece implements EntityComponent {
 
-    private boolean increaseFocusRate;
+    private boolean isIncreaseFocusRate;
     private float increasedRate;
-
+ 
     public IncreaseFocusRatePiece() {
-        increaseFocusRate = false;
-        increasedRate = 1.5f;
+        this(false, 1.005f);
     }
 
     public IncreaseFocusRatePiece(boolean increaseFocusRate) {
-        this.increaseFocusRate = increaseFocusRate;
+        this(increaseFocusRate, 1.005f);
     }
 
     public IncreaseFocusRatePiece(float increasedRate) {
-        this.increaseFocusRate = true;
+        this(true, increasedRate);
+    }
+
+    public IncreaseFocusRatePiece(boolean increaseFocusRate, float increasedRate) {
+        this.isIncreaseFocusRate = increaseFocusRate;
         this.increasedRate = increasedRate;
     }
 
-    public boolean isIncreaseFocusRate() {
-        return increaseFocusRate;
+    public boolean isIncreasedFocusRate() {
+        return isIncreaseFocusRate;
     }
 
-    public float getIncreasedRate() {
+    public float getIncreasedFocusRate() {
         return increasedRate;
     }
 
     @Override
     public String toString() {
-        return "IncreaseFocusRatePiece[increaseFocusRate=" + increaseFocusRate + ", increasedRate=" + increasedRate + "]";
+        return "IncreaseFocusRatePiece[increaseFocusRate=" + isIncreaseFocusRate + ", increasedRate=" + increasedRate + "]";
     }
 }

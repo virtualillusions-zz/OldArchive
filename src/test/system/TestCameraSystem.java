@@ -20,10 +20,10 @@ import com.jme3.scene.shape.Box;
 import com.jme3.system.AppSettings;
 import com.simsilica.es.EntityId;
 import com.spectre.app.SimpleAppState;
+import com.spectre.app.input.Buttons;
 import com.spectre.scene.camera.CameraSystem;
 import com.spectre.scene.camera.components.CameraPiece;
 import com.spectre.scene.visual.components.InScenePiece;
-import com.spectre.systems.input.Buttons;
 import java.util.ArrayList;
 import test.physics.PhysicsTestHelper;
 
@@ -35,7 +35,7 @@ public class TestCameraSystem extends SimpleAppState {
 
     public static void main(String[] args) {
         Application app = new SimpleApplication(
-                new CameraSystem(), 
+                new CameraSystem(),
                 new TestCameraSystem()) {
             @Override
             public void simpleInitApp() {
@@ -80,7 +80,7 @@ public class TestCameraSystem extends SimpleAppState {
         getInputManager().addMapping("add", new KeyTrigger(KeyInput.KEY_A));
         getInputManager().addMapping("remove", new KeyTrigger(KeyInput.KEY_R));
         getInputManager().addMapping("change", new KeyTrigger(KeyInput.KEY_C));
-        getInputManager().addListener(actionListener, "add", "remove", "change");        
+        getInputManager().addListener(actionListener, "add", "remove", "change");
     }
     private ActionListener actionListener = new ActionListener() {
         @Override

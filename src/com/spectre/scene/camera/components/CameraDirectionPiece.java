@@ -13,7 +13,7 @@ import com.spectre.util.math.Vector3fPiece;
  *
  * @return the direction the camera is facing.
  * @see Camera#getDirection()
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class CameraDirectionPiece extends Vector3fPiece {
 

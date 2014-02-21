@@ -10,7 +10,7 @@ import com.simsilica.es.EntityComponent;
  * Characters current projectile accuracy 0 indicates normal and a positive or
  * negative value indicates a tenth percentile change
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class AccuracyPiece implements EntityComponent {
 

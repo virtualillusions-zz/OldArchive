@@ -10,7 +10,7 @@ import com.simsilica.es.EntityComponent;
  * A component to represent if the player is currently holding down the modifier
  * button on the controller
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class ModifierButtonPiece implements EntityComponent {
 

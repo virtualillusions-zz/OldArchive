@@ -9,7 +9,7 @@ import com.simsilica.es.PersistentComponent;
 /**
  * A component used to represent the players current high score
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class PlayerHighScorePiece implements PersistentComponent {
 

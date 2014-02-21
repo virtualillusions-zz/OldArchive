@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * The Characters current usable MP
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class FocusPiece implements EntityComponent {
 

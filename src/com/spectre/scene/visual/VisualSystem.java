@@ -12,28 +12,29 @@ import com.jme3.input.controls.ActionListener;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.simsilica.es.Entity;
-import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
 import com.spectre.app.SpectreAppState;
-import com.spectre.app.SpectreApplication;
 import com.spectre.app.SpectreApplicationState;
+import com.spectre.app.input.Buttons;
 import com.spectre.scene.visual.components.*;
 import com.spectre.scene.visual.components.VisualRepPiece.VisualType;
-import com.spectre.systems.input.Buttons;
-import com.spectre.systems.input.components.ActionModePiece;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
 
 /**
- * @author Kyle
+ * <b>NickName:</b> GenericVisualSystem<br/>
+ *
+ * <b>Purpose:</b> DefactoVisualSystem<br/>
+ *
+ * <b>Description: Defacto Visual System used in almost all cases</b>
+ *
+ * @author Kyle D. Williams
  */
 public class VisualSystem extends SpectreAppState implements ActionListener {
 
-    private EntityData ed;
     private Node modelNode;
     private Node sceneNode;
     private EntitySet visualRepSet;
@@ -45,11 +46,10 @@ public class VisualSystem extends SpectreAppState implements ActionListener {
 
     @Override
     public void SpectreAppState(final SpectreApplicationState sAppState) {
-        this.ed = sAppState.getEntityData();
         this.modelBindingList = sAppState.getModelBindingsList();
         this.modelNode = sAppState.getModelNode();
         this.sceneNode = sAppState.getSceneNode();
-        this.visualRepSet = ed.getEntities(
+        this.visualRepSet = getEntityData().getEntities(
                 VisualRepPiece.class,
                 InScenePiece.class);
         this.inputManager = sAppState.getInputManager();
@@ -59,6 +59,30 @@ public class VisualSystem extends SpectreAppState implements ActionListener {
                 return sAppState.getAssetManager().loadModel(key);
             }
         });
+    }
+
+    @Override
+    public void cleanUp() {
+        visualRepSet.release();
+        spectreUpdate(0);
+        this.visualRepSet = null;
+        this.modelNode = null;
+        this.sceneNode = null;
+        this.inputManager.removeListener(this);
+        this.inputManager = null;
+        this.loadedList = null;
+        this.modelBindingList = null;
+    }
+
+    @Override
+    public void onAction(String name, boolean isPressed, float tpf) {
+        for (Iterator<Entity> it = visualRepSet.iterator(); it.hasNext();) {
+            Entity entity = it.next();
+            if (name.contains(entity.getId() + ":" + Buttons.ControlInputs.Mode)) {
+                entity.set(new ActionModePiece(isPressed));
+                break;
+            }
+        }
     }
 
     @Override
@@ -79,6 +103,12 @@ public class VisualSystem extends SpectreAppState implements ActionListener {
             String assetPath = vrp.getAssetName();
             try {
                 Spatial model = modelBindingList.get(id);
+                if (model != null && !model.getKey().getName().equals(assetPath)) {
+                    model.removeFromParent();//must be used this way in case a
+                    //sceneNode for some reason becomes a modelNode
+                    //Now reload new asset
+                    model = null;
+                }
                 if (model == null) {
                     model = loadedList.get(vrp.getAssetName()).clone();
                     //Set Spatial mapping
@@ -86,27 +116,19 @@ public class VisualSystem extends SpectreAppState implements ActionListener {
                     ///SECTION MUST BE PLACED INSIDE TO PREVENT LOOP
                     //Alert All systems of a change
                     e.set(new InScenePiece());
-                    //Set Stance Piece
-                    e.set(new ActionModePiece());
-                } else if (!model.getKey().getName().equals(assetPath)) {
-                    model.removeFromParent();//must be used this way in case a
-                    //sceneNode for some reason becomes a modelNode
-                    //reload new asset
-                    model = loadedList.get(vrp.getAssetName()).clone();
-                    //replace spatial mapping
-                    modelBindingList.put(e.getId(), model);
-                    ///SECTION MUST BE PLACED INSIDE TO PREVENT LOOP
-                    //Alert All systems of a change
-                    e.set(new InScenePiece());
+                }
+                //Prevent changing mesh resetting actionModePiece
+                if (getEntityData().getComponent(id, ActionModePiece.class) == null) {
                     //Set Stance Piece
                     e.set(new ActionModePiece());
                 }
                 //FINISH UP 
-                //attaching outside allows for more possibilities to fix issues
+                //attaching outside allows for debugging possibilities like preloading and changing scale
+                //TODO: this should be added to model==null block and their should be a different way to change scale,etc
                 root.attachChild(model);
                 inputManager.addListener(this, Buttons.getActionButton(e.getId()));
             } catch (ExecutionException ex) {
-                SpectreApplication.logger.log(Level.SEVERE, "Unable to correctly load Asset: " + vrp.getAssetName(), ex);
+                log.error("Unable to correctly load Asset: " + vrp.getAssetName(), ex);
             }
         }
     }
@@ -119,34 +141,7 @@ public class VisualSystem extends SpectreAppState implements ActionListener {
             Spatial model = modelBindingList.remove(e.getId());
             root.detachChild(model);
             //Generally frowned on but required to update classes in case of issue
-            ed.removeComponent(e.getId(), InScenePiece.class);
+            getEntityData().removeComponent(e.getId(), InScenePiece.class);
         }
-    }
-
-    @Override
-    public void onAction(String name, boolean isPressed, float tpf) {
-        for (Iterator<Entity> it = visualRepSet.iterator(); it.hasNext();) {
-            Entity entity = it.next();
-            if (name.contains(entity.getId() + ":" + Buttons.ControlInputs.Mode)) {
-                entity.set(new ActionModePiece(isPressed));
-                break;
-            }
-        }
-    }
-
-    @Override
-    public void cleanUp() {
-        //TODO move to closing statement of application or state figure this out
-        //this.remove(visualRepSet);
-        this.modelNode = null;
-        this.sceneNode = null;
-        visualRepSet.release();
-        visualRepSet.applyChanges();
-        remove(visualRepSet);
-        this.visualRepSet = null;
-        this.inputManager.removeListener(this);
-        this.inputManager = null;
-        this.loadedList = null;
-        this.modelBindingList = null;
     }
 }

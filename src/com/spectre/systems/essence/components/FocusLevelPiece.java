@@ -10,7 +10,7 @@ import com.simsilica.es.EntityComponent;
  * The Characters current focus level which indicates the current maximum MP the
  * character can gather at one time
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class FocusLevelPiece implements EntityComponent {
 

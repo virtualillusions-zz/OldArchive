@@ -25,23 +25,22 @@ import com.jme3.math.Vector3f;
 import com.jme3.scene.Spatial;
 import com.jme3.system.AppSettings;
 import com.jme3.util.TempVars;
-import com.simsilica.es.Entity;
+import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
-import com.spectre.app.SpectreApplication;
 import com.spectre.app.SpectreApplicationState;
 import com.spectre.app.SpectreControl;
 import com.spectre.scene.camera.CameraSystem;
 import com.spectre.scene.camera.components.CameraDirectionPiece;
 import com.spectre.scene.visual.VisualSystem;
-import com.spectre.systems.input.Buttons;
-import com.spectre.systems.input.Buttons.ControlInputs;
-import com.spectre.systems.input.SpectreInputListener;
+import com.spectre.app.input.Buttons;
+import com.spectre.app.input.Buttons.ControlInputs;
+import com.spectre.app.input.SpectreInputListener;
+import com.spectre.scene.visual.components.ActionModePiece;
 import com.spectre.systems.physics.PhysicsSystem;
 import com.spectre.util.math.MathUtil;
 import com.spectre.util.math.Vector3fPiece;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
 import test.system.TestPhysicsSystem;
 
 /**
@@ -78,6 +77,7 @@ import test.system.TestPhysicsSystem;
  * direction are applied fully (e.g. jumping, falling).
  *
  * @author normenhansen
+ * @author Kyle D. Williams
  */
 public class CharacterPhysicsController extends SpectreControl implements SpectrePhysicsControl, SpectreInputListener {
 
@@ -96,15 +96,17 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         settings.setRenderer(AppSettings.LWJGL_OPENGL2);
         settings.setAudioRenderer(AppSettings.LWJGL_OPENAL);
         settings.putBoolean("DebugMode", true);
-        settings.setUseJoysticks(true);
+        //settings.setUseJoysticks(true);
         app.setSettings(settings);
         app.start();
     }
 
-    public CharacterPhysicsController(Entity entity,
+    public CharacterPhysicsController(EntityId id,
+            EntityData entityData,
             InputManager inputManager,
             PhysicsSpace physicsSpace) {
-        this.entity = entity;
+        this.id = id;
+        this.ed = entityData;
         this.inputManager = inputManager;
         this.physicsSpace = physicsSpace;
         this.shapes = new CollisionShape[2];
@@ -122,12 +124,12 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         setPhysicsLocation(getSpatialTranslation());
         setPhysicsRotation(getSpatialRotation());
         //Finally register input
-        inputManager.addListener(this, Buttons.getPhysicsButtons(entity.getId()));
+        inputManager.addListener(this, Buttons.getPhysicsButtons(id));
 
         //Attach to physicsSpace
         physicsSpace.add(this);
 
-        SpectreApplication.logger.log(Level.INFO, "Created Collision Object/s for {0}", spatial.getName());
+        log.trace("Created Collision Object/s for {0}", spatial.getName());
     }
 
     @Override
@@ -138,6 +140,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         rigidBody.setUserObject(null);
         inputManager.removeListener(this);
         inputManager = null;
+        ed = null;
     }
 
     /*
@@ -198,7 +201,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
      * @param space
      */
     public void addPhysics(PhysicsSpace space) {
-       space.getGravity(localUp).normalizeLocal().negateLocal();
+        space.getGravity(localUp).normalizeLocal().negateLocal();
         updateLocalCoordinateSystem();
 
         space.addCollisionObject(rigidBody);
@@ -234,8 +237,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
 
     @Override
     public void onAction(String name, boolean isPressed, float tpf) {
-        if (isPressed == true) {
-            EntityId id = entity.getId();
+        if (isPressed == true && getActionMode()) {
             if (name.equals(id + ":" + ControlInputs.Action1)) {// Jump                
                 jump();
             } else if (name.equals(id + ":" + ControlInputs.Action2)) {// evade/Slide 
@@ -248,7 +250,6 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
 
     @Override
     public void onAnalog(String name, float value, float tpf) {
-        EntityId id = entity.getId();
         if (name.equals(id + ":" + ControlInputs.CharacterForward)) {//Move Character Up  
             moveForward(value / tpf);
         } else if (name.equals(id + ":" + ControlInputs.CharacterBack)) {//Move Character Back   
@@ -307,6 +308,11 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
     @Override
     protected void spectreUpdate(float tpf) {
         super.spectreUpdate(tpf);
+        //update on local thread
+
+        actionMode = ed.getComponent(id, ActionModePiece.class);
+        cameraDirection = ed.getComponent(id, CameraDirectionPiece.class);
+
         rigidBody.getPhysicsLocation(rigidBody_location);
         //rotation has been set through viewDirection
         applyPhysicsTransform(rigidBody_location, rotation);
@@ -404,7 +410,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         location.set(localUp).multLocal(getCurrentHeight()).addLocal(this.rigidBody_location);
         //values chosen after testing
         float multBy = -getCurrentHeight() - FastMath.ZERO_TOLERANCE;
-       // multBy *= stickToFloor ? 1.1f : 1f;
+        // multBy *= stickToFloor ? 1.1f : 1f;
         rayVector.set(localUp).multLocal(multBy).addLocal(location);
         List<PhysicsRayTestResult> results = space.rayTest(location, rayVector);
         vars.release();
@@ -486,7 +492,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
             interolationScalar = 1f;
         }
         //Interpolate current walk direction to new one to prevent sparatic movement 
-        walkDirection.interpolate(tempWlkDir, interolationScalar);
+        walkDirection.interpolateLocal(tempWlkDir, interolationScalar);
     }
 
     /**
@@ -549,7 +555,7 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
             //instananeously set view direction
             Vector3f localViewDirection = vars.vect2;
             localViewDirection.set(viewDirection);
-            localViewDirection.interpolate(localWalkDirection, 2 * interolationScalar);
+            localViewDirection.interpolateLocal(localWalkDirection, 2 * interolationScalar);
             setViewDirection(localViewDirection);
             //add resulting vector to existing velocity
             velocity.addLocal(localWalkDirection);
@@ -576,8 +582,8 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
                 jump = false;
             }
         } else if (stickToFloor && isRising) {
-          //  rigidBody.applyImpulse(rigidBody.getGravity(), Vector3f.ZERO);
-            System.out.println("offGround: " + i++);
+            //  rigidBody.applyImpulse(rigidBody.getGravity(), Vector3f.ZERO);
+            //System.out.println("offGround: " + i++);
         }
     }
     int i = 0;
@@ -654,14 +660,14 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
             } else {
                 newLeft.set(0f, direction.z, -direction.y).normalizeLocal();
             }
-            SpectreApplication.logger.log(Level.INFO, "Zero left for direction {0}, up {1}",
+            log.trace("Zero left for direction {0}, up {1}",
                     new Object[]{direction, worldUpVector});
         }
         newLeftNegate.set(newLeft).negateLocal();
         direction.set(worldUpVector).crossLocal(newLeftNegate).normalizeLocal();
         if (direction.equals(Vector3f.ZERO)) {
             direction.set(Vector3f.UNIT_Z);
-            SpectreApplication.logger.log(Level.INFO, "Zero left for left {0}, up {1}",
+            log.trace("Zero left for left {0}, up {1}",
                     new Object[]{newLeft, worldUpVector});
         }
         if (rotation != null) {
@@ -829,24 +835,13 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         return enabled;
     }
 
-    public void updateEntity(Entity entity) {
-        if (entity != null) {
-            this.entity = entity;
-        }
-    }
-
-    public void setActionMode(boolean actionMode) {
-        this.actionMode = actionMode;
-    }
-
     public boolean getActionMode() {
-        return actionMode;
+        return actionMode != null ? actionMode.isActionMode() : false;
     }
 
     public Vector3f getCameraDirection(Vector3f tempVec) {
-        Vector3fPiece v = entity.get(CameraDirectionPiece.class);
-        if (v != null) {
-            return MathUtil.pieceToVec(tempVec, v);
+        if (cameraDirection != null) {
+            return MathUtil.pieceToVec(tempVec, cameraDirection);
         }
         //If no cam direction then go forward according 
         //to character orientation
@@ -869,10 +864,12 @@ public class CharacterPhysicsController extends SpectreControl implements Spectr
         spatial = (Spatial) ic.readSavable("spatial", null);
         applyLocal = ic.readBoolean("applyLocalPhysics", false);
     }
-    private Entity entity;
+    private EntityId id;
+    private EntityData ed;
+    private ActionModePiece actionMode;
+    private Vector3fPiece cameraDirection;
     private PhysicsSpace physicsSpace;
     private InputManager inputManager;
-    private boolean actionMode = false;
     private boolean added = false;
     private PhysicsSpace space = null;
     private boolean applyLocal = false;

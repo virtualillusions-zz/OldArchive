@@ -5,7 +5,6 @@
 package com.spectre.systems.essence;
 
 import com.simsilica.es.Entity;
-import com.simsilica.es.EntityData;
 import com.simsilica.es.EntityId;
 import com.simsilica.es.EntitySet;
 import com.spectre.app.SpectreAppState;
@@ -19,18 +18,16 @@ import java.util.Set;
 /**
  * REDO ITS BAD TO ACCESS STRAIGHT FROM THE ENTITY DATA CLASS
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class EssenceSystem extends SpectreAppState {
 /////////REMEMBER TO ADD MODIFIER IN INPUT SEGMENT 
 
     private EntitySet essenceSet;
-    private EntityData ed;
 
     @Override
     public void SpectreAppState(SpectreApplicationState sAppState) {
-        this.ed = sAppState.getEntityData();
-        this.essenceSet = ed.getEntities(EssencePiece.class, InScenePiece.class);
+        this.essenceSet = getEntityData().getEntities(EssencePiece.class, InScenePiece.class);
     }
 
     @Override
@@ -53,7 +50,7 @@ public class EssenceSystem extends SpectreAppState {
     private void add(Set<Entity> addedEntities) {
         for (Iterator<Entity> it = addedEntities.iterator(); it.hasNext();) {
             EntityId id = it.next().getId();
-            ed.setComponents(id, new BeginingHealthPiece(),
+            getEntityData().setComponents(id, new BeginingHealthPiece(),
                     new HealthPiece(),
                     new ReplenishRatePiece(),
                     new FocusLevelPiece(),
@@ -71,18 +68,18 @@ public class EssenceSystem extends SpectreAppState {
     private void remove(Set<Entity> removedEntities) {
         for (Iterator<Entity> it = removedEntities.iterator(); it.hasNext();) {
             EntityId id = it.next().getId();
-            ed.removeComponent(id, BeginingHealthPiece.class);
-            ed.removeComponent(id, HealthPiece.class);
-            ed.removeComponent(id, ReplenishRatePiece.class);
-            ed.removeComponent(id, FocusLevelPiece.class);
-            ed.removeComponent(id, FocusPiece.class);
-            ed.removeComponent(id, PowerPiece.class);
-            ed.removeComponent(id, AccuracyPiece.class);
-            ed.removeComponent(id, DexterityPiece.class);
-            ed.removeComponent(id, ConstitutionPiece.class);
-            ed.removeComponent(id, IncreaseFocusRatePiece.class);
-            ed.removeComponent(id, CharacterStatePiece.class);
-            ed.removeComponent(id, ModifierButtonPiece.class);
+            getEntityData().removeComponent(id, BeginingHealthPiece.class);
+            getEntityData().removeComponent(id, HealthPiece.class);
+            getEntityData().removeComponent(id, ReplenishRatePiece.class);
+            getEntityData().removeComponent(id, FocusLevelPiece.class);
+            getEntityData().removeComponent(id, FocusPiece.class);
+            getEntityData().removeComponent(id, PowerPiece.class);
+            getEntityData().removeComponent(id, AccuracyPiece.class);
+            getEntityData().removeComponent(id, DexterityPiece.class);
+            getEntityData().removeComponent(id, ConstitutionPiece.class);
+            getEntityData().removeComponent(id, IncreaseFocusRatePiece.class);
+            getEntityData().removeComponent(id, CharacterStatePiece.class);
+            getEntityData().removeComponent(id, ModifierButtonPiece.class);
         }
     }
 
@@ -96,83 +93,80 @@ public class EssenceSystem extends SpectreAppState {
                 float cfiTime = getCurrentReplenishRate(id);
                 if (cfiTime >= replenishRate) {
                     focus++;
+                    getEntityData().setComponents(id, new FocusPiece(focus));
                     cfiTime = 0;
                 } else {
-                    if (!getIsIncreaseFocusRate(id)) {
-                        cfiTime += tpf * 1.5;
-                    } else {
-                        cfiTime += tpf;
-                    }
+                    cfiTime += tpf;
+                    cfiTime *= isIncreaseFocusRate(id) ? getIncreaseFocusRate(id) : 1f;
                 }
-                ed.setComponents(id, new FocusPiece(focus),
-                        new ReplenishRatePiece(replenishRate, cfiTime));
+                getEntityData().setComponents(id, new ReplenishRatePiece(replenishRate, cfiTime));
             }
 
-            CharacterState cS = null;
+            CharacterState cS = CharacterState.Healthy;
+
             if (getHealth(id) <= getBeginingHealth(id) / 2) {
                 cS = CharacterState.Injured;
             } else if (focus <= focusLevel) {
                 cS = CharacterState.Tired;
-            } else {
-                cS = CharacterState.Healthy;
             }
-            ed.setComponents(id, new CharacterStatePiece(cS));
+
+            getEntityData().setComponents(id, new CharacterStatePiece(cS));
         }
     }
 
     public int getAccuracy(EntityId id) {
-        return ed.getComponent(id, AccuracyPiece.class).getAccuracy();
+        return getEntityData().getComponent(id, AccuracyPiece.class).getAccuracy();
     }
 
     public int getBeginingHealth(EntityId id) {
-        return ed.getComponent(id, BeginingHealthPiece.class).getBeginingHealth();
+        return getEntityData().getComponent(id, BeginingHealthPiece.class).getBeginingHealth();
     }
 
     public int getConstitution(EntityId id) {
-        return ed.getComponent(id, ConstitutionPiece.class).getConstitution();
+        return getEntityData().getComponent(id, ConstitutionPiece.class).getConstitution();
     }
 
     public int getDexterity(EntityId id) {
-        return ed.getComponent(id, DexterityPiece.class).getDexterity();
+        return getEntityData().getComponent(id, DexterityPiece.class).getDexterity();
     }
 
     public int getFocusLevel(EntityId id) {
-        return ed.getComponent(id, FocusLevelPiece.class).getFocusLevel();
+        return getEntityData().getComponent(id, FocusLevelPiece.class).getFocusLevel();
     }
 
     public int getFocus(EntityId id) {
-        return ed.getComponent(id, FocusPiece.class).getFocus();
+        return getEntityData().getComponent(id, FocusPiece.class).getFocus();
     }
 
     public int getHealth(EntityId id) {
-        return ed.getComponent(id, HealthPiece.class).getHealth();
+        return getEntityData().getComponent(id, HealthPiece.class).getHealth();
     }
 
     public int getPower(EntityId id) {
-        return ed.getComponent(id, PowerPiece.class).getPower();
+        return getEntityData().getComponent(id, PowerPiece.class).getPower();
     }
 
     public float getReplenishRate(EntityId id) {
-        return ed.getComponent(id, ReplenishRatePiece.class).getReplenishRate();
+        return getEntityData().getComponent(id, ReplenishRatePiece.class).getReplenishRate();
     }
 
     public float getCurrentReplenishRate(EntityId id) {
-        return ed.getComponent(id, ReplenishRatePiece.class).getCurrentReplenishRate();
+        return getEntityData().getComponent(id, ReplenishRatePiece.class).getCurrentReplenishRate();
     }
 
-    public boolean getIsIncreaseFocusRate(EntityId id) {
-        return ed.getComponent(id, IncreaseFocusRatePiece.class).isIncreaseFocusRate();
+    public boolean isIncreaseFocusRate(EntityId id) {
+        return getEntityData().getComponent(id, IncreaseFocusRatePiece.class).isIncreasedFocusRate();
     }
 
-    public float getIncreaseFocusRatePiece(EntityId id) {
-        return ed.getComponent(id, IncreaseFocusRatePiece.class).getIncreasedRate();
+    public float getIncreaseFocusRate(EntityId id) {
+        return getEntityData().getComponent(id, IncreaseFocusRatePiece.class).getIncreasedFocusRate();
     }
 
-    public CharacterState getCharacterStatePiece(EntityId id) {
-        return ed.getComponent(id, CharacterStatePiece.class).getType();
+    public CharacterState getCharacterState(EntityId id) {
+        return getEntityData().getComponent(id, CharacterStatePiece.class).getType();
     }
 
-    public boolean getModifierButtonPiece(EntityId id) {
-        return ed.getComponent(id, ModifierButtonPiece.class).getModifierButton();
+    public boolean getModifierButton(EntityId id) {
+        return getEntityData().getComponent(id, ModifierButtonPiece.class).getModifierButton();
     }
 }

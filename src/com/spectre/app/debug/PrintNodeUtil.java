@@ -7,7 +7,7 @@ package com.spectre.app.debug;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.control.Control;
-import com.spectre.app.SpectreApplication;
+import com.spectre.app.SpectreApplicationState;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +15,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class PrintNodeUtil {
 
@@ -40,7 +40,7 @@ public class PrintNodeUtil {
             fw.close();
             Desktop.getDesktop().open(f);
         } catch (IOException ex) {
-            SpectreApplication.logger.log(java.util.logging.Level.SEVERE, "Error writing html file", ex);
+            SpectreApplicationState.log.error("Error writing html file", ex);
         }
 
     }

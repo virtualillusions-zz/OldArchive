@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Component represents a Vector3f
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class Vector3fPiece implements EntityComponent {
 

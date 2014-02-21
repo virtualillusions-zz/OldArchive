@@ -10,19 +10,19 @@ import com.simsilica.es.EntityComponent;
  * Component used to represent the entity in the Viewport and which helps
  * determine if the model should be attached to the scene or model node
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class VisualRepPiece implements EntityComponent {
 
     private String assetName;
-    private VisualType type;
+    private int type;
 
     /**
      * @param assetName The name of the model being represented in the Scene
      */
     public VisualRepPiece(String assetName) {
         this.assetName = assetName;
-        this.type = VisualType.Character;
+        this.type = VisualType.Character.ordinal();
     }
 
     /**
@@ -33,7 +33,7 @@ public class VisualRepPiece implements EntityComponent {
      */
     public VisualRepPiece(String assetName, VisualType type) {
         this.assetName = assetName;
-        this.type = type;
+        this.type = type.ordinal();
     }
 
     /**
@@ -49,12 +49,12 @@ public class VisualRepPiece implements EntityComponent {
      * @return the type of visual element the entity represents
      */
     public VisualType getVisualType() {
-        return type;
+        return VisualType.values()[type];
     }
 
     @Override
     public String toString() {
-        return "VisualRepPiece[AssetName=" + assetName + ", type=" + type + "]";
+        return "VisualRepPiece[AssetName=" + assetName + ", type=" + getVisualType() + "]";
     }
 
     public enum VisualType {

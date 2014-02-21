@@ -8,7 +8,7 @@ import com.simsilica.es.EntityComponent;
 
 /**
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class EssencePiece implements EntityComponent {
 }

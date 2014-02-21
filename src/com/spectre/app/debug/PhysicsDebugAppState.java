@@ -13,7 +13,7 @@ import com.jme3.renderer.ViewPort;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class PhysicsDebugAppState extends BulletDebugAppState {
 

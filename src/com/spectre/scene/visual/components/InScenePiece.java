@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Component used to determine if the entity is currently a part of the screen
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class InScenePiece implements EntityComponent {
 

@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Component to determine if the entity should be added to the Camera System
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class CameraPiece implements EntityComponent {
 

@@ -4,32 +4,22 @@
  */
 package com.spectre;
 
+import com.jme3.app.SimpleApplication;
 import com.jme3.math.FastMath;
-import com.jme3.renderer.RenderManager;
 import com.jme3.system.AppSettings;
-import com.spectre.app.SpectreApplication;
+import com.spectre.app.SpectreApplicationState;
 
 /**
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
-public class Main extends SpectreApplication {
-
+public class Main extends SimpleApplication {
+    
     @Override
-    public void SpectreApp() {
-        // throw new UnsupportedOperationException("Not supported yet.");
+    public void simpleInitApp() {
+        this.stateManager.attach(new SpectreApplicationState());
     }
-
-    @Override
-    public void spectreUpdate(float tpf) {
-        // throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void spectreRender(RenderManager rm) {
-        //throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    
     public static void main(String[] args) {
         Main app = new Main();
         AppSettings settings = new AppSettings(true);
@@ -37,6 +27,7 @@ public class Main extends SpectreApplication {
         settings.setAudioRenderer(AppSettings.LWJGL_OPENAL);
         settings.putBoolean("DebugMode", true);
         int i = FastMath.nextRandomInt(1, 4);//random images
+        //Try using Resources.getResource
         settings.setSettingsDialogImage("../assets/Interface/Misc/titleScreen" + i + ".png");
         /**
          * Set Custom App Icon

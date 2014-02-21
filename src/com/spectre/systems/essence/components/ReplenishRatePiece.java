@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Indicates the speed at which the character replenishes MP
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class ReplenishRatePiece implements EntityComponent {
 

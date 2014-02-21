@@ -10,7 +10,7 @@ import com.simsilica.es.EntityComponent;
  * Characters current attack power<br/> 0 indicates normal and a positive or
  * negative value indicates a tenth percentile change
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class PowerPiece implements EntityComponent {
 

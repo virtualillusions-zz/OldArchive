@@ -28,9 +28,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A Camera System implementation used to implement basic camera control
+ * <b>NickName:</b>GenericCameraSystem <br/>
  *
- * @author Kyle Williams
+ * <b>Purpose:</b> Default Camera System <br/>
+ *
+ * <b>Description:</b>A Camera System implementation used to implement basic
+ * camera controls
+ *
+ * @author Kyle D. Williams
  */
 public class CameraSystem extends SpectreAppState {
 
@@ -49,7 +54,7 @@ public class CameraSystem extends SpectreAppState {
     public void SpectreAppState(SpectreApplicationState sAppState) {
         this.sAppState = sAppState;
         this.sAppState.getInputManager().setCursorVisible(false);
-        this.camSet = sAppState.getEntityData().getEntities(
+        this.camSet = getEntityData().getEntities(
                 CameraPiece.class,
                 InScenePiece.class);
         this.camList = Lists.newArrayList();

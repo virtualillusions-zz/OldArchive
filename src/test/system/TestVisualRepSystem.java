@@ -5,6 +5,7 @@
 package test.system;
 
 import com.jme3.app.Application;
+import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.input.KeyInput;
@@ -17,24 +18,29 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.renderer.RenderManager;
 import com.jme3.system.AppSettings;
 import com.simsilica.es.EntityId;
-import com.spectre.app.SpectreApplication;
+import com.spectre.app.SimpleAppState;
+import com.spectre.app.input.Buttons;
 import com.spectre.scene.visual.VisualSystem;
+import com.spectre.scene.visual.components.ActionModePiece;
 import com.spectre.scene.visual.components.InScenePiece;
 import com.spectre.scene.visual.components.VisualRepPiece;
 import com.spectre.scene.visual.components.VisualRepPiece.VisualType;
-import com.spectre.systems.input.Buttons;
-import com.spectre.systems.input.components.ActionModePiece;
 
 /**
  *
  * @author Kyle
  */
-public class TestVisualRepSystem extends SpectreApplication {
+public class TestVisualRepSystem extends SimpleAppState {
 
     private EntityId entityId;
 
     public static void main(String[] args) {
-        TestVisualRepSystem app = new TestVisualRepSystem();
+        Application app = new SimpleApplication(new TestVisualRepSystem()) {
+            @Override
+            public void simpleInitApp() {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+        };
         AppSettings settings = new AppSettings(true);
         settings.setRenderer(AppSettings.LWJGL_OPENGL2);
         settings.setAudioRenderer(AppSettings.LWJGL_OPENAL);
@@ -44,7 +50,7 @@ public class TestVisualRepSystem extends SpectreApplication {
     }
 
     @Override
-    public void SpectreApp() {
+    public void SimpleAppState() {
         getStateManager().attach(new VisualSystem());
 
 
@@ -58,7 +64,7 @@ public class TestVisualRepSystem extends SpectreApplication {
                 //A new TestComponent is added to the Entity
                 getEntityData().setComponent(entityId, new VisualRepPiece("testData/Jaime/Jaime.j3o"));
                 getEntityData().setComponent(entityId, new InScenePiece());
-                Buttons.setUpRemote(inputManager, 1, entityId + "");
+                Buttons.setUpRemote(getInputManager(), 1, entityId + "");
             }
         });
         /**
@@ -69,11 +75,11 @@ public class TestVisualRepSystem extends SpectreApplication {
         getRootNode().addLight(ambient);
 
 
-        inputManager.addMapping("add", new KeyTrigger(KeyInput.KEY_A));
-        inputManager.addMapping("remove", new KeyTrigger(KeyInput.KEY_R));
-        inputManager.addMapping("change", new KeyTrigger(KeyInput.KEY_C));
-        inputManager.addMapping("id", new MouseButtonTrigger(MouseInput.BUTTON_RIGHT));
-        inputManager.addListener(actionListener, "add", "remove", "change", "id");
+        getInputManager().addMapping("add", new KeyTrigger(KeyInput.KEY_A));
+        getInputManager().addMapping("remove", new KeyTrigger(KeyInput.KEY_R));
+        getInputManager().addMapping("change", new KeyTrigger(KeyInput.KEY_C));
+        getInputManager().addMapping("id", new MouseButtonTrigger(MouseInput.BUTTON_RIGHT));
+        getInputManager().addListener(actionListener, "add", "remove", "change", "id");
     }
     private ActionListener actionListener = new ActionListener() {
         private boolean changed = true;
@@ -82,10 +88,9 @@ public class TestVisualRepSystem extends SpectreApplication {
         public void onAction(String name, boolean pressed, float tpf) {
             if (name.equals("id")) {
                 ActionModePiece amp = getEntityData().getComponent(entityId, ActionModePiece.class);
-                System.out.println(entityId + " : " + amp.toString());
-
+                log.trace(entityId + " : " + amp.toString());
             } else if (pressed) {
-                System.out.println(name);
+                log.trace(name);
                 if (name.equals("add")) {
                     getEntityData().setComponent(entityId, new InScenePiece());
                 } else if (name.equals("remove")) {

@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Characters Life Points at the beginning of a match
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class BeginingHealthPiece implements EntityComponent {
 

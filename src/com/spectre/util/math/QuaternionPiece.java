@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * Component represents a Quaternion
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class QuaternionPiece implements EntityComponent {
 

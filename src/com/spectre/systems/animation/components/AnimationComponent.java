@@ -8,12 +8,12 @@ import com.simsilica.es.EntityComponent;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class AnimationComponent implements EntityComponent {
 
     private final String animName;
-    private final AnimPriority animPriority;
+    private final int animPriority;
     private final float blendTime;
 
     public AnimationComponent(String animName, AnimPriority animPriority) {
@@ -22,7 +22,7 @@ public class AnimationComponent implements EntityComponent {
 
     public AnimationComponent(String animName, AnimPriority animPriority, float blendTime) {
         this.animName = animName;
-        this.animPriority = animPriority;
+        this.animPriority = animPriority.ordinal();
         this.blendTime = blendTime;
     }
 
@@ -37,7 +37,7 @@ public class AnimationComponent implements EntityComponent {
      * @return the animPriority AnimPriority
      */
     public AnimPriority getAnimPriority() {
-        return animPriority;
+        return AnimPriority.values()[animPriority];
     }
 
     /**
@@ -50,7 +50,7 @@ public class AnimationComponent implements EntityComponent {
     @Override
     public String toString() {
         return "AnimationPiece[animName=" + animName + ", animPriority="
-                + animPriority + ", blendTime" + blendTime + "]";
+                + getAnimPriority() + ", blendTime" + blendTime + "]";
     }
 
     public enum AnimPriority {

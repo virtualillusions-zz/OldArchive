@@ -13,14 +13,17 @@ import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.control.Control;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An abstract implementation of the Control interface.
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public abstract class SpectreControl implements Control {
 
+    protected static final Logger log = LoggerFactory.getLogger(SpectreControl.class.getName());
     protected boolean enabled = true;
     protected Spatial spatial;
     /**
@@ -46,8 +49,10 @@ public abstract class SpectreControl implements Control {
         }
         this.spatial = spatial;
         if (spatial != null) {
+            enabled = true;
             SpectreControl();
         } else if (!replaceSpatial) {
+            enabled = false;
             cleanup();
         }
         /**
@@ -144,6 +149,7 @@ public abstract class SpectreControl implements Control {
      */
     public final void destroy() {
         if (spatial != null) {
+            enabled = false;
             spatial.removeControl(this);
         }
     }

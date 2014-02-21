@@ -7,23 +7,22 @@ package com.spectre.app.debug;
 import com.jme3.app.Application;
 import com.jme3.app.StatsAppState;
 import com.jme3.app.state.AppStateManager;
+import com.jme3.app.state.ScreenshotAppState;
 import com.jme3.bullet.PhysicsSpace;
 import com.jme3.font.BitmapFont;
 import com.jme3.input.InputManager;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
-import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import com.jme3.system.JmeContext;
 import com.jme3.util.BufferUtils;
 import com.spectre.app.SpectreAppState;
 import com.spectre.app.SpectreApplicationState;
-import java.util.concurrent.Callable;
 
 /**
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class DebugState extends SpectreAppState {
 
@@ -37,6 +36,7 @@ public class DebugState extends SpectreAppState {
     private static Application app;
     private static PhysicsDebugAppState dps;
     private StatsAppState sAs;
+    private ScreenshotAppState sap;
 
     @Override
     public void SpectreAppState(final SpectreApplicationState sAppState) {
@@ -61,9 +61,15 @@ public class DebugState extends SpectreAppState {
         if (pSpace != null) {
             dps = new PhysicsDebugAppState(pSpace);
             sm.attach(dps);
+            dps.setEnabled(false);
             inputManager.addMapping(PHYS, new KeyTrigger(KeyInput.KEY_F3));
         }
 
+        //AttachScreenShotAppState
+        sap = new ScreenshotAppState("screenshots/");
+        sm.attach(sap);
+        
+        
         final Node rootNode = sAppState.getRootNode();
         //This Is the Primary Way to set Up registered KeyBindings
         inputManager.addListener(new ActionListener() {
@@ -96,5 +102,6 @@ public class DebugState extends SpectreAppState {
     public void cleanUp() {
         sm.detach(sAs);
         sm.detach(dps);
+        sm.detach(sap);
     }
 }

@@ -23,9 +23,8 @@ public class SimpleFilterTest {
     public static void main(String[] args) throws SQLException {
         // The main entry point to my ES is EntityData… I think it better describes what we’re
 // doing and avoids the “system” confusion
-        EntityData ed = new DefaultEntityData();//new SqlEntityData("src/sqlDatabase", 100);  // 100 ms write-delay
-
-// Create an entity and set some stuff using raw access
+        EntityData ed = new DefaultEntityData();
+        //Create an entity and set some stuff using raw access
         EntityId anakin = ed.createEntity();
         ed.setComponent(anakin, new Name("Anakin Skywalker"));
 
@@ -33,22 +32,16 @@ public class SimpleFilterTest {
         ed.setComponent(c3po, new Name("C-3PO"));
         ed.setComponent(c3po, new CreatedBy(anakin));
 
+        EntitySet es = ed.getEntities(Name.class, CreatedBy.class);
+        es.applyChanges(); // not strictly necessary but not a bad idea
+        System.out.println("Entities With Name And CreatedBy Component:" + es);
 
         ComponentFilter filter = FieldFilter.create(CreatedBy.class, "creatorId", anakin);
-        EntitySet es = ed.getEntities(filter, CreatedBy.class, Name.class);
+        es = ed.getEntities(filter, CreatedBy.class, Name.class);
         es.applyChanges(); // not strictly necessary but not a bad idea
         System.out.println("Anakin’s creations:" + es);
 
-
-        ComponentFilter filter2 = FieldFilter.create(Name.class, "name", "C-3PO");
-        EntitySet es2 = ed.getEntities(filter, Name.class, CreatedBy.class);
-        es2.applyChanges(); // not strictly necessary but not a bad idea
-        System.out.println("c3po’s name:" + es2);
-//        //…later in an update loop or something…
-//        if (es.applyChanges()) {
-//            addStuff(es.getAddedEntities());
-//            removeStuff(es.getRemovedEntities());
-//            updateStuff(es.getChangedEntities());
-//        }
+        //Filters.and(null, es);
+        //Filters.or(null, es);
     }
 }

@@ -10,7 +10,7 @@ import com.jme3.math.Vector3f;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public final class MathUtil {
 

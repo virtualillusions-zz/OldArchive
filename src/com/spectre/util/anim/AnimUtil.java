@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class AnimUtil {
 

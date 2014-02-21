@@ -8,7 +8,7 @@ import com.simsilica.es.EntityComponent;
 
 /**
  *
- * @author Kyle
+ * @author Kyle D. Williams
  */
 public class AnimationLockPiece implements EntityComponent {
 }

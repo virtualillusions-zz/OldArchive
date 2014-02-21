@@ -18,7 +18,7 @@ import com.spectre.scene.camera.components.CameraPiece;
 import com.spectre.scene.visual.VisualSystem;
 import com.spectre.scene.visual.components.InScenePiece;
 import com.spectre.scene.visual.components.VisualRepPiece;
-import com.spectre.systems.input.Buttons;
+import com.spectre.app.input.Buttons;
 import com.spectre.systems.physics.PhysicsSystem;
 import test.physics.PhysicsTestHelper;
 
@@ -43,7 +43,7 @@ public class TestPhysicsSystem extends SimpleAppState {
         settings.setRenderer(AppSettings.LWJGL_OPENGL2);
         settings.setAudioRenderer(AppSettings.LWJGL_OPENAL);
         settings.putBoolean("DebugMode", true);
-        settings.setUseJoysticks(true);
+        //settings.setUseJoysticks(true);
         app.setSettings(settings);
         app.start();
     }
@@ -52,7 +52,7 @@ public class TestPhysicsSystem extends SimpleAppState {
     @Override
     public void SimpleAppState() {
         //create structure
-        PhysicsTestHelper.createPhysicsWildHouse(
+        PhysicsTestHelper.createPhysicsTown(
                 getsAppState().getRootNode(),
                 getsAppState().getAssetManager(),
                 getPhysicsSpace());

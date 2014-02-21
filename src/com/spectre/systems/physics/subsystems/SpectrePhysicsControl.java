@@ -16,7 +16,7 @@ import com.jme3.bullet.control.PhysicsControl;
  *
  * Convenience interface used to condense Physics implementation classes
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public interface SpectrePhysicsControl extends PhysicsControl, PhysicsTickListener, PhysicsCollisionListener {
 }

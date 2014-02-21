@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public abstract class SimpleAppState extends SpectreAppState {
 
@@ -30,13 +30,12 @@ public abstract class SimpleAppState extends SpectreAppState {
         this.sAppState = sAppState;
         this.settings = sAppState.getAppSettings();
         this.inputManager = sAppState.getInputManager();
-        this.stateManager = stateManager;
+        this.stateManager = sAppState.getApplication().getStateManager();
         this.assetManager = sAppState.getAssetManager();
         this.guiNode = sAppState.getGuiNode();
         this.rootNode = sAppState.getRootNode();
         this.modelSubNode = sAppState.getModelNode();
         this.sceneSubNode = sAppState.getSceneNode();
-        this.entityData = sAppState.getEntityData();
         this.physicsDirector = sAppState.getPhysicsDirector();
         this.modelBindingsList = sAppState.getModelBindingsList();
         SimpleAppState();
@@ -104,13 +103,6 @@ public abstract class SimpleAppState extends SpectreAppState {
      */
     public Node getRootNode() {
         return rootNode;
-    }
-
-    /**
-     * @return the entityData
-     */
-    public EntityData getEntityData() {
-        return entityData;
     }
 
     /**
@@ -184,7 +176,6 @@ public abstract class SimpleAppState extends SpectreAppState {
     private Node rootNode;
     private Node modelSubNode;
     private Node sceneSubNode;
-    private EntityData entityData;
     private BulletAppState physicsDirector;
     private HashMap<EntityId, Spatial> modelBindingsList;
 }

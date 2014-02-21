@@ -9,7 +9,7 @@ import com.simsilica.es.EntityComponent;
 /**
  * The Characters current Life Point value
  *
- * @author Kyle Williams
+ * @author Kyle D. Williams
  */
 public class HealthPiece implements EntityComponent {
 

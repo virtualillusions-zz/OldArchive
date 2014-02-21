@@ -57,9 +57,9 @@ import com.spectre.app.SpectreControl;
 import com.spectre.scene.camera.CameraSystem;
 import com.spectre.scene.camera.components.CameraDirectionPiece;
 import com.spectre.scene.visual.VisualSystem;
-import com.spectre.systems.input.Buttons;
-import com.spectre.systems.input.Buttons.ControlInputs;
-import com.spectre.systems.input.SpectreInputListener;
+import com.spectre.app.input.Buttons;
+import com.spectre.app.input.Buttons.ControlInputs;
+import com.spectre.app.input.SpectreInputListener;
 import com.spectre.systems.physics.PhysicsSystem;
 import com.spectre.util.math.MathUtil;
 import com.spectre.util.math.Vector3fPiece;
@@ -73,8 +73,8 @@ import test.system.TestPhysicsSystem;
  * environment. Attached To Spatial
  * via{@link com.spectre.controller.character.SpectrePlayerController#setModel(String)}
  *
- * @author Kyle Williams [MODIFIED FROM com.jme3.input.ChaseCamera by
- * @author nehon ]
+ * @author nehon
+ * @author Kyle D. Williams
  */
 public final class CameraController extends SpectreControl implements SpectreInputListener, PhysicsTickListener {
 
