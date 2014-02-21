@@ -152,7 +152,7 @@ public class InputController extends com.jme3.scene.control.AbstractControl{
     protected void controlUpdate(float tpf) {
         
         if(!special.equals(Vector3f.ZERO)&&!usingDiv){//interrupts are more important than basic walking
-           special.interpolate(Vector3f.ZERO, special,.1f); 
+           special.interpolateLocal(Vector3f.ZERO, special,.1f); 
            walkDirection.set(special);
            if(FastMath.abs(special.getX())<.01f&&FastMath.abs(special.getZ())<.01f)special.zero();
         }else if(directionalValue!=0){
