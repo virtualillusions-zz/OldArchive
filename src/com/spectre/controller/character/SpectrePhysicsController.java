@@ -268,7 +268,7 @@ public final class SpectrePhysicsController extends AbstractPhysicsControl imple
             interpolateScalar = 1f;
         }
         //Interpolate current walk direction to new one to prevent sparatic movement 
-        walkDirection.interpolate(tempWlkDir, interpolateScalar);
+        walkDirection.interpolateLocal(tempWlkDir, interpolateScalar);
         vars.release();
     }
 

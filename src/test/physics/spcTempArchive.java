@@ -36,7 +36,7 @@ public class spcTempArchive {
 //DASH OR EVADE
         } else if (!auxillary.equals(Vector3f.ZERO)) {
             //check if character dash or roll
-            auxillary.interpolate(Vector3f.ZERO, 0.1f);
+            auxillary.interpolateLocal(Vector3f.ZERO, 0.1f);
 
             //put after set walk direction so don't interrput viewDirection
             if (FastMath.abs(auxillary.getX()) < 0.1f && FastMath.abs(auxillary.getZ()) < 0.1f) {
@@ -69,7 +69,7 @@ public class spcTempArchive {
             interpolateScalar = 0.1f;
         }
         //Interpolate current walk direction to new one to prevent sparatic movement 
-        walkDirection.interpolate(tempWlkDir, interpolateScalar);
+        walkDirection.interpolateLocal(tempWlkDir, interpolateScalar);
 
         tempWlkDir.setY(0);
         if (setViewDirection == true) {
