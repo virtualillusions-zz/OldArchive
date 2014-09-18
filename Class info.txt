@@ -1,0 +1,47 @@
+Class Info 
+
+	Avengers
+
+"We live to serve and protect"
+Health: 3
+Shield Strength: 3
+Accuracy: 2
+Reflex:  1
+Speed: 1
+Avengers are the warriors of their time. They are the ones to 
+withstand the relentless borage of bullets.
+	Special Condition: Cover Taken
+			    1) Extra shield 
+
+
+Sentinels
+
+“We will never miss our mark”
+Health: 2
+Shield Strength: 1
+Accuracy: 3
+Reflex:  3
+Speed: 2
+The Phantoms are the snipers of their time.  They never miss a 
+shot and are the once to cast the first bullet in a battle field.
+	Special Condition: Focusing
+			 1)They are able to use the ability Zoom 
+						      instead of fucus
+	Special Condition: Sprint Surge
+			 2) Able to shoot while running
+
+Phantoms
+
+“We will scout for any possible survivors of this travesty”
+Health: 1
+Shield Strength:  2
+Accuracy: 1
+Reflex:  2
+Speed: 3
+The Phantoms are the scouts of the battlefield. Rarely seen they 
+are the quickest out of the other classes and are the ones least
+likely to be seen. When they build up speed nothing can catch them
+	Special Condition: Sprint Surge
+		   1) They are able to run at Unprecedented speeds
+		   2) Jump over crouch cover without losing speed
+		   3) Able to run along wall
